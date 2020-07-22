@@ -1,3 +1,24 @@
-export const handleSelectEvent = (e, f, g) => {
-  console.log("Selected event!", e, f, g);
+/** Redux **/
+import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
+
+const timeTableHandlers = (dispatch) => {
+  const goNextWeek = (e) => {
+    e.preventDefault();
+
+    // stretch: validate so it doesnt go below 0 or 52 (week range)
+
+    dispatch(nextWeek());
+  };
+
+  const goPrevWeek = (e) => {
+    e.preventDefault();
+    dispatch(prevWeek());
+  };
+
+  return {
+    goNextWeek,
+    goPrevWeek,
+  };
 };
+
+export default timeTableHandlers;

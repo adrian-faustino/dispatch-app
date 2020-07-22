@@ -1,6 +1,8 @@
 /** Redux actions **/
-export const INCREMENT = "increment";
-export const DECREMENT = "decrement";
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+export const NEXT_WEEK = "NEXT_WEEK";
+export const PREV_WEEK = "PREV_WEEK";
 
 /** For calendar **/
 const WEEKS = 52;

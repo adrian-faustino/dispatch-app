@@ -3,7 +3,7 @@ import React from "react";
 import "./Test.css";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "../../actions/testAction";
+import { increment, decrement } from "../../actions/timetableNavigation";
 
 const Test = () => {
   /** Redux **/
