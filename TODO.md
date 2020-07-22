@@ -40,4 +40,5 @@
 ## Todo (leave todo # here before stepping out)
 
 Current task:
-[] display week [0, ..., 51];
+[x] display week [0, ..., 51].
+[] display 24 hours and 7 days on each week

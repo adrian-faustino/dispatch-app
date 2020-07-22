@@ -5,7 +5,7 @@ const timeTableHandlers = (dispatch) => {
   const goNextWeek = (e) => {
     e.preventDefault();
 
-    // stretch: validate so it doesnt go below 0 or 52 (week range)
+    // todo: validate so it doesnt go below 0 or 52 (week range)
 
     dispatch(nextWeek());
   };
