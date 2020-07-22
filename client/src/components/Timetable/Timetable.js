@@ -11,6 +11,9 @@ import moment from "moment";
 /** Redux */
 import { useSelector, useDispatch } from "react-redux";
 
+//delete later
+import { entries } from "../../db/entries";
+
 const Timetable = () => {
   /** Redux **/
   const dispatch = useDispatch();
@@ -24,6 +27,15 @@ const Timetable = () => {
         <button onClick={handlers.goPrevWeek}>prev</button>
         <button onClick={handlers.goNextWeek}>next</button>
       </div>
+
+      <button
+        onClick={() => {
+          console.log(entries);
+        }}
+      >
+        show db
+      </button>
+
       <WeekView />
     </div>
   );

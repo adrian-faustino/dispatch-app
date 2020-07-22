@@ -3,17 +3,24 @@ import React from "react";
 import "./Slot.css";
 /** Helpers **/
 import { dayToWords } from "../../util/formatHelpers";
+/** DB **/
+import { entries } from "../../db/entries";
 
 const Slot = ({ day, hour }) => {
   const _day = dayToWords(day);
 
+  console.log("Entries:", entries);
+
+  const createEntry = () => {
+    console.log("clicked!");
+    const time = `${1}-${day}-${hour}`;
+    const description = "Pick up";
+
+    entries[time] = { time, description };
+  };
+
   return (
-    <div
-      onClick={() => {
-        console.log("You clicked", _day, hour);
-      }}
-      className={`Slot__container ${_day}`}
-    >
+    <div onClick={createEntry} className={`Slot__container ${_day}`}>
       <div>{`${_day} ${hour} h`}</div>
     </div>
   );
