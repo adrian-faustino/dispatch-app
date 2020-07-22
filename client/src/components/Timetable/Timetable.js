@@ -9,7 +9,7 @@ import TimetableHandlers from "./TimetableHandlers";
 /** npm **/
 import moment from "moment";
 /** Redux */
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const Timetable = () => {
   /** Redux **/

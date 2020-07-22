@@ -1,6 +1,6 @@
 import React from "react";
 
-const Slot = () => {
+const Slot = ({ day, hour }) => {
   return <div>This is a slot</div>;
 };
 

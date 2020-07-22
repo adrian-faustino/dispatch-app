@@ -8,6 +8,7 @@ import { increment, decrement } from "../../actions/timetableNavigation";
 const Test = () => {
   /** Redux **/
   const counter = useSelector((state) => state.test);
+  const date = useSelector((state) => state.date);
   const dispatch = useDispatch();
 
   const handleIncrement = (e) => {
@@ -26,6 +27,7 @@ const Test = () => {
       <button onClick={handledDecrement}>-</button>
       <button onClick={handleIncrement}>+</button>
       <h3>{counter}</h3>
+      <div>Week {date.week}</div>
     </div>
   );
 };
