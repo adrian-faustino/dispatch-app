@@ -36,3 +36,8 @@
 - Conflict handling
   [] recommend free time slots in the event of conflict
   [] deployment
+
+## Todo (leave todo # here before stepping out)
+
+Current task:
+[] display week [0, ..., 51];
