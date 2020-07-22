@@ -1,0 +1,27 @@
+.Slot__container {
+  background: red;
+}
+
+.Slot__container.Sunday {
+  grid-column: 1;
+}
+
+.Slot__container.Monday {
+  grid-column: 2;
+}
+
+.Slot__container.Tuesday {
+  grid-column: 3;
+}
+.Slot__container.Wednesday {
+  grid-column: 4;
+}
+.Slot__container.Thursday {
+  grid-column: 5;
+}
+.Slot__container.Friday {
+  grid-column: 6;
+}
+.Slot__container.Saturday {
+  grid-column: 7;
+}
