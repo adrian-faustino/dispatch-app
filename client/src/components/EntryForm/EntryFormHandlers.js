@@ -5,24 +5,22 @@ import { DRIVERS, DESCRIPTIONS } from "../../util/constants";
 import { v4 as uuidv4 } from "uuid";
 
 const EntryFormHandlers = () => {
+  // spread drivers array for rendering
   const renderDriverDropdown = () => {
-    const driverDropdownItems = DRIVERS.map((driver) => (
+    return DRIVERS.map((driver) => (
       <option key={uuidv4()} value={driver}>
         {driver}
       </option>
     ));
-
-    return <select name="drivers">{driverDropdownItems}</select>;
   };
 
+  // spread descriptions array for rendering
   const renderDescriptionDropdown = () => {
-    const descriptionDropdownItems = DESCRIPTIONS.map((description) => (
+    return DESCRIPTIONS.map((description) => (
       <option key={uuidv4()} value={description}>
         {description}
       </option>
     ));
-
-    return <select name="descrptions">{descriptionDropdownItems}</select>;
   };
 
   return {
