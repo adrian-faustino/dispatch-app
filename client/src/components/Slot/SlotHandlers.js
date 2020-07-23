@@ -5,6 +5,7 @@ const SlotHandlers = (dispatch) => {
   const handleClick = (dateObj) => {
     dispatch(updateDate(dateObj));
   };
+
   return { handleClick };
 };
 

@@ -9,9 +9,9 @@ const TimetableHandlers = (dispatch) => {
   const renderSlots = () => {
     console.log("Generating slots...");
     const slots = [];
-    for (let i = 0; i < DAYS; i++) {
-      for (let j = 0; j < HOURS; j++) {
-        slots.push(<Slot key={`${i}-${j}`} day={i} hour={j} />);
+    for (let day = 0; day < DAYS; day++) {
+      for (let hour = 0; hour < HOURS; hour++) {
+        slots.push(<Slot key={`${day}-${hour}`} day={day} hour={hour} />);
       }
     }
     return slots;

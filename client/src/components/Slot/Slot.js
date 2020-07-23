@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./Slot.css";
 /** Helpers **/
 import { dayToWords } from "../../util/formatHelpers";
+import { isBooked } from "../../util/entryValidationHelpers";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
-import { updateDate } from "../../actions/timetableNavigation";
 /** Handlers */
 import SlotHandlers from "./SlotHandlers";
 /** npm **/
@@ -14,12 +14,17 @@ import classNames from "classnames";
 import { entries } from "../../db/entries";
 
 const Slot = ({ day, hour }) => {
-  const [isBooked, setIsBooked] = useState(false);
-  const [tempIsBooked, setTempIsBooked] = useState(false);
+  const [booked, setBooked] = useState(false);
+  const [tempBooked, setTempBooked] = useState(false);
 
   /** Redux **/
   const dispatch = useDispatch();
   const date = useSelector((state) => state.date);
+  const dateObj = {
+    week: date.week,
+    day,
+    hour,
+  };
 
   /** Hanlders **/
   const handlers = SlotHandlers(dispatch);
@@ -28,23 +33,20 @@ const Slot = ({ day, hour }) => {
 
   // determine if this slot is taken
   useEffect(() => {
-    // refactor #3
-    const entryID = `${date.week}-${day}-${hour}`;
-    if (entries.hasOwnProperty(entryID)) {
-      console.log("IS AN ENTRY", entryID);
-      setIsBooked(true);
+    if (isBooked(dateObj)) {
+      setBooked(true);
     } else {
-      setIsBooked(false);
+      setBooked(false);
     }
 
     return () => {
       // undo any temp views updates once user changes week
-      setTempIsBooked(false);
+      setTempBooked(false);
     };
   }, [date.week, entries]);
 
   const slotStyles = classNames({
-    booked: isBooked || tempIsBooked,
+    booked: booked || tempBooked,
   });
 
   return (
