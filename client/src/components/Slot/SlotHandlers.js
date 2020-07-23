@@ -1,12 +1,25 @@
 /** Redux **/
 import { updateDate } from "../../actions/timetableNavigation";
+/** Helpers **/
+import { isBooked } from "../../util/entryValidationHelpers";
 
-const SlotHandlers = (dispatch) => {
-  const handleClick = (dateObj) => {
-    dispatch(updateDate(dateObj));
+const SlotHandlers = (dispatch, dateObj) => {
+  const { week, day, hour } = dateObj;
+
+  const handleStyling = (callback) => {
+    if (isBooked(dateObj)) {
+      callback(true);
+    } else {
+      callback(false);
+    }
   };
 
-  return { handleClick };
+  const handleClick = () => {
+    const payload = { day, hour };
+    dispatch(updateDate(payload));
+  };
+
+  return { handleClick, handleStyling };
 };
 
 export default SlotHandlers;
