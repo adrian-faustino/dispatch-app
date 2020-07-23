@@ -1,7 +1,8 @@
 /** Redux **/
 import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
+import { setDriver } from "../../actions/driverActions";
 
-const ControllersHandlers = (dispatch) => {
+const ControllersHandlers = (setState, dispatch) => {
   const goNextWeek = (e) => {
     e.preventDefault();
 
@@ -15,9 +16,22 @@ const ControllersHandlers = (dispatch) => {
     dispatch(prevWeek());
   };
 
+  // handlers for driver selection dropdown
+  const toggleDropdown = () => {
+    setState((state) => ({ ...state, dropdownOpen: !state.dropdownOpen }));
+  };
+
+  // update redux - current driver
+  const currentDriver = (e) => {
+    const driver = e.target.innerHTML;
+    dispatch(setDriver(driver));
+  };
+
   return {
     goNextWeek,
     goPrevWeek,
+    toggleDropdown,
+    currentDriver,
   };
 };
 

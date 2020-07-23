@@ -1,18 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 /** Styles **/
 import "./Controllers.css";
 /** Redux */
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+/** Reacstrap **/
+import {
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 /** Handlers **/
 import ControllersHandlers from "./ControllersHandlers";
+/** Constants **/
+import { DRIVERS } from "../../util/constants";
 
 const Controllers = () => {
+  /** State **/
+  const [state, setState] = useState({
+    dropdownOpen: false,
+  });
+
   /** Redux **/
   const dispatch = useDispatch();
-  const handlers = ControllersHandlers(dispatch);
+  const driver = useSelector((state) => state.driver);
+
+  /** Handlers **/
+  const handlers = ControllersHandlers(setState, dispatch);
+
+  // spread for render
+  // refactor #4 - modularize
+  const dropdownItemJSX = DRIVERS.map((driver) => {
+    return (
+      <DropdownItem onClick={handlers.currentDriver}>{driver}</DropdownItem>
+    );
+  });
+
   return (
     <div>
       <div>controllers.js</div>
+      {dropdownItemJSX}
 
       {/* BEGIN: week navigation */}
       <div>
@@ -22,6 +49,13 @@ const Controllers = () => {
       {/* END: week navigation */}
 
       {/* BEGIN: driver selection dropdown */}
+      <ButtonDropdown
+        isOpen={state.dropdownOpen}
+        toggle={handlers.toggleDropdown}
+      >
+        <DropdownToggle caret>{driver}</DropdownToggle>
+        <DropdownMenu>{dropdownItemJSX}</DropdownMenu>
+      </ButtonDropdown>
       {/* END: driver selection dropdown */}
     </div>
   );
