@@ -10,6 +10,7 @@ const EntryForm = () => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     console.log("Submitting to db:", values);
+    handleReset();
   });
 
   /** Handlers **/
