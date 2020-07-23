@@ -1,10 +1,15 @@
 /** Redux actions **/
+// calendar navigation
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const NEXT_WEEK = "NEXT_WEEK";
 export const PREV_WEEK = "PREV_WEEK";
 export const UPDATE_DATE = "UPDATE_DATE";
 export const SET_DRIVER = "SET_DRIVER";
+
+// entry form modal toggle
+export const OPEN_FORM = "OPEN_FORM";
+export const CLOSE_FORM = "CLOSE_FORM";
 
 /** Calendar constants **/
 export const WEEKS = 52;
