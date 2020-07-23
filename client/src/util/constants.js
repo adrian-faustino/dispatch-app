@@ -13,3 +13,7 @@ export const HOURS = 24;
 /** Data required for entries */
 export const DRIVERS = ["Anna", "Bob", "Chris"];
 export const TASKS = ["DROP OFF", "PICK UP", "MISC"];
+
+/** Button inner text **/
+export const prevWeek = "prev";
+export const nextWeek = "next";

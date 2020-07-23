@@ -27,14 +27,7 @@ const Controllers = () => {
 
   /** Handlers **/
   const handlers = ControllersHandlers(setState, dispatch);
-
-  // spread for render
-  // refactor #4 - modularize
-  const dropdownItemJSX = DRIVERS.map((driver) => {
-    return (
-      <DropdownItem onClick={handlers.currentDriver}>{driver}</DropdownItem>
-    );
-  });
+  const dropdownItemJSX = handlers.renderDropdownItems();
 
   return (
     <div>

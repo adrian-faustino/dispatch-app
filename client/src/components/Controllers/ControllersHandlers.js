@@ -1,8 +1,16 @@
+import React from "react";
 /** Redux **/
 import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
 import { setDriver } from "../../actions/driverActions";
+/** Constants **/
+import { DRIVERS } from "../../util/constants";
+/** Reacstrap **/
+import { DropdownItem } from "reactstrap";
+/** npm **/
+import { v4 as uuidv4 } from "uuid";
 
 const ControllersHandlers = (setState, dispatch) => {
+  // update redux - increase week num
   const goNextWeek = (e) => {
     e.preventDefault();
 
@@ -10,13 +18,13 @@ const ControllersHandlers = (setState, dispatch) => {
 
     dispatch(nextWeek());
   };
-
+  // update redux - decreaseweek num
   const goPrevWeek = (e) => {
     e.preventDefault();
     dispatch(prevWeek());
   };
 
-  // handlers for driver selection dropdown
+  // update state - open/close dropdown
   const toggleDropdown = () => {
     setState((state) => ({ ...state, dropdownOpen: !state.dropdownOpen }));
   };
@@ -27,11 +35,23 @@ const ControllersHandlers = (setState, dispatch) => {
     dispatch(setDriver(driver));
   };
 
+  // spread dropdown items for rendering
+  const renderDropdownItems = () => {
+    return DRIVERS.map((driver) => {
+      return (
+        <DropdownItem key={uuidv4()} onClick={currentDriver}>
+          {driver}
+        </DropdownItem>
+      );
+    });
+  };
+
   return {
     goNextWeek,
     goPrevWeek,
     toggleDropdown,
     currentDriver,
+    renderDropdownItems,
   };
 };
 
