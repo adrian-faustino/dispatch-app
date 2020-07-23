@@ -13,10 +13,16 @@ const Controllers = () => {
   return (
     <div>
       <div>controllers.js</div>
+
+      {/* BEGIN: week navigation */}
       <div>
         <button onClick={handlers.goPrevWeek}>prev</button>
         <button onClick={handlers.goNextWeek}>next</button>
       </div>
+      {/* END: week navigation */}
+
+      {/* BEGIN: driver selection dropdown */}
+      {/* END: driver selection dropdown */}
     </div>
   );
 };
