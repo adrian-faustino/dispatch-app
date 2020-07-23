@@ -1,11 +1,11 @@
-/** Constants **/
-import { SET_DAY, SET_TIME } from "../../util/constants";
 /** Redux **/
-import dateReducer from "../../reducers/dateReducer";
-import { setCurrentDate } from "../../actions/timetableNavigation";
+import { updateDate } from "../../actions/timetableNavigation";
 
 const SlotHandlers = (dispatch) => {
-  return {};
+  const handleClick = (dateObj) => {
+    dispatch(updateDate(dateObj));
+  };
+  return { handleClick };
 };
 
 export default SlotHandlers;

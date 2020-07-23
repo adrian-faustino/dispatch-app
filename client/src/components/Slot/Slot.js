@@ -3,11 +3,8 @@ import React, { useEffect, useState } from "react";
 import "./Slot.css";
 /** Helpers **/
 import { dayToWords } from "../../util/formatHelpers";
-/** Constants **/
-import { SET_DAY, SET_TIME } from "../../util/constants";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
-import dateReducer from "../../reducers/dateReducer";
 import { updateDate } from "../../actions/timetableNavigation";
 /** Handlers */
 import SlotHandlers from "./SlotHandlers";
@@ -50,17 +47,9 @@ const Slot = ({ day, hour }) => {
     booked: isBooked || tempIsBooked,
   });
 
-  // === refactor
-  const handleClick = () => {
-    // update day
-    dispatch(updateDate({ day, hour }));
-    // update hour
-  };
-  // === refactor
-
   return (
     <div
-      onClick={handleClick}
+      onClick={() => handlers.handleClick({ day, hour })}
       className={`Slot__container ${_day} ${slotStyles}`}
     >
       <div>{`${_day} ${hour} h`}</div>
