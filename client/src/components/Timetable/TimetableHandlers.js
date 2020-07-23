@@ -1,7 +1,7 @@
 /** Redux **/
 import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
 
-const timeTableHandlers = (dispatch) => {
+const timetableHandlers = (dispatch) => {
   const goNextWeek = (e) => {
     e.preventDefault();
 
@@ -21,4 +21,4 @@ const timeTableHandlers = (dispatch) => {
   };
 };
 
-export default timeTableHandlers;
+export default timetableHandlers;

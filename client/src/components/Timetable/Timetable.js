@@ -5,7 +5,7 @@ import { WeekView } from "../";
 import "./Timetable.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 /** Handlers **/
-import TimetableHandlers from "./TimetableHandlers";
+import timetableHandlers from "./TimetableHandlers";
 /** npm **/
 import moment from "moment";
 /** Redux */
@@ -19,7 +19,7 @@ const Timetable = () => {
   const dispatch = useDispatch();
 
   /** Handlers **/
-  const handlers = TimetableHandlers(dispatch);
+  const handlers = timetableHandlers(dispatch);
 
   return (
     <div>

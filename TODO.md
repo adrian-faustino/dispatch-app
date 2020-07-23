@@ -37,8 +37,15 @@
   [] recommend free time slots in the event of conflict
   [] deployment
 
-## Todo (leave todo # here before stepping out)
+## Current task (leave todo # here before stepping away)
 
-Current task:
 [x] display week [0, ..., 51].
-[] display 24 hours and 7 days on each week
+[x] display 24 hours and 7 days on each week
+[x] display scheduled days
+[] dropdown to select current driver
+
+## Refactor / Todo
+
+[] validate new data entry
+[] modularize functions for creating new entry
+[] refactor #3

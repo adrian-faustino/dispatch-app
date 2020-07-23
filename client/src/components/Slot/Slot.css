@@ -25,3 +25,7 @@
 .Slot__container.Saturday {
   grid-column: 7;
 }
+
+.booked {
+  background: blue;
+}
