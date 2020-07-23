@@ -7,6 +7,7 @@ const SlotHandlers = (dispatch, dateObj) => {
   const { week, day, hour } = dateObj;
 
   const handleStyling = (callback) => {
+    // check if slot is booked
     if (isBooked(dateObj)) {
       callback(true);
     } else {

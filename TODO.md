@@ -50,6 +50,6 @@
 
 [] validate new data entry
 [] modularize functions for creating new entry
-[] clean up Slot component
-[] refactor #3
+[x] clean up Slot component
+[x] refactor #3
 [] delete WeekView folder

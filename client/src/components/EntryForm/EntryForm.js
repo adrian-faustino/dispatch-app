@@ -19,15 +19,19 @@ const EntryForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <select name="driver" onChange={handleChange}>
-          <option value="" selected disabled hidden>
+        <select defaultValue="DEFAULT" name="driver" onChange={handleChange}>
+          <option value="DEFAULT" disabled hidden>
             Choose driver
           </option>
           {handlers.renderDriverDropdown()}
         </select>
 
-        <select name="description" onChange={handleChange}>
-          <option value="" selected disabled hidden>
+        <select
+          defaultValue="DEFAULT"
+          name="description"
+          onChange={handleChange}
+        >
+          <option value="DEFAULT" disabled hidden>
             Choose description
           </option>
           {handlers.renderDescriptionDropdown()}

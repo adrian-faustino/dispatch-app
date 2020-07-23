@@ -27,7 +27,7 @@ const Slot = ({ day, hour }) => {
   const handlers = SlotHandlers(dispatch, dateObj);
 
   useEffect(() => {
-    // determine if this slot is booked
+    // highlight if slot is booked
     handlers.handleStyling((bool) => setBooked(bool));
 
     return () => {
