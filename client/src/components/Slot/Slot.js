@@ -10,8 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 import SlotHandlers from "./SlotHandlers";
 /** npm **/
 import classNames from "classnames";
-/** DB **/
-import { entries } from "../../db/entries";
 
 const Slot = ({ day, hour }) => {
   const [booked, setBooked] = useState(false);
@@ -19,9 +17,9 @@ const Slot = ({ day, hour }) => {
 
   /** Redux **/
   const dispatch = useDispatch();
-  const date = useSelector((state) => state.date);
+  const week = useSelector((state) => state.date.week);
   const dateObj = {
-    week: date.week,
+    week,
     day,
     hour,
   };
@@ -43,7 +41,7 @@ const Slot = ({ day, hour }) => {
       // undo any temp views updates once user changes week
       setTempBooked(false);
     };
-  }, [date.week, entries]);
+  }, [week]);
 
   const slotStyles = classNames({
     booked: booked || tempBooked,
