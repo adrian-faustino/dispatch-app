@@ -4,30 +4,13 @@ import { WeekView } from "../";
 /** Styles **/
 import "./Timetable.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-/** Handlers **/
-import timetableHandlers from "./TimetableHandlers";
-/** npm **/
-import moment from "moment";
-/** Redux */
-import { useSelector, useDispatch } from "react-redux";
 
 //delete later
 import { entries } from "../../db/entries";
 
 const Timetable = () => {
-  /** Redux **/
-  const dispatch = useDispatch();
-
-  /** Handlers **/
-  const handlers = timetableHandlers(dispatch);
-
   return (
     <div>
-      <div>
-        <button onClick={handlers.goPrevWeek}>prev</button>
-        <button onClick={handlers.goNextWeek}>next</button>
-      </div>
-
       <button
         onClick={() => {
           console.log(entries);
