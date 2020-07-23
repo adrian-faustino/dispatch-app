@@ -1,9 +1,9 @@
-import { NEXT_WEEK, PREV_WEEK } from "../util/constants";
+import { NEXT_WEEK, PREV_WEEK, UPDATE_DATE } from "../util/constants";
 
 const initialState = {
   week: 0, // 1st week
   day: 1, // Monday
-  time: 5, // 5am
+  hour: 5, // 5am
 };
 
 const dateReducer = (state = initialState, action) => {
@@ -17,6 +17,13 @@ const dateReducer = (state = initialState, action) => {
       return {
         ...state,
         week: state.week - 1,
+      };
+    case UPDATE_DATE:
+      const { day, hour } = action.payload;
+      return {
+        ...state,
+        day,
+        hour,
       };
     default:
       return state;

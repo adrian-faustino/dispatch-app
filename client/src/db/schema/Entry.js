@@ -1,4 +1,4 @@
 export const Entry = (...args) => {
-  const { time, description, driver } = args;
+  const { hour, description, driver } = args;
   return;
 };

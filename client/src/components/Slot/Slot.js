@@ -3,8 +3,14 @@ import React, { useEffect, useState } from "react";
 import "./Slot.css";
 /** Helpers **/
 import { dayToWords } from "../../util/formatHelpers";
+/** Constants **/
+import { SET_DAY, SET_TIME } from "../../util/constants";
 /** Redux **/
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import dateReducer from "../../reducers/dateReducer";
+import { updateDate } from "../../actions/timetableNavigation";
+/** Handlers */
+import SlotHandlers from "./SlotHandlers";
 /** npm **/
 import classNames from "classnames";
 /** DB **/
@@ -15,7 +21,11 @@ const Slot = ({ day, hour }) => {
   const [tempIsBooked, setTempIsBooked] = useState(false);
 
   /** Redux **/
+  const dispatch = useDispatch();
   const date = useSelector((state) => state.date);
+
+  /** Hanlders **/
+  const handlers = SlotHandlers(dispatch);
 
   const _day = dayToWords(day);
 
@@ -40,22 +50,17 @@ const Slot = ({ day, hour }) => {
     booked: isBooked || tempIsBooked,
   });
 
-  // temporary - delete later
-  const createEntry = () => {
-    console.log("clicked!");
-    const time = `${date.week}-${day}-${hour}`;
-    const description = "Pick up";
-
-    // update db
-    entries[time] = { time, description };
-
-    // set temp view change
-    setTempIsBooked(true);
+  // === refactor
+  const handleClick = () => {
+    // update day
+    dispatch(updateDate({ day, hour }));
+    // update hour
   };
+  // === refactor
 
   return (
     <div
-      onClick={createEntry}
+      onClick={handleClick}
       className={`Slot__container ${_day} ${slotStyles}`}
     >
       <div>{`${_day} ${hour} h`}</div>

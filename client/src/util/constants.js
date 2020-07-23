@@ -3,9 +3,10 @@ export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const NEXT_WEEK = "NEXT_WEEK";
 export const PREV_WEEK = "PREV_WEEK";
+export const UPDATE_DATE = "UPDATE_DATE";
 export const SET_DRIVER = "SET_DRIVER";
 
-/** For calendar **/
+/** Calendar constants **/
 export const WEEKS = 52;
 export const DAYS = 7;
 export const HOURS = 24;
