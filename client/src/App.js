@@ -7,8 +7,8 @@ import { Test, Timetable, Controllers } from "./components";
 function App() {
   return (
     <div className="App">
-      <Controllers />
       <Test />
+      <Controllers />
       <Timetable />
     </div>
   );

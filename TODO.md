@@ -51,3 +51,4 @@
 [] validate new data entry
 [] modularize functions for creating new entry
 [] refactor #3
+[] delete WeekView folder

@@ -12,8 +12,6 @@ import {
 } from "reactstrap";
 /** Handlers **/
 import ControllersHandlers from "./ControllersHandlers";
-/** Constants **/
-import { DRIVERS, prevWeek_btn, nextWeek_btn } from "../../util/constants";
 
 const Controllers = () => {
   /** State **/
@@ -30,8 +28,6 @@ const Controllers = () => {
 
   return (
     <div>
-      <div>controllers.js</div>
-
       {/* week navigation */}
       <div>{handlers.renderWeekNavBtns()}</div>
 

@@ -4,6 +4,8 @@ import "./Test.css";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../../actions/timetableNavigation";
+//delete later
+import { entries } from "../../db/entries";
 
 const Test = () => {
   /** Redux **/
@@ -27,6 +29,16 @@ const Test = () => {
       <button onClick={handledDecrement}>-</button>
       <button onClick={handleIncrement}>+</button>
       <h3>{counter}</h3>
+      <button
+        onClick={() => {
+          console.log(entries);
+        }}
+      >
+        show db
+      </button>
+
+      <hr />
+
       <div>Week {date.week}</div>
     </div>
   );
