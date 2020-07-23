@@ -18,6 +18,11 @@ const Timetable = () => {
       >
         show db
       </button>
+      {/* render slot frame (days x hours) */}
+
+      {/* render slots */}
+
+      {/* render modal for new entry */}
 
       <WeekView />
     </div>
@@ -25,3 +30,6 @@ const Timetable = () => {
 };
 
 export default Timetable;
+
+/* Component notes: [VIEW]
+ * This component is dealing with view render logic only */

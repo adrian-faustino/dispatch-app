@@ -25,5 +25,5 @@ const WeekView = () => {
 
 export default WeekView;
 
-/* Component notes:
- * This component is dealing with view render logic only */
+/* Component notes: [CONTROLLERS]
+ * This component is dealing with new entry controls */

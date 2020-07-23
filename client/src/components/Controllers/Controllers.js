@@ -27,15 +27,13 @@ const Controllers = () => {
 
   /** Handlers **/
   const handlers = ControllersHandlers(setState, dispatch);
-  const dropdownItemsJSX = handlers.renderDropdownItems();
-  const weekNavBtnsJS = handlers.renderWeekNavBtns();
 
   return (
     <div>
       <div>controllers.js</div>
 
       {/* week navigation */}
-      <div>{weekNavBtnsJS}</div>
+      <div>{handlers.renderWeekNavBtns()}</div>
 
       {/* driver selection dropdown */}
       <ButtonDropdown
@@ -43,7 +41,7 @@ const Controllers = () => {
         toggle={handlers.toggleDropdown}
       >
         <DropdownToggle caret>{driver}</DropdownToggle>
-        <DropdownMenu>{dropdownItemsJSX}</DropdownMenu>
+        <DropdownMenu>{handlers.renderDropdownItems()}</DropdownMenu>
       </ButtonDropdown>
     </div>
   );
@@ -51,5 +49,5 @@ const Controllers = () => {
 
 export default Controllers;
 
-/* Component notes:
+/* Component notes: [CONTROLLERS]
  * This component is contains all of the buttons to navigate the app */

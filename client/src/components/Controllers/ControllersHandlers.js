@@ -30,7 +30,7 @@ const ControllersHandlers = (setState, dispatch) => {
   };
 
   // update redux - current driver
-  const currentDriver = (e) => {
+  const toggleDriver = (e) => {
     const driver = e.target.innerHTML;
     dispatch(setDriver(driver));
   };
@@ -39,7 +39,7 @@ const ControllersHandlers = (setState, dispatch) => {
   const renderDropdownItems = () => {
     return DRIVERS.map((driver) => {
       return (
-        <DropdownItem key={uuidv4()} onClick={currentDriver}>
+        <DropdownItem key={uuidv4()} onClick={toggleDriver}>
           {driver}
         </DropdownItem>
       );
@@ -50,13 +50,16 @@ const ControllersHandlers = (setState, dispatch) => {
   const renderWeekNavBtns = () => {
     const btns = [prevWeek_btn, nextWeek_btn];
     return btns.map((btn) => {
-      return <button onClick={toggleWeek}>{btn}</button>;
+      return (
+        <button key={btn} onClick={toggleWeek}>
+          {btn}
+        </button>
+      );
     });
   };
 
   return {
     toggleDropdown,
-    currentDriver,
     renderDropdownItems,
     renderWeekNavBtns,
   };
