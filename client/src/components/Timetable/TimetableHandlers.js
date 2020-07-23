@@ -11,7 +11,7 @@ const TimetableHandlers = (dispatch) => {
     const slots = [];
     for (let i = 0; i < DAYS; i++) {
       for (let j = 0; j < HOURS; j++) {
-        slots.push(<Slot day={i} hour={j} />);
+        slots.push(<Slot key={`${i}-${j}`} day={i} hour={j} />);
       }
     }
     return slots;

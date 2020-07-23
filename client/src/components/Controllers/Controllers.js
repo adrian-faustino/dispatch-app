@@ -4,12 +4,7 @@ import "./Controllers.css";
 /** Redux */
 import { useDispatch, useSelector } from "react-redux";
 /** Reacstrap **/
-import {
-  ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
+import { ButtonDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 /** Handlers **/
 import ControllersHandlers from "./ControllersHandlers";
 
