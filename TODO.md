@@ -42,7 +42,7 @@
 [x] display week [0, ..., 51].
 [x] display 24 hours and 7 days on each week
 [x] display scheduled days
-[] dropdown to select current driver
+[x] dropdown to select current driver
 
 ## Refactor / Todo
 

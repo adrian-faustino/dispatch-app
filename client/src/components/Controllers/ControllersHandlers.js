@@ -3,25 +3,25 @@ import React from "react";
 import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
 import { setDriver } from "../../actions/driverActions";
 /** Constants **/
-import { DRIVERS } from "../../util/constants";
+import { DRIVERS, prevWeek_btn, nextWeek_btn } from "../../util/constants";
 /** Reacstrap **/
 import { DropdownItem } from "reactstrap";
 /** npm **/
 import { v4 as uuidv4 } from "uuid";
 
 const ControllersHandlers = (setState, dispatch) => {
-  // update redux - increase week num
-  const goNextWeek = (e) => {
+  // update redux - decrease/increase week num
+  const toggleWeek = (e) => {
     e.preventDefault();
 
     // todo: validate so it doesnt go below 0 or 52 (week range)
 
-    dispatch(nextWeek());
-  };
-  // update redux - decreaseweek num
-  const goPrevWeek = (e) => {
-    e.preventDefault();
-    dispatch(prevWeek());
+    switch (e.target.innerHTML) {
+      case prevWeek_btn:
+        return dispatch(prevWeek());
+      case nextWeek_btn:
+        return dispatch(nextWeek());
+    }
   };
 
   // update state - open/close dropdown
@@ -46,12 +46,19 @@ const ControllersHandlers = (setState, dispatch) => {
     });
   };
 
+  // spread week nav buttons for rendering
+  const renderWeekNavBtns = () => {
+    const btns = [prevWeek_btn, nextWeek_btn];
+    return btns.map((btn) => {
+      return <button onClick={toggleWeek}>{btn}</button>;
+    });
+  };
+
   return {
-    goNextWeek,
-    goPrevWeek,
     toggleDropdown,
     currentDriver,
     renderDropdownItems,
+    renderWeekNavBtns,
   };
 };
 

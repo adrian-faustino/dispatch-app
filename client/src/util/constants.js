@@ -15,5 +15,5 @@ export const DRIVERS = ["Anna", "Bob", "Chris"];
 export const TASKS = ["DROP OFF", "PICK UP", "MISC"];
 
 /** Button inner text **/
-export const prevWeek = "prev";
-export const nextWeek = "next";
+export const prevWeek_btn = "prev";
+export const nextWeek_btn = "next";
