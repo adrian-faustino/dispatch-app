@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 /** Reactstrap */
 import { Button } from "reactstrap";
 /** Helpers **/
@@ -9,8 +9,11 @@ import { ENTRY_DELETE_200 } from "../../../util/constants";
 const SlotControllers = (props) => {
   const { setFormOpen, formOpen, bookedData, setBookedData } = props;
 
+  /** State **/
+  const [deleteConfirm, setDeleteConfirm] = useState(false);
+
   const handleFormToggle = (e) => {
-    e.preventDefault();
+    e && e.preventDefault();
     setFormOpen((state) => !state);
   };
 
@@ -20,7 +23,16 @@ const SlotControllers = (props) => {
       console.log(ENTRY_DELETE_200);
       // clear booked data
       setBookedData(null);
+      // close confirmation
+      toggleDeleteConfirmation();
     });
+  };
+
+  const toggleDeleteConfirmation = (e) => {
+    e && e.preventDefault();
+    // close entry form
+    setFormOpen(false);
+    setDeleteConfirm(!deleteConfirm);
   };
 
   return (
@@ -29,10 +41,22 @@ const SlotControllers = (props) => {
         <Button onClick={handleFormToggle}>+</Button>
       )}
 
-      {bookedData && (
+      {bookedData && !deleteConfirm && (
         <div>
           <Button onClick={handleFormToggle}>edit</Button>
-          <Button onClick={handleDelete}>delete</Button>
+          <Button color="danger" onClick={toggleDeleteConfirmation}>
+            delete
+          </Button>
+        </div>
+      )}
+
+      {deleteConfirm && (
+        <div>
+          <p>Are you sure?</p>
+          <Button onClick={toggleDeleteConfirmation}>cancel</Button>
+          <Button color="danger" onClick={handleDelete}>
+            delete
+          </Button>
         </div>
       )}
     </div>

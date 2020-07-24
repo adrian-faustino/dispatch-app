@@ -60,7 +60,6 @@ export const getDriverEntries = (currentDriver) => {
 
 // ==> UPDATE
 
-// refactor #5: redundant function?
 export const editEntry = (entryObj, callback) => {
   console.log("Editing entry...");
   const { date, description, driver } = entryObj;
