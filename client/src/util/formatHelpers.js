@@ -11,3 +11,10 @@ export const dayToWords = (index) => {
   ];
   return DAYS[parseInt(index)];
 };
+
+/* Input: obj. Output: string */
+// converts date Obj to 'w-d-h' string
+export const dateObjToStringID = (dateObj) => {
+  const { week, day, hour } = dateObj;
+  return `${week}-${day}-${hour}`;
+};

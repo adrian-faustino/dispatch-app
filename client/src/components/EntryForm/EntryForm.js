@@ -7,8 +7,11 @@ import EntryFormHandlers from "./EntryFormHandlers";
 import useForm from "../../hooks/useFormHook";
 /** Helpers **/
 import { createEntry, editEntry } from "../../util/dbHelpers";
+import { dateObjToStringID } from "../../util/formatHelpers";
 /** Reacstrap **/
 import { Button } from "reactstrap";
+/** Schema **/
+import { Entry } from "../../db/schema/Entry";
 
 const EntryForm = ({
   handleEntrySuccess,
@@ -20,7 +23,12 @@ const EntryForm = ({
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     // if edit mdoe
     if (bookedData) {
-      return editEntry(values, dateObj, handleEntrySuccess);
+      const entryObj = Entry({
+        date: dateObjToStringID(dateObj),
+        driver: values.driver,
+        description: values.description,
+      });
+      return editEntry(entryObj, handleEntrySuccess);
     }
 
     // new entry

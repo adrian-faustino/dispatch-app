@@ -33,7 +33,6 @@ const ErrorPromptHandlers = (dispatch, error) => {
 
   // return JSX displaying booking conflict
   const renderConflictingBooking = () => {
-    // #todo 6
     const booking = error.payload;
     console.log("Booking", booking);
     const { date, description, driver } = booking;

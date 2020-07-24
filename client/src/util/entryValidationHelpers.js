@@ -14,11 +14,9 @@ const entryValidationHelpers = (currentDriver) => {
       : entries;
 
   // check if entry already exists - return entry
-  const isBooked = (dateObj) => {
-    const { week, day, hour } = dateObj;
-    const entryID = `${week}-${day}-${hour}`;
-
-    return filteredDB[entryID];
+  const isBooked = (date) => {
+    // note: date serves as ID
+    return filteredDB[date];
   };
 
   return {
@@ -27,3 +25,6 @@ const entryValidationHelpers = (currentDriver) => {
 };
 
 export default entryValidationHelpers;
+
+// Note: validating if entry exists in DB, entry validation is done in Entry.js schema
+// Todo: change file name to be more descriptive

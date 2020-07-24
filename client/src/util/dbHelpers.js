@@ -13,36 +13,33 @@ const validate = entryValidation();
 
 // ==> CREATE
 
-export const createEntry = (values, dateObj, callback) => {
-  console.log("Creating entry...", values, dateObj);
-  const { week, day, hour } = dateObj;
-  const { driver, description } = values;
-  const date = `${week}-${day}-${hour}`;
-  const newEntry = { date, description, driver };
+export const createEntry = (entryObj, callback) => {
+  console.log("Creating entry...", entryObj);
+  const { date, description, driver } = entryObj;
 
   /** BEGIN: validation **/
   // check if empty fields
-  if (!dateObj) return callback(null, { errMsg: DATE_REQUIRED });
+  if (!date) return callback(null, { errMsg: DATE_REQUIRED });
   if (!driver) return callback(null, { errMsg: DRIVER_REQUIRED });
   if (!description) return callback(null, { errMsg: DESCRIPTION_REQUIRED });
 
   // check to see if taken
-  const bookedSlot = validate.isBooked(dateObj);
+  const bookedSlot = validate.isBooked(date);
   if (bookedSlot) {
     console.error(TIMESLOT_CONFLICT, bookedSlot);
     return callback(null, {
       errMsg: TIMESLOT_CONFLICT,
       payload: bookedSlot,
-      bookingAttempt: newEntry,
+      bookingAttempt: entryObj,
     });
   }
   /** END: validation **/
 
   // update db
-  entries[date] = newEntry;
+  entries[date] = entryObj;
 
   // after successful entry
-  callback(newEntry);
+  callback(entryObj);
 };
 
 // ==> READ
