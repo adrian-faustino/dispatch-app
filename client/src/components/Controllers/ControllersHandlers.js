@@ -11,8 +11,6 @@ import {
 } from "../../util/constants";
 /** Reacstrap **/
 import { DropdownItem } from "reactstrap";
-/** npm **/
-import { v4 as uuidv4 } from "uuid";
 
 const ControllersHandlers = (setState, dispatch, store) => {
   // update redux - decrease/increase week num

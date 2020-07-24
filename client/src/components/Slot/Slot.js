@@ -13,6 +13,8 @@ import { setDriver } from "../../actions/driverActions";
 import SlotHandlers from "./SlotHandlers";
 /** npm **/
 import classNames from "classnames";
+/** Constants **/
+import { ENTRY_UPDATE_200 } from "../../util/constants";
 
 const Slot = ({ day, hour }) => {
   /** State **/
@@ -44,23 +46,19 @@ const Slot = ({ day, hour }) => {
     booked: bookedData,
   });
 
-  const handleEntrySuccess = (newEntry, err) => {
+  const handleEntrySuccess = (success, err) => {
     // handle error
     if (err) return handleEntryErr(err);
-
-    console.log("Successfully updated db:", newEntry);
+    console.log(success.msg);
     // trigger view change
-    setBookedData(newEntry);
-
+    setBookedData(success.data);
     // close form
     setFormOpen(false);
-
     // switch current driver to created driver
-    dispatch(setDriver(newEntry.driver));
+    dispatch(setDriver(success.data.driver));
   };
 
   const handleEntryErr = (errObj) => {
-    console.log(errObj.errMsg);
     // update redux error obj
     dispatch(setError(errObj));
   };

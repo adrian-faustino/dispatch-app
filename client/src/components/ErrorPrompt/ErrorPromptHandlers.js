@@ -10,7 +10,7 @@ import { Button } from "reactstrap";
 /** Schema **/
 import { Entry } from "../../db/schema/Entry";
 /** Constants **/
-import { DRIVERS } from "../../util/constants";
+import { DRIVERS, ENTRY_OVERWRITE_200 } from "../../util/constants";
 
 const ErrorPromptHandlers = (dispatch, error) => {
   // close error prompt
@@ -18,13 +18,14 @@ const ErrorPromptHandlers = (dispatch, error) => {
     dispatch(resetError());
   };
 
+  // OVERWRITE BUTTON HANDLER
   const handleOverwrite = () => {
     // refactor #5 - simplify
     const entryObj = Entry(error.bookingAttempt);
-    console.log("Overwriting...", entryObj);
 
     // update db
     editEntry(entryObj, () => {
+      console.log(ENTRY_OVERWRITE_200);
       // trigger view update
       dispatch(setDriver(DRIVERS[0]));
       // close error
@@ -35,10 +36,8 @@ const ErrorPromptHandlers = (dispatch, error) => {
   // return JSX displaying booking conflict
   const renderConflictingBooking = () => {
     const booking = error.payload;
-    console.log("Booking", booking);
     const { date, description, driver } = booking;
     const [week, day, hour] = date.split("-");
-    console.log("Booked by:", booking);
     return (
       <div>
         <div>

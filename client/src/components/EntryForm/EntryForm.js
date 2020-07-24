@@ -28,12 +28,9 @@ const EntryForm = ({
     });
 
     // if edit mdoe
-    if (bookedData) {
-      return editEntry(entryObj, handleEntrySuccess);
-    }
-
+    if (bookedData) return editEntry(entryObj, handleEntrySuccess);
     // new entry
-    createEntry(entryObj, handleEntrySuccess);
+    else createEntry(entryObj, handleEntrySuccess);
   });
 
   /** Handlers **/

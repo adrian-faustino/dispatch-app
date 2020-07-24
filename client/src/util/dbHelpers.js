@@ -6,6 +6,8 @@ import {
   DATE_REQUIRED,
   DRIVER_REQUIRED,
   DESCRIPTION_REQUIRED,
+  ENTRY_CREATE_200,
+  ENTRY_UPDATE_200,
 } from "../util/constants";
 /** Helpers **/
 import entryValidation from "../util/entryValidationHelpers";
@@ -14,7 +16,7 @@ const validate = entryValidation();
 // ==> CREATE
 
 export const createEntry = (entryObj, callback) => {
-  console.log("Creating entry...", entryObj);
+  console.log("Creating entry...");
   const { date, description, driver } = entryObj;
 
   /** BEGIN: validation **/
@@ -39,7 +41,7 @@ export const createEntry = (entryObj, callback) => {
   entries[date] = entryObj;
 
   // after successful entry
-  callback(entryObj);
+  callback({ msg: ENTRY_CREATE_200, data: entryObj });
 };
 
 // ==> READ
@@ -60,20 +62,20 @@ export const getDriverEntries = (currentDriver) => {
 
 // refactor #5: redundant function?
 export const editEntry = (entryObj, callback) => {
-  console.log("Editing entry...", entryObj);
+  console.log("Editing entry...");
   const { date, description, driver } = entryObj;
 
   // update db
   entries[date] = entryObj;
 
   // after successful entry
-  callback(entryObj);
+  callback({ msg: ENTRY_UPDATE_200, data: entryObj });
 };
 
 // ==> DELETE
 
 export const deleteEntry = (date, callback) => {
-  console.log("Deleting entry...", date);
+  console.log("Deleting entry...");
   // delete form db
   delete entries[date];
   // clear booked data for this slot

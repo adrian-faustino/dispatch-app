@@ -8,7 +8,6 @@ import {
 // validate if an entry is valid
 // NOT validating if entry exists in db
 export const Entry = (entryObj) => {
-  console.log("Entr ob!!", entryObj);
   // validate if no params passed
   if (!entryObj) return console.error(INVALID_ENTRY_OBJ);
 
@@ -20,6 +19,5 @@ export const Entry = (entryObj) => {
   if (!description) return console.error(DESCRIPTION_REQUIRED);
   if (!driver) return console.error(DRIVER_REQUIRED);
 
-  console.log("New entry object created:", { date, description, driver });
   return { date, description, driver };
 };
