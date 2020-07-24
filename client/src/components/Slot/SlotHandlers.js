@@ -1,10 +1,14 @@
 /** Redux **/
+import { useSelector } from "react-redux";
 import { updateDate } from "../../actions/timetableNavigation";
+import { openForm, closeForm } from "../../actions/entryFormActions";
 /** Helpers **/
 import { isBooked } from "../../util/entryValidationHelpers";
+import { createNewEntry } from "../../util/dbHelpers";
 
 const SlotHandlers = (dispatch, dateObj) => {
-  const { week, day, hour } = dateObj;
+  /** Redux **/
+  const formOpen = useSelector((state) => state.entryForm);
 
   const handleStyling = (callback) => {
     // check if slot is booked
@@ -15,12 +19,16 @@ const SlotHandlers = (dispatch, dateObj) => {
     }
   };
 
-  const handleClick = () => {
-    const payload = { day, hour };
-    dispatch(updateDate(payload));
+  const toggleEntryForm = () => {
+    console.log("Form is open?", formOpen);
+    if (formOpen) {
+      return dispatch(closeForm());
+    } else {
+      return dispatch(openForm());
+    }
   };
 
-  return { handleClick, handleStyling };
+  return { handleStyling, toggleEntryForm };
 };
 
 export default SlotHandlers;

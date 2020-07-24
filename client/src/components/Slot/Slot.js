@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+/** Subcomponents **/
+import SlotControllers from "./SlotControllers/SlotControllers";
 /** Styles **/
 import "./Slot.css";
 /** Helpers **/
@@ -42,11 +44,10 @@ const Slot = ({ day, hour }) => {
   });
 
   return (
-    <div
-      onClick={handlers.handleClick}
-      className={`Slot__container ${_day} ${slotStyles}`}
-    >
+    <div className={`Slot__container ${_day} ${slotStyles}`}>
       <div>{`${_day} ${hour} h`}</div>
+
+      <SlotControllers handlers={handlers} />
     </div>
   );
 };
