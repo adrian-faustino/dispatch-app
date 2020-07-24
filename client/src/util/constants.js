@@ -28,4 +28,7 @@ export const nextWeek_btn = "next";
 /** Error codes */
 // => db error codes
 export const TIMESLOT_CONFLICT = "TIMESLOT_CONFLICT";
+export const DATE_REQUIRED = "DATE_REQUIRED";
+export const DRIVER_REQUIRED = "DRIVER_REQUIRED";
+export const DESCRIPTION_REQUIRED = "DESCRIPTION_REQUIRED";
 export const RESET_ERROR = "RESET_ERROR";

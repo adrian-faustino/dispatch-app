@@ -1,7 +1,0 @@
-.WeekView__container {
-  background: blue;
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-auto-flow: column;
-}

@@ -52,11 +52,11 @@
 
 ## Refactor / Todo
 
-[] validate new data entry
-[] modularize functions for creating new entry
+[x] validate new data entry
+[x] modularize functions for creating new entry
 [x] clean up Slot component
 [x] refactor #3
-[] delete WeekView folder
+[x] delete WeekView folder
 [x] edit button on existing entries
 [x] delete button on existing entries
 [] cancel button during edit mode/ create mode
@@ -68,4 +68,4 @@
 
 ## Bugs
 
-[] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
+[x] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
