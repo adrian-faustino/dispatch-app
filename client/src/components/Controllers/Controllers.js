@@ -32,7 +32,10 @@ const Controllers = () => {
         toggle={handlers.toggleDropdown}
       >
         <DropdownToggle caret>{driver}</DropdownToggle>
-        <DropdownMenu>{handlers.renderDropdownItems()}</DropdownMenu>
+        <DropdownMenu>
+          {/* driver options */}
+          {handlers.renderDropdownItems()}
+        </DropdownMenu>
       </ButtonDropdown>
     </div>
   );

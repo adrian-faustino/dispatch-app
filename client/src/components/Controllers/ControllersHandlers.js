@@ -37,11 +37,23 @@ const ControllersHandlers = (setState, dispatch) => {
 
   // spread dropdown items for rendering
   const renderDropdownItems = () => {
-    return DRIVERS.map((driver) => (
-      <DropdownItem key={uuidv4()} onClick={toggleDriver}>
-        {driver}
-      </DropdownItem>
-    ));
+    return DRIVERS.map((driver, i) => {
+      if (i === 0)
+        return (
+          <>
+            <DropdownItem key={uuidv4()} onClick={toggleDriver}>
+              {driver}
+            </DropdownItem>
+            <DropdownItem divider />
+          </>
+        );
+
+      return (
+        <DropdownItem key={uuidv4()} onClick={toggleDriver}>
+          {driver}
+        </DropdownItem>
+      );
+    });
   };
 
   // spread week nav buttons for rendering

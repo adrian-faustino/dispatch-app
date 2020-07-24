@@ -46,6 +46,8 @@
 [x] on click - expand form for data entry
 [x] create entries
 [x] show entry data on respective slots
+[x] filter by driver
+[] filter by all
 
 ## Refactor / Todo
 

@@ -17,7 +17,8 @@ export const DAYS = 7;
 export const HOURS = 24;
 
 /** Data required for entries */
-export const DRIVERS = ["Anna", "Bob", "Chris"];
+// important: index 0 needs to be 'All' for ControllersHandlers.js
+export const DRIVERS = ["All", "Anna", "Bob", "Chris"];
 export const DESCRIPTIONS = ["DROP OFF", "PICK UP", "MISC"];
 
 /** Button inner text **/
