@@ -6,10 +6,15 @@ import "./Timetable.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 /** Handlers **/
 import TimetableHandlers from "./TimetableHandlers";
+/** Redux **/
+import { useSelector } from "react-redux";
 
 const Timetable = () => {
   /** Handlers **/
   const handlers = TimetableHandlers();
+
+  /** Redux **/
+  const formOpen = useSelector((state) => state.entryForm);
 
   return (
     <div>
@@ -19,7 +24,7 @@ const Timetable = () => {
       <div className="Timetable__slots-container">{handlers.renderSlots()}</div>
 
       {/* render modal for new entry */}
-      <EntryForm />
+      {formOpen && <EntryForm />}
     </div>
   );
 };
