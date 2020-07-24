@@ -11,12 +11,12 @@
 
 ## Data
 
-- 3 drivers
+- [x] 3 drivers
 
 - Driver tasks
-  [] Pickup
-  [] Dropoff
-  [] Misc
+  [x] Pickup
+  [x] Dropoff
+  [x] Misc
 
 ## Features
 
@@ -26,9 +26,9 @@
   [] display data (schedule) of selected driver
 - UPDATE
   [] on conflicting taks, have option to overwrite
-  [] update existing tasks time/description/location
+  [x] update existing tasks time/description/location
 - DELETE
-  [] delete existing task
+  [x] delete existing task
   [] option to delete conflicting tasks? (on update?)
 
 ## Stretch
@@ -55,4 +55,6 @@
 [x] refactor #3
 [] delete WeekView folder
 [x] edit button on existing entries
-[] delete button on existing entries
+[x] delete button on existing entries
+[] cancel button during edit mode/ create mode
+[] delete confirmation
