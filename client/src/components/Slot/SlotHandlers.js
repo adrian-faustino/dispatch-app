@@ -3,15 +3,16 @@ import { useSelector } from "react-redux";
 import { updateDate } from "../../actions/timetableNavigation";
 import { openForm, closeForm } from "../../actions/entryFormActions";
 /** Helpers **/
-import { isBooked } from "../../util/entryValidationHelpers";
+import entryValidation from "../../util/entryValidationHelpers";
 
 const SlotHandlers = (dispatch, dateObj) => {
   /** Redux **/
   const formOpen = useSelector((state) => state.entryForm);
+  const validation = entryValidation();
 
   const handleStyling = (callback) => {
     // check if slot is booked
-    const bookedData = isBooked(dateObj);
+    const bookedData = validation.isBooked(dateObj);
     callback(bookedData);
   };
 

@@ -12,6 +12,7 @@ const Test = () => {
   /** Redux **/
   const counter = useSelector((state) => state.test);
   const date = useSelector((state) => state.date);
+  const currentDriver = useSelector((state) => state.driver);
   const dispatch = useDispatch();
   const formOpen = useSelector((state) => state.entryForm);
 
@@ -52,7 +53,7 @@ const Test = () => {
       <button onClick={handleFormToggle}>toggle form</button>
 
       <hr />
-
+      <div>Current driver: {currentDriver}</div>
       <div>Week {date.week}</div>
     </div>
   );
