@@ -17,6 +17,7 @@ const Slot = ({ day, hour }) => {
   /** State **/
   const [bookedData, setBookedData] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   /** Redux **/
   const dispatch = useDispatch();
@@ -52,6 +53,8 @@ const Slot = ({ day, hour }) => {
     setFormOpen(false);
   };
 
+  const handleEditMode = () => {};
+
   return (
     <div
       onClick={handlers.handleSlotDate}
@@ -66,9 +69,19 @@ const Slot = ({ day, hour }) => {
         </div>
       )}
 
-      <SlotControllers setFormOpen={setFormOpen} formOpen={formOpen} />
+      <SlotControllers
+        setFormOpen={setFormOpen}
+        formOpen={formOpen}
+        bookedData={bookedData}
+        handleEntrySuccess={handleEditMode}
+      />
 
-      {formOpen && <EntryForm handleEntrySuccess={handleEntrySuccess} />}
+      {formOpen && (
+        <EntryForm
+          bookedData={bookedData}
+          handleEntrySuccess={handleEntrySuccess}
+        />
+      )}
     </div>
   );
 };

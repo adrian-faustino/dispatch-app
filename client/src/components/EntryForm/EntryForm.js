@@ -6,13 +6,19 @@ import EntryFormHandlers from "./EntryFormHandlers";
 /** Custom hooks */
 import useForm from "../../hooks/useFormHook";
 /** Helpers **/
-import { createEntry } from "../../util/dbHelpers";
+import { createEntry, editEntry } from "../../util/dbHelpers";
 /** Redux **/
 import { useSelector } from "react-redux";
 
-const EntryForm = ({ handleEntrySuccess }) => {
+const EntryForm = ({ handleEntrySuccess, bookedData }) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
+    // if edit mdoe
+    if (bookedData) {
+      editEntry(values, dateObj, handleEntrySuccess);
+    }
+
+    // new entry
     createEntry(values, dateObj, handleEntrySuccess);
   });
 
@@ -25,7 +31,12 @@ const EntryForm = ({ handleEntrySuccess }) => {
   return (
     <div className="EntryForm__container">
       <form className="EntryForm__form" onSubmit={handleSubmit}>
-        <select defaultValue="DEFAULT" name="driver" onChange={handleChange}>
+        <select
+          value={values.driver}
+          defaultValue={bookedData ? bookedData.driver : "DEFAULT"}
+          name="driver"
+          onChange={handleChange}
+        >
           <option value="DEFAULT" disabled hidden>
             Choose driver
           </option>
@@ -33,7 +44,8 @@ const EntryForm = ({ handleEntrySuccess }) => {
         </select>
 
         <select
-          defaultValue="DEFAULT"
+          value={values.description}
+          defaultValue={bookedData ? bookedData.description : "DEFAULT"}
           name="description"
           onChange={handleChange}
         >
