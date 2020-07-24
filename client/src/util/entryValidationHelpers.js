@@ -1,13 +1,10 @@
 /** DB **/
 import { entries } from "../db/entries";
-/** Redux **/
-import { useSelector } from "react-redux";
 /** Helpers **/
 import { getDriverEntries } from "../util/dbHelpers";
 
-const EntryValidationHelpers = () => {
-  const currentDriver = useSelector((state) => state.driver);
-  const filteredDB = getDriverEntries(currentDriver);
+const EntryValidationHelpers = (currentDriver) => {
+  const filteredDB = currentDriver ? getDriverEntries(currentDriver) : entries;
 
   // check if entry already exists - return entry
   const isBooked = (dateObj) => {

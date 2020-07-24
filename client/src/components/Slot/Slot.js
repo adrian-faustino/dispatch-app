@@ -22,13 +22,14 @@ const Slot = ({ day, hour }) => {
   /** Redux **/
   const dispatch = useDispatch();
   const week = useSelector((state) => state.date.week);
+  const store = useSelector((state) => state);
 
   /** Variables **/
   const _day = dayToWords(day);
   const dateObj = { week, day, hour };
 
   /** Hanlders **/
-  const handlers = SlotHandlers(dispatch, dateObj);
+  const handlers = SlotHandlers(dispatch, dateObj, store);
 
   useEffect(() => {
     // highlight if slot is booked
@@ -38,7 +39,7 @@ const Slot = ({ day, hour }) => {
       // when week changes, close all forms
       setFormOpen(false);
     };
-  }, [week]);
+  }, [store.week, store.driver]);
 
   // Set styling
   const slotStyles = classNames({
