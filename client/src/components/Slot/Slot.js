@@ -37,7 +37,7 @@ const Slot = ({ day, hour }) => {
       // when week changes, close all forms
       setFormOpen(false);
     };
-  }, [store.week, store.driver]);
+  }, [store.date.week, store.driver]);
 
   // Set styling
   const slotStyles = classNames({

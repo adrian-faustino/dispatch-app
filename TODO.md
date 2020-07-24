@@ -48,6 +48,7 @@
 [x] show entry data on respective slots
 [x] filter by driver
 [x] filter by all
+[] continue from todo #3 - display conflicting task warning
 
 ## Refactor / Todo
 
