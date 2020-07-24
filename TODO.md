@@ -62,3 +62,8 @@
 [] cancel button during edit mode/ create mode
 [] delete confirmation
 [] after creating new entry, switch current driver to that user
+[] edit/new entry - set default option val to current driver
+
+## Bugs
+
+[] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
