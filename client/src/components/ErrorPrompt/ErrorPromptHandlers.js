@@ -7,6 +7,10 @@ import { resetError } from "../../actions/errorActions";
 import { setDriver } from "../../actions/driverActions";
 /** Reacstrap **/
 import { Button } from "reactstrap";
+/** Schema **/
+import { Entry } from "../../db/schema/Entry";
+/** Constants **/
+import { DRIVERS } from "../../util/constants";
 
 const ErrorPromptHandlers = (dispatch, error) => {
   // close error prompt
@@ -16,16 +20,13 @@ const ErrorPromptHandlers = (dispatch, error) => {
 
   const handleOverwrite = () => {
     // refactor #5 - simplify
-    console.log("Overwriting...", error.bookingAttempt);
-    const { date, description, driver } = error.bookingAttempt;
-    const [week, day, hour] = date.split("-");
-    const values = { driver, description };
-    const dateObj = { week, day, hour };
+    const entryObj = Entry(error.bookingAttempt);
+    console.log("Overwriting...", entryObj);
 
     // update db
-    editEntry(values, dateObj, () => {
-      // view change to current driver
-      dispatch(setDriver(driver));
+    editEntry(entryObj, () => {
+      // trigger view update
+      dispatch(setDriver(DRIVERS[0]));
       // close error
       handleDismiss();
     });

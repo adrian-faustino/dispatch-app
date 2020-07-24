@@ -7,7 +7,7 @@ import { Test, Timetable, Controllers, AppView } from "./components";
 function App() {
   return (
     <div className="App">
-      <Test />
+      {/* <Test /> */}
       <AppView />
       <Controllers />
       <Timetable />
