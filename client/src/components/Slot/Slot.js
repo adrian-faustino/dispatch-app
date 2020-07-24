@@ -46,14 +46,13 @@ const Slot = ({ day, hour }) => {
   });
 
   const handleEntrySuccess = (newEntry) => {
+    console.log("Successfully updated db:", newEntry);
     // trigger view change
     setBookedData(newEntry);
 
     // close form
     setFormOpen(false);
   };
-
-  const handleEditMode = () => {};
 
   return (
     <div
@@ -73,7 +72,7 @@ const Slot = ({ day, hour }) => {
         setFormOpen={setFormOpen}
         formOpen={formOpen}
         bookedData={bookedData}
-        handleEntrySuccess={handleEditMode}
+        setBookedData={setBookedData}
       />
 
       {formOpen && (

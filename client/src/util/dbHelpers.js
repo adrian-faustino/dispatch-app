@@ -5,7 +5,7 @@ export const createEntry = (values, dateObj, callback) => {
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
   const entryID = `${week}-${day}-${hour}`;
-  const newEntry = { hour, description, driver };
+  const newEntry = { entryID, description, driver };
 
   // validate
 
@@ -21,7 +21,7 @@ export const editEntry = (values, dateObj, callback) => {
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
   const entryID = `${week}-${day}-${hour}`;
-  const newEntry = { hour, description, driver };
+  const newEntry = { entryID, description, driver };
 
   // validate
 
@@ -30,4 +30,14 @@ export const editEntry = (values, dateObj, callback) => {
 
   // after successful entry
   callback(newEntry);
+};
+
+export const deleteEntry = (entryID, callback) => {
+  // delete form db
+  console.log("entru id", entryID);
+  delete entries[entryID];
+  console.log("Entries", entries);
+
+  // clear booked data for this slot
+  callback(null);
 };

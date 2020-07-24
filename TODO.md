@@ -54,5 +54,5 @@
 [x] clean up Slot component
 [x] refactor #3
 [] delete WeekView folder
-[] edit button on existing entries
+[x] edit button on existing entries
 [] delete button on existing entries

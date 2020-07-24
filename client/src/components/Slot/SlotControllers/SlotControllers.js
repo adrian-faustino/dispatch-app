@@ -1,12 +1,22 @@
 import React from "react";
 /** Reactstrap */
 import { Button } from "reactstrap";
+/** Helpers **/
+import { deleteEntry } from "../../../util/dbHelpers";
 
 const SlotControllers = (props) => {
-  const { setFormOpen, formOpen, bookedData } = props;
+  const { setFormOpen, formOpen, bookedData, setBookedData } = props;
 
   const handleFormToggle = () => {
     setFormOpen((state) => !state);
+  };
+
+  const handleDelete = () => {
+    deleteEntry(bookedData.entryID, () => {
+      console.log("Deleted item.");
+      // clear booked data
+      setBookedData(null);
+    });
   };
 
   return (
@@ -15,7 +25,12 @@ const SlotControllers = (props) => {
         <Button onClick={handleFormToggle}>+</Button>
       )}
 
-      {bookedData && <Button onClick={handleFormToggle}>edit</Button>}
+      {bookedData && (
+        <div>
+          <Button onClick={handleFormToggle}>edit</Button>
+          <Button onClick={handleDelete}>delete</Button>
+        </div>
+      )}
     </div>
   );
 };
