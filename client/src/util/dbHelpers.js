@@ -5,12 +5,13 @@ export const createEntry = (values, dateObj, callback) => {
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
   const entryID = `${week}-${day}-${hour}`;
+  const newEntry = { hour, description, driver };
 
   // validate
 
   // update db
-  entries[entryID] = { hour, description, driver };
+  entries[entryID] = newEntry;
 
   // after successful entry
-  callback();
+  callback(newEntry);
 };

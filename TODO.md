@@ -43,8 +43,9 @@
 [x] display 24 hours and 7 days on each week
 [x] display scheduled days
 [x] dropdown to select current driver
-[] on click - expand form for data entry
-[] create entries
+[x] on click - expand form for data entry
+[x] create entries
+[] show entry data on respective slots
 
 ## Refactor / Todo
 

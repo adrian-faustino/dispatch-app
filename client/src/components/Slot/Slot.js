@@ -15,10 +15,8 @@ import classNames from "classnames";
 
 const Slot = ({ day, hour }) => {
   /** State **/
-  const [booked, setBooked] = useState(false);
-  const [tempBooked, setTempBooked] = useState(false);
+  const [bookedData, setBookedData] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
-  const [state, setState] = useState({});
 
   /** Redux **/
   const dispatch = useDispatch();
@@ -33,22 +31,17 @@ const Slot = ({ day, hour }) => {
 
   useEffect(() => {
     // highlight if slot is booked
-    handlers.handleStyling((bool) => setBooked(bool));
-
-    return () => {
-      // undo any temp views updates once user changes week
-      setTempBooked(false);
-    };
+    handlers.handleStyling((bookedData) => setBookedData(bookedData));
   }, [week]);
 
   // Set styling
   const slotStyles = classNames({
-    booked: booked || tempBooked,
+    booked: bookedData,
   });
 
-  const handleEntrySuccess = () => {
-    // set view cache
-    setTempBooked(true);
+  const handleEntrySuccess = (newEntry) => {
+    // trigger view change
+    setBookedData(newEntry);
 
     // close form
     setFormOpen(false);
@@ -60,6 +53,13 @@ const Slot = ({ day, hour }) => {
       className={`Slot__container ${_day} ${slotStyles}`}
     >
       <div>{`${_day} ${hour} h`}</div>
+
+      {bookedData && (
+        <div>
+          <div>Driver: {bookedData.driver}</div>
+          <div>Description: {bookedData.description}</div>
+        </div>
+      )}
 
       <SlotControllers setFormOpen={setFormOpen} formOpen={formOpen} />
 

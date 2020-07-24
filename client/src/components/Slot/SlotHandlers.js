@@ -11,11 +11,8 @@ const SlotHandlers = (dispatch, dateObj) => {
 
   const handleStyling = (callback) => {
     // check if slot is booked
-    if (isBooked(dateObj)) {
-      callback(true);
-    } else {
-      callback(false);
-    }
+    const bookedData = isBooked(dateObj);
+    callback(bookedData);
   };
 
   // update redux - to indicate which current date/timeslot is being selected
