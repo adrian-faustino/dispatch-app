@@ -25,7 +25,7 @@
 - READ
   [x] display data (schedule) of selected driver
 - UPDATE
-  [] on conflicting taks, have option to overwrite
+  [x] on conflicting taks, have option to overwrite
   [x] update existing tasks time/description/location
 - DELETE
   [x] delete existing task
@@ -59,7 +59,7 @@
 [x] delete WeekView folder
 [x] edit button on existing entries
 [x] delete button on existing entries
-[] cancel button during edit mode/ create mode
+[x] cancel button during edit mode/ create mode
 [] delete confirmation
 [x] after creating new entry, switch current driver to that user
 [x] edit entry - set default option val to current driver

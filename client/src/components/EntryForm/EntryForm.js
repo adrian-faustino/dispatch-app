@@ -7,12 +7,15 @@ import EntryFormHandlers from "./EntryFormHandlers";
 import useForm from "../../hooks/useFormHook";
 /** Helpers **/
 import { createEntry, editEntry } from "../../util/dbHelpers";
-/** Redux **/
-import { useSelector } from "react-redux";
 /** Reacstrap **/
 import { Button } from "reactstrap";
 
-const EntryForm = ({ handleEntrySuccess, bookedData, setFormOpen }) => {
+const EntryForm = ({
+  handleEntrySuccess,
+  bookedData,
+  setFormOpen,
+  dateObj,
+}) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     // if edit mdoe
@@ -23,9 +26,6 @@ const EntryForm = ({ handleEntrySuccess, bookedData, setFormOpen }) => {
     // new entry
     createEntry(values, dateObj, handleEntrySuccess);
   });
-
-  /** Redux **/
-  const dateObj = useSelector((state) => state.date);
 
   /** Handlers **/
   const handlers = EntryFormHandlers();

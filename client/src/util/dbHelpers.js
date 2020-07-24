@@ -30,7 +30,11 @@ export const createEntry = (values, dateObj, callback) => {
   const bookedSlot = validate.isBooked(dateObj);
   if (bookedSlot) {
     console.error(TIMESLOT_CONFLICT, bookedSlot);
-    return callback(null, { errMsg: TIMESLOT_CONFLICT, payload: bookedSlot });
+    return callback(null, {
+      errMsg: TIMESLOT_CONFLICT,
+      payload: bookedSlot,
+      bookingAttempt: newEntry,
+    });
   }
   /** END: validation **/
 
@@ -60,6 +64,7 @@ export const getDriverEntries = (currentDriver) => {
 // refactor #5: redundant function?
 export const editEntry = (values, dateObj, callback) => {
   console.log("Editing entry...", values, dateObj);
+  // refactor #5 - simplify
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
   const date = `${week}-${day}-${hour}`;

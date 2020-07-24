@@ -1,5 +1,3 @@
-/** Redux **/
-import { updateDate } from "../../actions/timetableNavigation";
 /** Helpers **/
 import entryValidation from "../../util/entryValidationHelpers";
 
@@ -13,12 +11,7 @@ const SlotHandlers = (dispatch, dateObj, store) => {
     callback(bookedData);
   };
 
-  // update redux - to indicate which current date/timeslot is being selected
-  const handleSlotDate = () => {
-    dispatch(updateDate(dateObj));
-  };
-
-  return { handleStyling, handleSlotDate };
+  return { handleStyling };
 };
 
 export default SlotHandlers;
