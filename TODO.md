@@ -63,6 +63,7 @@
 [] delete confirmation
 [] after creating new entry, switch current driver to that user
 [] edit/new entry - set default option val to current driver
+[] differentiate hour vs date vs time on db - #todo 6
 
 ## Bugs
 

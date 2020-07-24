@@ -1,4 +1,4 @@
-import { TIMESLOT_CONFLICT } from "../util/constants";
+import { TIMESLOT_CONFLICT, RESET_ERROR } from "../util/constants";
 
 const initialState = {
   errorMsg: null,
@@ -9,6 +9,8 @@ const errorReducer = (state = initialState, action) => {
   switch (action.type) {
     case TIMESLOT_CONFLICT:
       return action.payload;
+    case RESET_ERROR:
+      return initialState;
     default:
       return state;
   }

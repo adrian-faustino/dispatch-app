@@ -28,3 +28,4 @@ export const nextWeek_btn = "next";
 /** Error codes */
 // => db error codes
 export const TIMESLOT_CONFLICT = "TIMESLOT_CONFLICT";
+export const RESET_ERROR = "RESET_ERROR";

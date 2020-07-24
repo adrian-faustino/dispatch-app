@@ -4,21 +4,22 @@ import "./ErrorPrompt.css";
 /** Reactstrap **/
 import { Button } from "reactstrap";
 /** Redux **/
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 /** Handlers **/
 import ErrorPromptHandlers from "./ErrorPromptHandlers";
 import { TIMESLOT_CONFLICT } from "../../util/constants";
 
 const ErrorPrompt = () => {
   /** Redux **/
+  const dispatch = useDispatch();
   const error = useSelector((state) => state.error);
 
   /** Handlers */
-  const handlers = ErrorPromptHandlers(error);
+  const handlers = ErrorPromptHandlers(dispatch, error);
 
   return (
     <div className="ErrorPrompt__container">
-      <Button close />
+      <Button close onClick={handlers.handleDismiss} />
       <span>{error.errMsg}</span>
 
       {/* display error on timesplot conflict */}

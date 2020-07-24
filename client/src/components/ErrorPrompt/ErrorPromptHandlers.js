@@ -1,9 +1,15 @@
 import React from "react";
 /** Helpers **/
 import { dayToWords } from "../../util/formatHelpers";
-import { TIMESLOT_CONFLICT } from "../../util/constants";
+/** Redux **/
+import { resetError } from "../../actions/errorActions";
 
-const ErrorPromptHandlers = (error) => {
+const ErrorPromptHandlers = (dispatch, error) => {
+  // close error prompt
+  const handleDismiss = () => {
+    dispatch(resetError());
+  };
+
   // return JSX displaying booking conflict
   const renderConflictingBooking = () => {
     // #todo 6
@@ -22,6 +28,7 @@ const ErrorPromptHandlers = (error) => {
 
   return {
     renderConflictingBooking,
+    handleDismiss,
   };
 };
 
