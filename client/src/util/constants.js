@@ -24,3 +24,7 @@ export const DESCRIPTIONS = ["DROP OFF", "PICK UP", "MISC"];
 /** Button inner text **/
 export const prevWeek_btn = "prev";
 export const nextWeek_btn = "next";
+
+/** Error codes */
+// db error codes
+export const ENTRY_TAKEN = "ENTRY_TAKEN";

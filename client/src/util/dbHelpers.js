@@ -1,5 +1,10 @@
 /** DB **/
 import { entries } from "../db/entries";
+/** Constants **/
+import { ENTRY_TAKEN } from "../util/constants";
+/** Helpers **/
+import entryValidation from "../util/entryValidationHelpers";
+const validate = entryValidation();
 
 // ==> CREATE
 
@@ -9,7 +14,13 @@ export const createEntry = (values, dateObj, callback) => {
   const entryID = `${week}-${day}-${hour}`;
   const newEntry = { entryID, description, driver };
 
-  // validate
+  /** BEGIN: validation **/
+  // check to see if taken
+  if (validate.isBooked(dateObj)) {
+    console.error(ENTRY_TAKEN);
+    return callback(null, { errCode: ENTRY_TAKEN });
+  }
+  /** END: validation **/
 
   // update db
   entries[entryID] = newEntry;

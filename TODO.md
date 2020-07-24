@@ -23,7 +23,7 @@
 - CREATE
   [x] new entry with time/description/location/task [] locations...?
 - READ
-  [] display data (schedule) of selected driver
+  [x] display data (schedule) of selected driver
 - UPDATE
   [] on conflicting taks, have option to overwrite
   [x] update existing tasks time/description/location
@@ -47,7 +47,7 @@
 [x] create entries
 [x] show entry data on respective slots
 [x] filter by driver
-[] filter by all
+[x] filter by all
 
 ## Refactor / Todo
 
@@ -60,3 +60,4 @@
 [x] delete button on existing entries
 [] cancel button during edit mode/ create mode
 [] delete confirmation
+[] after creating new entry, switch current driver to that user

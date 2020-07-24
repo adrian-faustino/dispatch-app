@@ -40,12 +40,10 @@ const ControllersHandlers = (setState, dispatch) => {
     return DRIVERS.map((driver, i) => {
       if (i === 0)
         return (
-          <>
-            <DropdownItem key={uuidv4()} onClick={toggleDriver}>
-              {driver}
-            </DropdownItem>
+          <div key={uuidv4()}>
+            <DropdownItem onClick={toggleDriver}>{driver}</DropdownItem>
             <DropdownItem divider />
-          </>
+          </div>
         );
 
       return (
