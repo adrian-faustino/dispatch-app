@@ -14,14 +14,15 @@ const ErrorPromptHandlers = (dispatch, error) => {
   const renderConflictingBooking = () => {
     // #todo 6
     const booking = error.payload;
-    const { hour, description, driver } = booking;
-    const [week, day, _hour] = hour.split("-");
+    console.log("Booking", booking);
+    const { time, description, driver } = booking;
+    const [week, day, hour] = time.split("-");
     console.log("Booked by:", booking);
     return (
       <div>
         {`Week ${week} ${dayToWords(
           day
-        )} ${_hour}h timeslot is booked by ${driver} for ${description}`}
+        )} ${hour}h timeslot is booked by ${driver} for ${description}`}
       </div>
     );
   };

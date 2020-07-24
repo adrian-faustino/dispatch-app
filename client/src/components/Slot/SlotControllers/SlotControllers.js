@@ -12,7 +12,7 @@ const SlotControllers = (props) => {
   };
 
   const handleDelete = () => {
-    deleteEntry(bookedData.entryID, () => {
+    deleteEntry(bookedData.date, () => {
       console.log("Deleted item.");
       // clear booked data
       setBookedData(null);

@@ -11,8 +11,8 @@ const validate = entryValidation();
 export const createEntry = (values, dateObj, callback) => {
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
-  const entryID = `${week}-${day}-${hour}`;
-  const newEntry = { entryID, description, driver };
+  const date = `${week}-${day}-${hour}`;
+  const newEntry = { date, description, driver };
 
   /** BEGIN: validation **/
   // check to see if taken
@@ -24,7 +24,7 @@ export const createEntry = (values, dateObj, callback) => {
   /** END: validation **/
 
   // update db
-  entries[entryID] = newEntry;
+  entries[date] = newEntry;
 
   // after successful entry
   callback(newEntry);
@@ -50,13 +50,11 @@ export const getDriverEntries = (currentDriver) => {
 export const editEntry = (values, dateObj, callback) => {
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
-  const entryID = `${week}-${day}-${hour}`;
-  const newEntry = { entryID, description, driver };
-
-  // validate
+  const date = `${week}-${day}-${hour}`;
+  const newEntry = { date, description, driver };
 
   // update db
-  entries[entryID] = newEntry;
+  entries[date] = newEntry;
 
   // after successful entry
   callback(newEntry);
@@ -64,10 +62,10 @@ export const editEntry = (values, dateObj, callback) => {
 
 // ==> DELETE
 
-export const deleteEntry = (entryID, callback) => {
+export const deleteEntry = (date, callback) => {
   // delete form db
-  console.log("entru id", entryID);
-  delete entries[entryID];
+  console.log("entru id", date);
+  delete entries[date];
   console.log("Entries", entries);
 
   // clear booked data for this slot

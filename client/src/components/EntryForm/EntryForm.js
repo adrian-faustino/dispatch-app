@@ -15,7 +15,7 @@ const EntryForm = ({ handleEntrySuccess, bookedData }) => {
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     // if edit mdoe
     if (bookedData) {
-      editEntry(values, dateObj, handleEntrySuccess);
+      return editEntry(values, dateObj, handleEntrySuccess);
     }
 
     // new entry
