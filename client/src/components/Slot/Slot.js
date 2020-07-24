@@ -8,6 +8,7 @@ import "./Slot.css";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
 import { setError } from "../../actions/errorActions";
+import { setDriver } from "../../actions/driverActions";
 /** Handlers */
 import SlotHandlers from "./SlotHandlers";
 /** npm **/
@@ -53,6 +54,9 @@ const Slot = ({ day, hour }) => {
 
     // close form
     setFormOpen(false);
+
+    // switch current driver to created driver
+    dispatch(setDriver(newEntry.driver));
   };
 
   const handleEntryErr = (errObj) => {

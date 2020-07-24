@@ -1,7 +1,7 @@
 ## Requirements
 
-[] Show where, when, what driver is doing
-[] Show weekly, Sun-Sat
+[x] Show where, when, what driver is doing
+[x] Show weekly, Sun-Sat
 [] create downloadable .csv file with information regarding:
 
 - driver report within 2, 4, 7, 14, 28 day range
@@ -61,9 +61,10 @@
 [x] delete button on existing entries
 [] cancel button during edit mode/ create mode
 [] delete confirmation
-[] after creating new entry, switch current driver to that user
+[x] after creating new entry, switch current driver to that user
 [x] edit entry - set default option val to current driver
 [] differentiate hour vs date vs time on db - #todo 6
+[] successful app feedback
 
 ## Bugs
 
