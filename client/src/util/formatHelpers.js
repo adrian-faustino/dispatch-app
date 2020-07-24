@@ -9,5 +9,5 @@ export const dayToWords = (index) => {
     "Friday",
     "Saturday",
   ];
-  return DAYS[index];
+  return DAYS[parseInt(index)];
 };
