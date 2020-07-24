@@ -9,8 +9,10 @@ import useForm from "../../hooks/useFormHook";
 import { createEntry, editEntry } from "../../util/dbHelpers";
 /** Redux **/
 import { useSelector } from "react-redux";
+/** Reacstrap **/
+import { Button } from "reactstrap";
 
-const EntryForm = ({ handleEntrySuccess, bookedData }) => {
+const EntryForm = ({ handleEntrySuccess, bookedData, setFormOpen }) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     // if edit mdoe
@@ -28,8 +30,15 @@ const EntryForm = ({ handleEntrySuccess, bookedData }) => {
   /** Handlers **/
   const handlers = EntryFormHandlers();
 
+  const handleCloseForm = (e) => {
+    e.preventDefault();
+    setFormOpen(false);
+  };
+
   return (
     <div className="EntryForm__container">
+      <Button close onClick={handleCloseForm} />
+
       <form className="EntryForm__form" onSubmit={handleSubmit}>
         <select
           value={values.driver}

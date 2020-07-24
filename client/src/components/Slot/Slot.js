@@ -81,6 +81,7 @@ const Slot = ({ day, hour }) => {
 
       {formOpen && (
         <EntryForm
+          setFormOpen={setFormOpen}
           bookedData={bookedData}
           handleEntrySuccess={handleEntrySuccess}
         />

@@ -7,11 +7,13 @@ import { deleteEntry } from "../../../util/dbHelpers";
 const SlotControllers = (props) => {
   const { setFormOpen, formOpen, bookedData, setBookedData } = props;
 
-  const handleFormToggle = () => {
+  const handleFormToggle = (e) => {
+    e.preventDefault();
     setFormOpen((state) => !state);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault();
     deleteEntry(bookedData.date, () => {
       console.log("Deleted item.");
       // clear booked data
