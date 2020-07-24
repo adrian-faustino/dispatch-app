@@ -23,8 +23,8 @@ const EntryForm = ({
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     const entryObj = Entry({
       date: dateObjToStringID(dateObj),
-      driver: values.driver,
-      description: values.description,
+      driver: values.driver || bookedData.driver,
+      description: values.description || bookedData.description,
     });
 
     // if edit mdoe

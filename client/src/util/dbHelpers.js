@@ -73,11 +73,9 @@ export const editEntry = (entryObj, callback) => {
 // ==> DELETE
 
 export const deleteEntry = (date, callback) => {
+  console.log("Deleting entry...", date);
   // delete form db
-  console.log("entru id", date);
   delete entries[date];
-  console.log("Entries", entries);
-
   // clear booked data for this slot
   callback(null);
 };
