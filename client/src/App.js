@@ -2,12 +2,13 @@ import React from "react";
 /** Styles **/
 import "./App.css";
 /** Subcomponents **/
-import { Test, Timetable, Controllers } from "./components";
+import { Test, Timetable, Controllers, AppView } from "./components";
 
 function App() {
   return (
     <div className="App">
-      <Test />
+      {/* <Test /> */}
+      <AppView />
       <Controllers />
       <Timetable />
     </div>

@@ -7,6 +7,7 @@ import EntryForm from "../EntryForm/EntryForm";
 import "./Slot.css";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
+import { setError } from "../../actions/errorActions";
 /** Handlers */
 import SlotHandlers from "./SlotHandlers";
 /** npm **/
@@ -56,6 +57,8 @@ const Slot = ({ day, hour }) => {
 
   const handleEntryErr = (errObj) => {
     console.log(errObj.errMsg);
+    // update redux error obj
+    dispatch(setError(errObj));
   };
 
   return (

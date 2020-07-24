@@ -19,8 +19,7 @@ export const createEntry = (values, dateObj, callback) => {
   const bookedSlot = validate.isBooked(dateObj);
   if (bookedSlot) {
     console.error(TIMESLOT_CONFLICT, bookedSlot);
-    return callback(null, { errMsg: TIMESLOT_CONFLICT, bookedSlot });
-    // todo #3 - prompt a modal that displays who is currently taking this slot
+    return callback(null, { errMsg: TIMESLOT_CONFLICT, payload: bookedSlot });
   }
   /** END: validation **/
 
