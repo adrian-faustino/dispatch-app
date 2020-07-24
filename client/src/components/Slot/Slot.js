@@ -17,16 +17,14 @@ const Slot = ({ day, hour }) => {
   /** State **/
   const [bookedData, setBookedData] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
 
   /** Redux **/
   const dispatch = useDispatch();
-  const week = useSelector((state) => state.date.week);
   const store = useSelector((state) => state);
 
   /** Variables **/
   const _day = dayToWords(day);
-  const dateObj = { week, day, hour };
+  const dateObj = { week: store.date.week, day, hour };
 
   /** Hanlders **/
   const handlers = SlotHandlers(dispatch, dateObj, store);

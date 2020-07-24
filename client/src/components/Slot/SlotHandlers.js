@@ -1,10 +1,9 @@
 /** Redux **/
-import { useSelector } from "react-redux";
 import { updateDate } from "../../actions/timetableNavigation";
-import { openForm, closeForm } from "../../actions/entryFormActions";
 /** Helpers **/
 import entryValidation from "../../util/entryValidationHelpers";
 
+// param notes: dateObj is needed here to identify the current slot.
 const SlotHandlers = (dispatch, dateObj, store) => {
   const validation = entryValidation(store.driver);
 

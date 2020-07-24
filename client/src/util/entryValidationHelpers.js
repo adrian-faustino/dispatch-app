@@ -3,7 +3,8 @@ import { entries } from "../db/entries";
 /** Helpers **/
 import { getDriverEntries } from "../util/dbHelpers";
 
-const EntryValidationHelpers = (currentDriver) => {
+const entryValidationHelpers = (currentDriver) => {
+  // if no driver param is provided, use full db
   const filteredDB = currentDriver ? getDriverEntries(currentDriver) : entries;
 
   // check if entry already exists - return entry
@@ -19,4 +20,4 @@ const EntryValidationHelpers = (currentDriver) => {
   };
 };
 
-export default EntryValidationHelpers;
+export default entryValidationHelpers;
