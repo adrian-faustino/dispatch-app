@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 /** Subcomponents **/
 import SlotControllers from "./SlotControllers/SlotControllers";
+import SlotView from "./SlotView/SlotView";
 import EntryForm from "../EntryForm/EntryForm";
 /** Styles **/
 import "./Slot.css";
-/** Helpers **/
-import { dayToWords } from "../../util/formatHelpers";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
 /** Handlers */
@@ -23,7 +22,6 @@ const Slot = ({ day, hour }) => {
   const store = useSelector((state) => state);
 
   /** Variables **/
-  const _day = dayToWords(day);
   const dateObj = { week: store.date.week, day, hour };
 
   /** Hanlders **/
@@ -63,16 +61,9 @@ const Slot = ({ day, hour }) => {
   return (
     <div
       onClick={handlers.handleSlotDate}
-      className={`Slot__container ${_day} ${slotStyles}`}
+      className={`Slot__container wkDay${day} ${slotStyles}`}
     >
-      <div>{`${_day} ${hour} h`}</div>
-
-      {bookedData && (
-        <div>
-          <div>Driver: {bookedData.driver}</div>
-          <div>Description: {bookedData.description}</div>
-        </div>
-      )}
+      <SlotView dateObj={dateObj} bookedData={bookedData} />
 
       <SlotControllers
         setFormOpen={setFormOpen}

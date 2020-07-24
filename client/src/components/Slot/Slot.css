@@ -2,27 +2,27 @@
   background: red;
 }
 
-.Slot__container.Sunday {
+.Slot__container.wkDay0 {
   grid-column: 1;
 }
 
-.Slot__container.Monday {
+.Slot__container.wkDay1 {
   grid-column: 2;
 }
 
-.Slot__container.Tuesday {
+.Slot__container.wkDay2 {
   grid-column: 3;
 }
-.Slot__container.Wednesday {
+.Slot__container.wkDay3 {
   grid-column: 4;
 }
-.Slot__container.Thursday {
+.Slot__container.wkDay4 {
   grid-column: 5;
 }
-.Slot__container.Friday {
+.Slot__container.wkDay5 {
   grid-column: 6;
 }
-.Slot__container.Saturday {
+.Slot__container.wkDay6 {
   grid-column: 7;
 }
 
