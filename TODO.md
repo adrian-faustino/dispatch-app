@@ -65,6 +65,7 @@
 [x] edit entry - set default option val to current driver
 [x] differentiate hour vs date vs time on db
 [] successful app feedback
+[] replace uuidv4
 
 ## Bugs
 

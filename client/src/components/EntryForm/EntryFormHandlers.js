@@ -6,7 +6,7 @@ const EntryFormHandlers = () => {
   // spread drivers array for rendering
   const renderDriverDropdown = () => {
     return DRIVERS.map((driver) => (
-      <option key={driver} value={driver}>
+      <option key={`${driver}-dropdown`} value={driver}>
         {driver}
       </option>
     ));
@@ -15,7 +15,7 @@ const EntryFormHandlers = () => {
   // spread descriptions array for rendering
   const renderDescriptionDropdown = () => {
     return DESCRIPTIONS.map((description) => (
-      <option key={description} value={description}>
+      <option key={`${description}-dropdown`} value={description}>
         {description}
       </option>
     ));

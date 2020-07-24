@@ -47,14 +47,14 @@ const ControllersHandlers = (setState, dispatch, store) => {
     return DRIVERS.map((driver, i) => {
       if (i === 0)
         return (
-          <div key={uuidv4()}>
+          <div key={`${driver}-app`}>
             <DropdownItem onClick={toggleDriver}>{driver}</DropdownItem>
             <DropdownItem divider />
           </div>
         );
 
       return (
-        <DropdownItem key={uuidv4()} onClick={toggleDriver}>
+        <DropdownItem key={`${driver}-${i}`} onClick={toggleDriver}>
           {driver}
         </DropdownItem>
       );
@@ -65,7 +65,7 @@ const ControllersHandlers = (setState, dispatch, store) => {
   const renderWeekNavBtns = () => {
     const btns = [prevWeek_btn, nextWeek_btn];
     return btns.map((btn) => (
-      <button key={btn} onClick={toggleWeek}>
+      <button key={`${btn}-nav`} onClick={toggleWeek}>
         {btn}
       </button>
     ));
