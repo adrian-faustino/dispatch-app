@@ -11,7 +11,7 @@ const ErrorPrompt = () => {
   const error = useSelector((state) => state.error);
 
   return (
-    <div>
+    <div className="ErrorPrompt__container">
       <Button close />
       <span>{error.errMsg}</span>
     </div>

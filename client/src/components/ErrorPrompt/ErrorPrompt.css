@@ -1,0 +1,10 @@
+.ErrorPrompt__container {
+  position: absolute;
+  top: 25vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  height: 25vh;
+  width: 300px;
+  background: lightblue;
+  border-radius: 5px;
+}
