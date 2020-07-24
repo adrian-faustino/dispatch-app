@@ -21,18 +21,19 @@ const EntryForm = ({
 }) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
+    const entryObj = Entry({
+      date: dateObjToStringID(dateObj),
+      driver: values.driver,
+      description: values.description,
+    });
+
     // if edit mdoe
     if (bookedData) {
-      const entryObj = Entry({
-        date: dateObjToStringID(dateObj),
-        driver: values.driver,
-        description: values.description,
-      });
       return editEntry(entryObj, handleEntrySuccess);
     }
 
     // new entry
-    createEntry(values, dateObj, handleEntrySuccess);
+    createEntry(entryObj, handleEntrySuccess);
   });
 
   /** Handlers **/

@@ -14,9 +14,8 @@ const entryValidationHelpers = (currentDriver) => {
       : entries;
 
   // check if entry already exists - return entry
-  const isBooked = (date) => {
-    // note: date serves as ID
-    return filteredDB[date];
+  const isBooked = (dateID) => {
+    return filteredDB[dateID];
   };
 
   return {

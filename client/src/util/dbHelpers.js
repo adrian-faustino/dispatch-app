@@ -59,19 +59,15 @@ export const getDriverEntries = (currentDriver) => {
 // ==> UPDATE
 
 // refactor #5: redundant function?
-export const editEntry = (values, dateObj, callback) => {
-  console.log("Editing entry...", values, dateObj);
-  // refactor #5 - simplify
-  const { week, day, hour } = dateObj;
-  const { driver, description } = values;
-  const date = `${week}-${day}-${hour}`;
-  const newEntry = { date, description, driver };
+export const editEntry = (entryObj, callback) => {
+  console.log("Editing entry...", entryObj);
+  const { date, description, driver } = entryObj;
 
   // update db
-  entries[date] = newEntry;
+  entries[date] = entryObj;
 
   // after successful entry
-  callback(newEntry);
+  callback(entryObj);
 };
 
 // ==> DELETE
