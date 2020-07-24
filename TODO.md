@@ -48,7 +48,7 @@
 [x] show entry data on respective slots
 [x] filter by driver
 [x] filter by all
-[] continue from todo #3 - display conflicting task warning
+[x] display conflicting task warning
 
 ## Refactor / Todo
 
@@ -62,7 +62,7 @@
 [] cancel button during edit mode/ create mode
 [] delete confirmation
 [] after creating new entry, switch current driver to that user
-[] edit/new entry - set default option val to current driver
+[x] edit entry - set default option val to current driver
 [] differentiate hour vs date vs time on db - #todo 6
 
 ## Bugs
