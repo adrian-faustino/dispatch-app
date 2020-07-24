@@ -2,11 +2,13 @@ import React from "react";
 /** Reactstrap */
 import { Button } from "reactstrap";
 
-const SlotControllers = ({ handlers }) => {
+const SlotControllers = ({ setFormOpen, formOpen }) => {
+  const handleFormToggle = () => {
+    setFormOpen((state) => !state);
+  };
+
   return (
-    <div>
-      <Button onClick={handlers.toggleEntryForm}>+</Button>
-    </div>
+    <div>{!formOpen && <Button onClick={handleFormToggle}>+</Button>}</div>
   );
 };
 

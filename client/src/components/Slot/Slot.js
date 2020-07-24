@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 /** Subcomponents **/
 import SlotControllers from "./SlotControllers/SlotControllers";
+import EntryForm from "../EntryForm/EntryForm";
 /** Styles **/
 import "./Slot.css";
 /** Helpers **/
@@ -16,6 +17,8 @@ const Slot = ({ day, hour }) => {
   /** State **/
   const [booked, setBooked] = useState(false);
   const [tempBooked, setTempBooked] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  const [state, setState] = useState({});
 
   /** Redux **/
   const dispatch = useDispatch();
@@ -43,11 +46,23 @@ const Slot = ({ day, hour }) => {
     booked: booked || tempBooked,
   });
 
+  const handleEntrySuccess = () => {
+    console.log("successfully new entry!");
+    // set view cache
+    setTempBooked(true);
+
+    // close form
+    setFormOpen(false);
+  };
+
   return (
     <div className={`Slot__container ${_day} ${slotStyles}`}>
       <div>{`${_day} ${hour} h`}</div>
 
-      <SlotControllers handlers={handlers} />
+      <SlotControllers setFormOpen={setFormOpen} formOpen={formOpen} />
+      {formOpen && (
+        <EntryForm handleEntrySuccess={handleEntrySuccess} dateObj={dateObj} />
+      )}
     </div>
   );
 };

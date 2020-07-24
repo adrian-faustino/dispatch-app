@@ -5,20 +5,21 @@ import "./EntryForm.css";
 import EntryFormHandlers from "./EntryFormHandlers";
 /** Custom hooks */
 import useForm from "../../hooks/useFormHook";
+/** Helpers **/
+import { createEntry } from "../../util/dbHelpers";
 
-const EntryForm = () => {
+const EntryForm = ({ dateObj, handleEntrySuccess }) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
-    console.log("Submitting to db:", values);
-    handleReset();
+    createEntry(values, dateObj, handleEntrySuccess);
   });
 
   /** Handlers **/
   const handlers = EntryFormHandlers();
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="EntryForm__container">
+      <form className="EntryForm__form" onSubmit={handleSubmit}>
         <select defaultValue="DEFAULT" name="driver" onChange={handleChange}>
           <option value="DEFAULT" disabled hidden>
             Choose driver

@@ -20,7 +20,6 @@ const SlotHandlers = (dispatch, dateObj) => {
   };
 
   const toggleEntryForm = () => {
-    console.log("Form is open?", formOpen);
     if (formOpen) {
       return dispatch(closeForm());
     } else {
@@ -32,16 +31,3 @@ const SlotHandlers = (dispatch, dateObj) => {
 };
 
 export default SlotHandlers;
-
-//  // temporary - delete later
-//  const createEntry = () => {
-//   console.log("clicked!");
-//   const time = `${date.week}-${day}-${hour}`;
-//   const description = "Pick up";
-
-//   // update db
-//   entries[time] = { time, description };
-
-//   // set temp view change
-//   setTempIsBooked(true);
-// };

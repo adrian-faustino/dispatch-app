@@ -6,12 +6,10 @@ export const entries = {
     hour: "1-3-19",
     description: "Pick up item A.",
     driver: "Bob",
-    task: "Pick up",
   },
   "1-6-12": {
     hour: "1-6-12",
     description: "Drop off item B.",
     driver: "Alice",
-    task: "Drop off",
   },
 };

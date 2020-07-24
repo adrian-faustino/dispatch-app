@@ -24,7 +24,7 @@ const Timetable = () => {
       <div className="Timetable__slots-container">{handlers.renderSlots()}</div>
 
       {/* render modal for new entry */}
-      {formOpen && <EntryForm />}
+      {/* {formOpen && <EntryForm />} */}
     </div>
   );
 };
