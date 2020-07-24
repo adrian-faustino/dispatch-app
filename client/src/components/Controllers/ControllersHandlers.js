@@ -3,23 +3,30 @@ import React from "react";
 import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
 import { setDriver } from "../../actions/driverActions";
 /** Constants **/
-import { DRIVERS, prevWeek_btn, nextWeek_btn } from "../../util/constants";
+import {
+  DRIVERS,
+  prevWeek_btn,
+  nextWeek_btn,
+  WEEKS,
+} from "../../util/constants";
 /** Reacstrap **/
 import { DropdownItem } from "reactstrap";
 /** npm **/
 import { v4 as uuidv4 } from "uuid";
 
-const ControllersHandlers = (setState, dispatch) => {
+const ControllersHandlers = (setState, dispatch, store) => {
   // update redux - decrease/increase week num
   const toggleWeek = (e) => {
     e.preventDefault();
 
-    // todo: validate so it doesnt go below 0 or 52 (week range)
-
     switch (e.target.innerHTML) {
       case prevWeek_btn:
+        // validate - no below week 0
+        if (store.date.week <= 0) return;
         return dispatch(prevWeek());
       case nextWeek_btn:
+        // validate - now above week 52
+        if (store.date.week >= WEEKS) return;
         return dispatch(nextWeek());
     }
   };

@@ -16,10 +16,10 @@ const Controllers = () => {
 
   /** Redux **/
   const dispatch = useDispatch();
-  const driver = useSelector((state) => state.driver);
+  const store = useSelector((state) => state);
 
   /** Handlers **/
-  const handlers = ControllersHandlers(setState, dispatch);
+  const handlers = ControllersHandlers(setState, dispatch, store);
 
   return (
     <div>
@@ -31,7 +31,7 @@ const Controllers = () => {
         isOpen={state.dropdownOpen}
         toggle={handlers.toggleDropdown}
       >
-        <DropdownToggle caret>{driver}</DropdownToggle>
+        <DropdownToggle caret>{store.driver}</DropdownToggle>
         <DropdownMenu>
           {/* driver options */}
           {handlers.renderDropdownItems()}
