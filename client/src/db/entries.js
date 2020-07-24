@@ -22,4 +22,9 @@ export const entries = {
     description: "PICK UP",
     driver: "Bob",
   },
+  "0-0-0": {
+    hour: "0-0-0",
+    description: "PICK UP",
+    driver: "Chris",
+  },
 };

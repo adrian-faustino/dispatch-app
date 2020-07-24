@@ -1,7 +1,7 @@
 /** DB **/
 import { entries } from "../db/entries";
 /** Constants **/
-import { TIMESLOT_TAKEN } from "../util/constants";
+import { TIMESLOT_CONFLICT } from "../util/constants";
 /** Helpers **/
 import entryValidation from "../util/entryValidationHelpers";
 const validate = entryValidation();
@@ -16,9 +16,10 @@ export const createEntry = (values, dateObj, callback) => {
 
   /** BEGIN: validation **/
   // check to see if taken
-  if (validate.isBooked(dateObj)) {
-    console.error(TIMESLOT_TAKEN);
-    return callback(null, { errCode: TIMESLOT_TAKEN });
+  const bookedSlot = validate.isBooked(dateObj);
+  if (bookedSlot) {
+    console.error(TIMESLOT_CONFLICT, bookedSlot);
+    return callback(null, { errMsg: TIMESLOT_CONFLICT, bookedSlot });
     // todo #3 - prompt a modal that displays who is currently taking this slot
   }
   /** END: validation **/

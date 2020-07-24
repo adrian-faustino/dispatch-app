@@ -44,13 +44,20 @@ const Slot = ({ day, hour }) => {
     booked: bookedData,
   });
 
-  const handleEntrySuccess = (newEntry) => {
+  const handleEntrySuccess = (newEntry, err) => {
+    // handle error
+    if (err) return handleEntryErr(err);
+
     console.log("Successfully updated db:", newEntry);
     // trigger view change
     setBookedData(newEntry);
 
     // close form
     setFormOpen(false);
+  };
+
+  const handleEntryErr = (errObj) => {
+    console.log(errObj.errMsg);
   };
 
   return (

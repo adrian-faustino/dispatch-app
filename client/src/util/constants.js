@@ -27,4 +27,4 @@ export const nextWeek_btn = "next";
 
 /** Error codes */
 // db error codes
-export const TIMESLOT_TAKEN = "TIMESLOT_TAKEN";
+export const TIMESLOT_CONFLICT = "TIMESLOT_CONFLICT";
