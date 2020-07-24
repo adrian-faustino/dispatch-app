@@ -7,12 +7,17 @@ import EntryFormHandlers from "./EntryFormHandlers";
 import useForm from "../../hooks/useFormHook";
 /** Helpers **/
 import { createEntry } from "../../util/dbHelpers";
+/** Redux **/
+import { useSelector } from "react-redux";
 
-const EntryForm = ({ dateObj, handleEntrySuccess }) => {
+const EntryForm = ({ handleEntrySuccess }) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
     createEntry(values, dateObj, handleEntrySuccess);
   });
+
+  /** Redux **/
+  const dateObj = useSelector((state) => state.date);
 
   /** Handlers **/
   const handlers = EntryFormHandlers();

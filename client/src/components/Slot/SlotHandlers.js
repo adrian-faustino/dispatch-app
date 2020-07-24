@@ -4,7 +4,6 @@ import { updateDate } from "../../actions/timetableNavigation";
 import { openForm, closeForm } from "../../actions/entryFormActions";
 /** Helpers **/
 import { isBooked } from "../../util/entryValidationHelpers";
-import { createNewEntry } from "../../util/dbHelpers";
 
 const SlotHandlers = (dispatch, dateObj) => {
   /** Redux **/
@@ -19,6 +18,11 @@ const SlotHandlers = (dispatch, dateObj) => {
     }
   };
 
+  // update redux - to indicate which current date/timeslot is being selected
+  const handleSlotDate = () => {
+    dispatch(updateDate(dateObj));
+  };
+
   const toggleEntryForm = () => {
     if (formOpen) {
       return dispatch(closeForm());
@@ -27,7 +31,7 @@ const SlotHandlers = (dispatch, dateObj) => {
     }
   };
 
-  return { handleStyling, toggleEntryForm };
+  return { handleStyling, handleSlotDate, toggleEntryForm };
 };
 
 export default SlotHandlers;

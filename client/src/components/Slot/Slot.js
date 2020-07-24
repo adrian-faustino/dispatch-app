@@ -47,7 +47,6 @@ const Slot = ({ day, hour }) => {
   });
 
   const handleEntrySuccess = () => {
-    console.log("successfully new entry!");
     // set view cache
     setTempBooked(true);
 
@@ -56,13 +55,15 @@ const Slot = ({ day, hour }) => {
   };
 
   return (
-    <div className={`Slot__container ${_day} ${slotStyles}`}>
+    <div
+      onClick={handlers.handleSlotDate}
+      className={`Slot__container ${_day} ${slotStyles}`}
+    >
       <div>{`${_day} ${hour} h`}</div>
 
       <SlotControllers setFormOpen={setFormOpen} formOpen={formOpen} />
-      {formOpen && (
-        <EntryForm handleEntrySuccess={handleEntrySuccess} dateObj={dateObj} />
-      )}
+
+      {formOpen && <EntryForm handleEntrySuccess={handleEntrySuccess} />}
     </div>
   );
 };
