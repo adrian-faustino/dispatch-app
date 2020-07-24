@@ -32,6 +32,11 @@ const Slot = ({ day, hour }) => {
   useEffect(() => {
     // highlight if slot is booked
     handlers.handleStyling((bookedData) => setBookedData(bookedData));
+
+    return () => {
+      // when week changes, close all forms
+      setFormOpen(false);
+    };
   }, [week]);
 
   // Set styling

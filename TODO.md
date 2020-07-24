@@ -21,7 +21,7 @@
 ## Features
 
 - CREATE
-  [] new entry with time/description/location/task
+  [x] new entry with time/description/location/task [] locations...?
 - READ
   [] display data (schedule) of selected driver
 - UPDATE
@@ -45,7 +45,7 @@
 [x] dropdown to select current driver
 [x] on click - expand form for data entry
 [x] create entries
-[] show entry data on respective slots
+[x] show entry data on respective slots
 
 ## Refactor / Todo
 
@@ -54,3 +54,5 @@
 [x] clean up Slot component
 [x] refactor #3
 [] delete WeekView folder
+[] edit button on existing entries
+[] delete button on existing entries
