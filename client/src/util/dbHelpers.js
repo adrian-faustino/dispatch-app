@@ -9,6 +9,7 @@ const validate = entryValidation();
 // ==> CREATE
 
 export const createEntry = (values, dateObj, callback) => {
+  console.log("Creating entry...", values, dateObj);
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
   const date = `${week}-${day}-${hour}`;
@@ -48,6 +49,7 @@ export const getDriverEntries = (currentDriver) => {
 
 // refactor #5: redundant function?
 export const editEntry = (values, dateObj, callback) => {
+  console.log("Editing entry...", values, dateObj);
   const { week, day, hour } = dateObj;
   const { driver, description } = values;
   const date = `${week}-${day}-${hour}`;

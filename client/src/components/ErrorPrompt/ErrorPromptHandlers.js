@@ -15,8 +15,8 @@ const ErrorPromptHandlers = (dispatch, error) => {
     // #todo 6
     const booking = error.payload;
     console.log("Booking", booking);
-    const { time, description, driver } = booking;
-    const [week, day, hour] = time.split("-");
+    const { date, description, driver } = booking;
+    const [week, day, hour] = date.split("-");
     console.log("Booked by:", booking);
     return (
       <div>

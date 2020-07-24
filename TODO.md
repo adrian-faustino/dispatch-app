@@ -63,7 +63,7 @@
 [] delete confirmation
 [x] after creating new entry, switch current driver to that user
 [x] edit entry - set default option val to current driver
-[] differentiate hour vs date vs time on db - #todo 6
+[x] differentiate hour vs date vs time on db - #todo 6
 [] successful app feedback
 
 ## Bugs
