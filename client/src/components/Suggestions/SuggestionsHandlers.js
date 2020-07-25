@@ -10,7 +10,8 @@ import {
   DAYS,
   HOURS,
 } from "../../util/constants";
-import { dateStrToWords } from "../../util/formatHelpers";
+/** Subcomponents **/
+import SuggestionsControllers from "./SuggestionsControllers";
 
 const SuggestionsHandlers = (dispatch, store) => {
   const dateObj = store.date;
@@ -85,7 +86,9 @@ const SuggestionsHandlers = (dispatch, store) => {
   const renderSuggestions = (arr) => {
     return arr.map((suggestion) => {
       if (!suggestion) return;
-      return <li key={suggestion}>{dateStrToWords(suggestion)}</li>;
+      return (
+        <SuggestionsControllers key={suggestion} suggestion={suggestion} />
+      );
     });
   };
 
