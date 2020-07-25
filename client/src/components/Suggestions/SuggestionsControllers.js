@@ -7,9 +7,7 @@ const SuggestionsControllers = ({ suggestion }) => {
   };
 
   return (
-    <li onClick={handleBookSuggestion}>
-      <div>{dateStrToWords(suggestion)}</div>
-    </li>
+    <option onClick={handleBookSuggestion}>{dateStrToWords(suggestion)}</option>
   );
 };
 

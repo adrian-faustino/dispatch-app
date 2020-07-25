@@ -36,6 +36,8 @@
 - Conflict handling
   [] recommend free time slots in the event of conflict
   [] deployment
+  [] suggestion - suggest days for within that user's availability AND is free time slot
+  [] resource tab (hours worked - pie chart?)
 
 ## Current task (leave todo # here before stepping away)
 
@@ -49,8 +51,7 @@
 [x] filter by driver
 [x] filter by all
 [x] display conflicting task warning
-[x] functions to calc suggestions on date conflict
-[] display suggestions
+[x] display suggestions
 
 ## Refactor / Todo
 
@@ -70,6 +71,7 @@
 [x] replace uuidv4
 [] on hover, display edit/delete buttons
 [] debounce buttons
+[] on suggestion li click, take user to that date
 
 ## Bugs
 

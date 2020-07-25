@@ -40,13 +40,13 @@ const Suggestions = () => {
       <p>How about these nearby timeslots?</p>
 
       <p>Within the same day:</p>
-      <ul>{handlers.renderSuggestions(withinDay)}</ul>
+      <select>{handlers.renderSuggestions(withinDay)}</select>
 
       <p>Within the same week:</p>
-      <ul>{handlers.renderSuggestions(withinWeek)}</ul>
+      <select>{handlers.renderSuggestions(withinWeek)}</select>
 
       <p>Different week:</p>
-      <ul>{handlers.renderSuggestions(differentWeek)}</ul>
+      <select>{handlers.renderSuggestions(differentWeek)}</select>
     </div>
   );
 };
