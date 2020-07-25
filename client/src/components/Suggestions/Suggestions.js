@@ -17,6 +17,7 @@ const Suggestions = () => {
   return (
     <div>
       <p>How about these nearby timeslots?</p>
+      <div>{console.log("Lol!", handlers.calcWithinHour())}</div>
     </div>
   );
 };

@@ -1,46 +1,54 @@
 /** Helpers **/
 import { getOccupiedSlots } from "../../util/dbHelpers";
 import { dateObjToStringID } from "../../util/formatHelpers";
-import { WEEK, DAY, HOUR } from "../../util/constants";
+import {
+  WEEK_SELECTOR,
+  DAY_SELECTOR,
+  HOUR_SELECTOR,
+  WEEKS,
+  DAYS,
+  HOURS,
+} from "../../util/constants";
 
 const SuggestionsHandlers = (dispatch, store) => {
-  // take current date
   const dateObj = store.date;
   const currentDate = dateObjToStringID(dateObj);
-  // get occupied slots
   const occupiedSlots = getOccupiedSlots();
-  console.log("Current date:", currentDate);
-  console.log("Ahead date:", aheadDate(currentDate, WEEK, 3));
 
-  // with filtered db, check slots for
-  for (let date of occupiedSlots) {
-    const [week, day, hour] = date.split("-");
-  }
-  // later today (1 hour or before)
+  // suggestions within same day
   const calcWithinHour = () => {
-    const
-    const result = ['ahead', 'behind'];
+    let breaker = HOURS;
+    let delta = 1;
 
-    result.map(type => {
-      switch(type) {
-        case 'ahead':
-          if ()
-          return
+    const results = ["ahead", "behind"].map((type) => {
+      let suggestion;
+      switch (type) {
+        case "ahead":
+          suggestion = aheadDate(currentDate, HOUR_SELECTOR, delta);
+          while (occupiedSlots.includes(suggestion)) {
+            suggestion = aheadDate(currentDate, HOUR_SELECTOR, delta);
+            delta++;
+            breaker--;
+            if (breaker === 0) break;
+          }
+          delta = 1;
+          return suggestion;
+        case "behind":
+          suggestion = behindDate(currentDate, HOUR_SELECTOR, delta);
+          while (occupiedSlots.includes(suggestion)) {
+            suggestion = behindDate(currentDate, HOUR_SELECTOR, delta);
+            delta++;
+            breaker--;
+            if (breaker === 0) break;
+          }
+          delta = 1;
+          return suggestion;
       }
-    })
-  }
+    });
+    return results;
+  };
 
-  // return +/- 1 hour
-  // const calcWithinHour = () => {
-  //   const currentHour = dateObj.hour;
-  //   const hourAhead = dateObj
-  // }
-
-  // later this week
-
-  // next week
-
-  return {};
+  return { calcWithinHour };
 };
 
 export default SuggestionsHandlers;
@@ -48,13 +56,47 @@ export default SuggestionsHandlers;
 // function that takes a date string and increases the 'week' or 'day' or 'hour' - return string
 function aheadDate(dateStr, selector, delta) {
   const [week, day, hour] = dateStr.split("-").map((e) => parseInt(e));
+  let newDate;
 
   switch (selector) {
-    case WEEK:
-      return `${week + delta}-${day}-${hour}`;
-    case DAY:
-      return `${week}-${day + delta}-${hour}`;
-    case HOUR:
-      return `${week}-${day}-${hour + delta}`;
+    case WEEK_SELECTOR:
+      if (week + delta > WEEKS) return dateStr;
+      newDate = `${week + delta}-${day}-${hour}`;
+    case DAY_SELECTOR:
+      if (day + delta > DAYS) return dateStr;
+      newDate = `${week}-${day + delta}-${hour}`;
+    case HOUR_SELECTOR:
+      if (hour + delta > HOURS) return dateStr;
+      newDate = `${week}-${day}-${hour + delta}`;
+  }
+  return newDate;
+}
+
+function behindDate(dateStr, selector, delta) {
+  const [week, day, hour] = dateStr.split("-").map((e) => parseInt(e));
+  let newDate;
+
+  switch (selector) {
+    case WEEK_SELECTOR:
+      if (week - delta > WEEKS) return dateStr;
+      newDate = `${week - delta}-${day}-${hour}`;
+    case DAY_SELECTOR:
+      if (day - delta > DAYS) return dateStr;
+      newDate = `${week}-${day - delta}-${hour}`;
+    case HOUR_SELECTOR:
+      if (hour - delta > HOURS) return dateStr;
+      newDate = `${week}-${day}-${hour - delta}`;
+  }
+  return newDate;
+}
+
+function setBreaker(selector) {
+  switch (selector) {
+    case WEEK_SELECTOR:
+      return WEEKS;
+    case DAY_SELECTOR:
+      return DAYS;
+    case HOUR_SELECTOR:
+      return HOURS;
   }
 }
