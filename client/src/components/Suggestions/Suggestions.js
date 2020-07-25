@@ -5,6 +5,12 @@ import "./Suggestions.css";
 import SuggestionsHandlers from "./SuggestionsHandlers";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
+/** Constants **/
+import {
+  WEEK_SELECTOR,
+  DAY_SELECTOR,
+  HOUR_SELECTOR,
+} from "../../util/constants";
 
 const Suggestions = () => {
   /** Redux **/
@@ -14,10 +20,13 @@ const Suggestions = () => {
   /** Handlers **/
   const handlers = SuggestionsHandlers(dispatch, store);
 
+  console.log("Within same day", handlers.generateSuggestions(HOUR_SELECTOR));
+  console.log("Within same week", handlers.generateSuggestions(DAY_SELECTOR));
+  console.log("Different week", handlers.generateSuggestions(WEEK_SELECTOR));
+
   return (
     <div>
       <p>How about these nearby timeslots?</p>
-      <div>{console.log("Lol!", handlers.calcWithinHour())}</div>
     </div>
   );
 };

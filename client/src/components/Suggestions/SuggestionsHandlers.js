@@ -48,7 +48,41 @@ const SuggestionsHandlers = (dispatch, store) => {
     return results;
   };
 
-  return { calcWithinHour };
+  const generateSuggestions = (selector) => {
+    let breaker = setBreaker(selector);
+    let delta = 1;
+    console.log("Your breaker is", breaker);
+    console.log("Your selector is", selector);
+
+    const results = ["ahead", "behind"].map((type) => {
+      let suggestion;
+      switch (type) {
+        case "ahead":
+          suggestion = aheadDate(currentDate, selector, delta);
+          while (occupiedSlots.includes(suggestion)) {
+            suggestion = aheadDate(currentDate, selector, delta);
+            delta++;
+            breaker--;
+            if (breaker === 0) break;
+          }
+          delta = 1;
+          return suggestion;
+        case "behind":
+          suggestion = behindDate(currentDate, selector, delta);
+          while (occupiedSlots.includes(suggestion)) {
+            suggestion = behindDate(currentDate, selector, delta);
+            delta++;
+            breaker--;
+            if (breaker === 0) break;
+          }
+          delta = 1;
+          return suggestion;
+      }
+    });
+    return results;
+  };
+
+  return { calcWithinHour, generateSuggestions };
 };
 
 export default SuggestionsHandlers;
@@ -62,12 +96,15 @@ function aheadDate(dateStr, selector, delta) {
     case WEEK_SELECTOR:
       if (week + delta > WEEKS) return dateStr;
       newDate = `${week + delta}-${day}-${hour}`;
+      break;
     case DAY_SELECTOR:
       if (day + delta > DAYS) return dateStr;
       newDate = `${week}-${day + delta}-${hour}`;
+      break;
     case HOUR_SELECTOR:
       if (hour + delta > HOURS) return dateStr;
       newDate = `${week}-${day}-${hour + delta}`;
+      break;
   }
   return newDate;
 }
@@ -78,18 +115,22 @@ function behindDate(dateStr, selector, delta) {
 
   switch (selector) {
     case WEEK_SELECTOR:
-      if (week - delta > WEEKS) return dateStr;
+      if (week - delta < 0) return dateStr;
       newDate = `${week - delta}-${day}-${hour}`;
+      break;
     case DAY_SELECTOR:
-      if (day - delta > DAYS) return dateStr;
+      if (day - delta < 0) return dateStr;
       newDate = `${week}-${day - delta}-${hour}`;
+      break;
     case HOUR_SELECTOR:
-      if (hour - delta > HOURS) return dateStr;
+      if (hour - delta < 0) return dateStr;
       newDate = `${week}-${day}-${hour - delta}`;
+      break;
   }
   return newDate;
 }
 
+// limits max number of loops when calculating suggestion
 function setBreaker(selector) {
   switch (selector) {
     case WEEK_SELECTOR:
