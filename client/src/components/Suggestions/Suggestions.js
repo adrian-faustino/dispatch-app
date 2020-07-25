@@ -11,12 +11,15 @@ import {
   DAY_SELECTOR,
   HOUR_SELECTOR,
 } from "../../util/constants";
+/** Subcomponents **/
+import SuggestionsControllers from "./SuggestionsControllers";
 
 const Suggestions = () => {
   /** State **/
   const [withinDay, setWithinDay] = useState([]);
   const [withinWeek, setWithinWeek] = useState([]);
   const [differentWeek, setDifferentWeek] = useState([]);
+  const suggestions = { withinDay, withinWeek, differentWeek };
 
   /** Redux **/
   const dispatch = useDispatch();
@@ -39,14 +42,7 @@ const Suggestions = () => {
     <div>
       <p>How about these nearby timeslots?</p>
 
-      <p>Within the same day:</p>
-      <select>{handlers.renderSuggestions(withinDay)}</select>
-
-      <p>Within the same week:</p>
-      <select>{handlers.renderSuggestions(withinWeek)}</select>
-
-      <p>Different week:</p>
-      <select>{handlers.renderSuggestions(differentWeek)}</select>
+      <SuggestionsControllers suggestions={suggestions} />
     </div>
   );
 };

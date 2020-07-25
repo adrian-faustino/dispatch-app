@@ -1,13 +1,30 @@
 import React from "react";
 import { dateStrToWords } from "../../util/formatHelpers";
+/** Handlers **/
+import SuggestionsHandlers from "./SuggestionsHandlers";
+/** Redux **/
+import { useSelector, useDispatch } from "react-redux";
 
-const SuggestionsControllers = ({ suggestion }) => {
-  const handleBookSuggestion = () => {
-    console.log("Booking", suggestion);
-  };
+const SuggestionsControllers = ({ suggestions }) => {
+  const { withinDay, withinWeek, differentWeek } = suggestions;
+  /** Redux **/
+  const store = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  /** Handlers **/
+  const handlers = SuggestionsHandlers(dispatch, store);
 
   return (
-    <option onClick={handleBookSuggestion}>{dateStrToWords(suggestion)}</option>
+    <section>
+      <p>Within the same day:</p>
+      {handlers.renderSuggestions(withinDay)}
+
+      <p>Within the same week:</p>
+      {handlers.renderSuggestions(withinWeek)}
+
+      <p>Different week:</p>
+      {handlers.renderSuggestions(differentWeek)}
+    </section>
   );
 };
 
