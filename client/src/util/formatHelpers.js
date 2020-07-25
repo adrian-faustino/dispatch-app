@@ -18,3 +18,12 @@ export const dateObjToStringID = (dateObj) => {
   const { week, day, hour } = dateObj;
   return `${week}-${day}-${hour}`;
 };
+
+// convert string 'w-d-y' to words
+export const dateStrToWords = (dateStr) => {
+  if (!dateStr) return;
+  const [week, day, hour] = dateStr.split("-");
+  return `Week ${week}: ${dayToWords(day)}, ${hour}h`;
+};
+
+// todo: have an hour formatter

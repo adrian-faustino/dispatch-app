@@ -58,6 +58,11 @@ export const getDriverEntries = (currentDriver) => {
   return filteredByDriver;
 };
 
+// return obj with arrays of occupied dates
+export const getOccupiedSlots = () => {
+  return Object.keys(entries);
+};
+
 // ==> UPDATE
 
 export const editEntry = (entryObj, callback) => {

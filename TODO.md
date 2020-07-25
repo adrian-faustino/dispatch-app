@@ -49,6 +49,8 @@
 [x] filter by driver
 [x] filter by all
 [x] display conflicting task warning
+[x] functions to calc suggestions on date conflict
+[] display suggestions
 
 ## Refactor / Todo
 
@@ -60,13 +62,16 @@
 [x] edit button on existing entries
 [x] delete button on existing entries
 [x] cancel button during edit mode/ create mode
-[] delete confirmation
+[x] delete confirmation
 [x] after creating new entry, switch current driver to that user
 [x] edit entry - set default option val to current driver
 [x] differentiate hour vs date vs time on db
 [] successful app feedback
 [x] replace uuidv4
+[] on hover, display edit/delete buttons
+[] debounce buttons
 
 ## Bugs
 
 [x] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
+[] when making a conflict and changing only the description and not the driver

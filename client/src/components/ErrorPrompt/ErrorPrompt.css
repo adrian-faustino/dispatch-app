@@ -3,7 +3,7 @@
   top: 25vh;
   left: 50vw;
   transform: translateX(-50%);
-  height: 25vh;
+  height: max-content;
   width: 300px;
   background: lightblue;
   border-radius: 5px;

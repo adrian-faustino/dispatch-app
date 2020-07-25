@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 /** Handlers **/
 import ErrorPromptHandlers from "./ErrorPromptHandlers";
 import { TIMESLOT_CONFLICT } from "../../util/constants";
+import { Suggestions } from "../";
 
 const ErrorPrompt = () => {
   /** Redux **/
@@ -25,6 +26,9 @@ const ErrorPrompt = () => {
       {/* display error on timesplot conflict */}
       {error.errMsg === TIMESLOT_CONFLICT &&
         handlers.renderConflictingBooking()}
+
+      {/* display other time slots suggestions */}
+      {error.errMsg === TIMESLOT_CONFLICT && <Suggestions />}
     </div>
   );
 };

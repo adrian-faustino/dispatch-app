@@ -1,3 +1,4 @@
+import React from "react";
 /** Helpers **/
 import { getOccupiedSlots } from "../../util/dbHelpers";
 import { dateObjToStringID } from "../../util/formatHelpers";
@@ -9,6 +10,7 @@ import {
   DAYS,
   HOURS,
 } from "../../util/constants";
+import { dateStrToWords } from "../../util/formatHelpers";
 
 const SuggestionsHandlers = (dispatch, store) => {
   const dateObj = store.date;
@@ -51,8 +53,6 @@ const SuggestionsHandlers = (dispatch, store) => {
   const generateSuggestions = (selector) => {
     let breaker = setBreaker(selector);
     let delta = 1;
-    console.log("Your breaker is", breaker);
-    console.log("Your selector is", selector);
 
     const results = ["ahead", "behind"].map((type) => {
       let suggestion;
@@ -82,7 +82,14 @@ const SuggestionsHandlers = (dispatch, store) => {
     return results;
   };
 
-  return { calcWithinHour, generateSuggestions };
+  const renderSuggestions = (arr) => {
+    return arr.map((suggestion) => {
+      if (!suggestion) return;
+      return <li key={suggestion}>{dateStrToWords(suggestion)}</li>;
+    });
+  };
+
+  return { calcWithinHour, generateSuggestions, renderSuggestions };
 };
 
 export default SuggestionsHandlers;
@@ -94,15 +101,15 @@ function aheadDate(dateStr, selector, delta) {
 
   switch (selector) {
     case WEEK_SELECTOR:
-      if (week + delta > WEEKS) return dateStr;
+      if (week + delta > WEEKS) return null;
       newDate = `${week + delta}-${day}-${hour}`;
       break;
     case DAY_SELECTOR:
-      if (day + delta > DAYS) return dateStr;
+      if (day + delta > DAYS) return null;
       newDate = `${week}-${day + delta}-${hour}`;
       break;
     case HOUR_SELECTOR:
-      if (hour + delta > HOURS) return dateStr;
+      if (hour + delta > HOURS) return null;
       newDate = `${week}-${day}-${hour + delta}`;
       break;
   }
@@ -115,15 +122,15 @@ function behindDate(dateStr, selector, delta) {
 
   switch (selector) {
     case WEEK_SELECTOR:
-      if (week - delta < 0) return dateStr;
+      if (week - delta < 0) return null;
       newDate = `${week - delta}-${day}-${hour}`;
       break;
     case DAY_SELECTOR:
-      if (day - delta < 0) return dateStr;
+      if (day - delta < 0) return null;
       newDate = `${week}-${day - delta}-${hour}`;
       break;
     case HOUR_SELECTOR:
-      if (hour - delta < 0) return dateStr;
+      if (hour - delta < 0) return null;
       newDate = `${week}-${day}-${hour - delta}`;
       break;
   }

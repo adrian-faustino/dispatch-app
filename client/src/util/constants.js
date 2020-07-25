@@ -39,3 +39,9 @@ export const ENTRY_CREATE_200 = "ENTRY_CREATE_200";
 export const ENTRY_UPDATE_200 = "ENTRY_UPDATE_200";
 export const ENTRY_DELETE_200 = "ENTRY_DELETE_200";
 export const ENTRY_OVERWRITE_200 = "ENTRY_OVERWRITE_200";
+
+/** Suggestions.js **/
+// constants used for helping calculate suggestions (selectors param)
+export const WEEK_SELECTOR = "WEEK_SELECTOR";
+export const DAY_SELECTOR = "DAY_SELECTOR";
+export const HOUR_SELECTOR = "HOUR_SELECTOR";

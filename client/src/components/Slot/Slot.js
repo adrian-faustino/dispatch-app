@@ -64,15 +64,20 @@ const Slot = ({ day, hour }) => {
   };
 
   return (
-    <div className={`Slot__container wkDay${day} ${slotStyles}`}>
+    <div
+      onClick={handlers.handleSlotClick}
+      className={`Slot__container wkDay${day} ${slotStyles}`}
+    >
       <SlotView dateObj={dateObj} bookedData={bookedData} />
 
-      <SlotControllers
-        setFormOpen={setFormOpen}
-        formOpen={formOpen}
-        bookedData={bookedData}
-        setBookedData={setBookedData}
-      />
+      {!formOpen && (
+        <SlotControllers
+          setFormOpen={setFormOpen}
+          formOpen={formOpen}
+          bookedData={bookedData}
+          setBookedData={setBookedData}
+        />
+      )}
 
       {formOpen && (
         <EntryForm
