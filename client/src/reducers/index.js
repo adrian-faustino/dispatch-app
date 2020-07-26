@@ -4,6 +4,7 @@ import driverReducer from "./driverReducer";
 import entryFormReducer from "./entryFormReducer";
 import errorReducer from "./errorReducer";
 import appViewReducer from "./appViewReducer";
+import slideInReducer from "./slideInReducer";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
   entryForm: entryFormReducer,
   error: errorReducer,
   appView: appViewReducer,
+  slideInToggled: slideInReducer,
 });
 
 export default allReducers;

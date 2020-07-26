@@ -3,8 +3,18 @@ import React, { useState } from "react";
 import "./Nav.css";
 /** Subcomponents **/
 import NavControllers from "./NavControllers";
+/** Redux **/
+import { useSelector, useDispatch } from "react-redux";
+/** Handlers **/
+import NavHandlers from "./NavHandlers";
 
 const Nav = () => {
+  /** Redux **/
+  const store = useSelector((state) => state);
+  const dispatch = useDispatch();
+  /** Handlers **/
+  const handlers = NavHandlers(dispatch);
+
   return (
     <div>
       <div className="Nav__navbar">

@@ -7,6 +7,7 @@ export const PREV_WEEK = "PREV_WEEK";
 export const UPDATE_DATE = "UPDATE_DATE";
 export const SET_DRIVER = "SET_DRIVER";
 export const SET_APP_VIEW = "SET_APP_VIEW";
+export const TOGGLE_SLIDE_IN = "TOGGLE_SLIDE_IN";
 
 /** App Views **/
 export const DRIVERS_VIEW = "DRIVERS_VIEW";
