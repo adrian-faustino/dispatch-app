@@ -4,8 +4,8 @@ import { updateAppView } from "../../actions/appViewActions";
 import { APP_VIEWS } from "../../util/constants";
 
 const NavHandlers = (dispatch) => {
-  const handleChangeView = () => {
-    dispatch(updateAppView("REPORT_VIEW"));
+  const handleChangeView = (view) => {
+    dispatch(updateAppView(view));
   };
 
   const renderNavItems = () => {
