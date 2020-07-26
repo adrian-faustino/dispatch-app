@@ -43,3 +43,7 @@ code {
 .large-text {
   font-size: 30px;
 }
+
+.slide-in-open {
+  padding-left: var(--slide-in-width);
+}
