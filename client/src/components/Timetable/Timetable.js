@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 /** Styles **/
 import "./Timetable.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";

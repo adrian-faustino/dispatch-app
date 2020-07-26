@@ -16,7 +16,7 @@ code {
 :root {
   --base-color: #3d8aa8;
   --navbar-height: 8vh;
-  --slide-in-width: 17vw;
+  --slide-in-width: 240px;
 }
 
 /** Offsets **/
