@@ -71,9 +71,14 @@
 [x] replace uuidv4
 [] on hover, display edit/delete buttons
 [] debounce buttons
-[] on suggestion li click, take user to that date
+[] unhandled task list -> allocate drivers (ability to create task)
+[] driver availability
+[] color code by user
 
 ## Bugs
 
 [x] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
 [] when making a conflict and changing only the description and not the driver
+
+[] create a butotn that submits new option dropdown (Button contents changes depending on...)
+"Book 0-2-1-" "Book 0-2-1-" etc

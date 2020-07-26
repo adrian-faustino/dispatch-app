@@ -11,8 +11,17 @@ import {
   HOURS,
 } from "../../util/constants";
 import { dateStrToWords } from "../../util/formatHelpers";
+/** Reactstrap **/
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
+/** Redux **/
+import { updateDate } from "../../actions/timetableNavigation";
 
-const SuggestionsHandlers = (dispatch, store) => {
+const SuggestionsHandlers = (dispatch, store, setState) => {
   const dateObj = store.date;
   const currentDate = dateObjToStringID(dateObj);
   const occupiedSlots = getOccupiedSlots();
@@ -82,17 +91,23 @@ const SuggestionsHandlers = (dispatch, store) => {
     return results;
   };
 
+  const handleSelectOption = (suggestionObj) => {
+    console.log("date obj", suggestionObj);
+    setState((state) => ({ ...state, selectedSuggestion: suggestionObj }));
+  };
+
   const renderSuggestions = (suggestions) => {
-    const options = suggestions.map((suggestion) => {
+    return suggestions.map((suggestion) => {
       if (!suggestion) return;
       return (
-        <option key={`${suggestion}-suggestion`}>
+        <DropdownItem
+          onClick={() => handleSelectOption(suggestion)}
+          key={`${suggestion}-suggestion`}
+        >
           {dateStrToWords(suggestion)}
-        </option>
+        </DropdownItem>
       );
     });
-
-    return <select>{options}</select>;
   };
 
   return { calcWithinHour, generateSuggestions, renderSuggestions };

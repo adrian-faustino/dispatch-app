@@ -26,4 +26,10 @@ export const dateStrToWords = (dateStr) => {
   return `Week ${week}: ${dayToWords(day)}, ${hour}h`;
 };
 
+// convert date obj to words
+export const dateObjToWords = (dateObj) => {
+  console.log("date obj!!", dateObj);
+  return dateStrToWords(dateObjToStringID(dateObj));
+};
+
 // todo: have an hour formatter
