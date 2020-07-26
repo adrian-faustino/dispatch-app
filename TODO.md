@@ -34,10 +34,15 @@
 ## Stretch
 
 - Conflict handling
-  [] recommend free time slots in the event of conflict
+  [x] recommend free time slots in the event of conflict
   [] deployment
   [] suggestion - suggest days for within that user's availability AND is free time slot
-  [] resource tab (hours worked - pie chart?)
+  [] resource tab (hours worked - pie chart/line graph)
+  [] on hover, display edit/delete buttons
+  [] debounce buttons
+  [] unhandled task list -> allocate drivers (ability to create task)
+  [] driver availability
+  [] color code by user
 
 ## Current task (leave todo # here before stepping away)
 
@@ -67,20 +72,12 @@
 [x] after creating new entry, switch current driver to that user
 [x] edit entry - set default option val to current driver
 [x] differentiate hour vs date vs time on db
-[] successful app feedback
 [x] replace uuidv4
-[] on hover, display edit/delete buttons
-[] debounce buttons
-[] unhandled task list -> allocate drivers (ability to create task)
-[] driver availability
-[] color code by user
+[] use constants for basic buttons "delete, edit, submit"
+[] feedback - on success/error
 
 ## Bugs
 
 [x] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
 [] when making a conflict and changing only the description and not the driver
-
-[] create a butotn that submits new option dropdown (Button contents changes depending on...)
-"Book 0-2-1-" "Book 0-2-1-" etc
-[] use consant for "delete btn, edit_btn" etc
 [] delete confirm view does not close when changing weeks
