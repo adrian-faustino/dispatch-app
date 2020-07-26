@@ -33,6 +33,7 @@
   height: 100vh;
   background: rgba(128, 128, 128, 0.804);
   text-align: left;
+  z-index: 30;
 }
 
 .Nav__slide-in-ul {

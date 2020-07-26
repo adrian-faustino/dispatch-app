@@ -22,7 +22,14 @@ code {
   --slide-in-width: 17vw;
 }
 
-.navbar-offset {
+/* offset current view with nav bar height and slide in */
+.view-offset {
+  position: absolute;
+  top: var(--navbar-height);
+
+  /* view wrapper */
+  height: 100vh;
+  width: 100vw;
 }
 
 .small-text {

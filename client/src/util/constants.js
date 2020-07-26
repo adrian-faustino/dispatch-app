@@ -9,7 +9,7 @@ export const SET_DRIVER = "SET_DRIVER";
 export const SET_APP_VIEW = "SET_APP_VIEW";
 
 /** App Views **/
-export const DRIVERS_VIEW = "DRIVER_VIEW";
+export const DRIVERS_VIEW = "DRIVERS_VIEW";
 export const TASKS_VIEW = "TASKS_VIEW";
 export const SCHEDULE_VIEW = "SCHEDULE_VIEW";
 export const REPORT_VIEW = "REPORT_VIEW";

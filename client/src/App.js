@@ -2,17 +2,33 @@ import React from "react";
 /** Styles **/
 import "./App.css";
 /** Subcomponents **/
-import { Test, Timetable, Controllers, AppView, Nav } from "./components";
+import { Test, Nav } from "./components";
+/** Views **/
+import { DriversView, TasksView, ScheduleView, ReportView } from "./views";
 /** Redux **/
+import { useSelector } from "react-redux";
+/** Actions **/
+import {
+  DRIVERS_VIEW,
+  TASKS_VIEW,
+  SCHEDULE_VIEW,
+  REPORT_VIEW,
+} from "./util/constants";
 
 function App() {
+  /** Redux **/
+  const store = useSelector((state) => state);
+
   return (
     <div className="App">
-      <Test />
       <Nav />
-      <AppView />
-      <Controllers />
-      <Timetable />
+
+      {store.appView === DRIVERS_VIEW && <DriversView />}
+      {store.appView === TASKS_VIEW && <TasksView />}
+      {store.appView === SCHEDULE_VIEW && <ScheduleView />}
+      {store.appView === REPORT_VIEW && <ReportView />}
+
+      {/* <Test /> */}
     </div>
   );
 }
