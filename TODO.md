@@ -73,8 +73,9 @@
 [x] edit entry - set default option val to current driver
 [x] differentiate hour vs date vs time on db
 [x] replace uuidv4
-[] use constants for basic buttons "delete, edit, submit"
+[x] use constants for basic buttons "delete, edit, submit"
 [] feedback - on success/error
+[] change entry form to use bootstrap
 
 ## Bugs
 

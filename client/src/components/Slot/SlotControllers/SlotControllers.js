@@ -4,7 +4,11 @@ import { Button } from "reactstrap";
 /** Helpers **/
 import { deleteEntry } from "../../../util/dbHelpers";
 /** Constants **/
-import { ENTRY_DELETE_200 } from "../../../util/constants";
+import {
+  ENTRY_DELETE_200,
+  edit_btn,
+  delete_btn,
+} from "../../../util/constants";
 
 const SlotControllers = (props) => {
   const { setFormOpen, formOpen, bookedData, setBookedData } = props;
@@ -43,9 +47,9 @@ const SlotControllers = (props) => {
 
       {bookedData && !deleteConfirm && (
         <div>
-          <Button onClick={handleFormToggle}>edit</Button>
+          <Button onClick={handleFormToggle}>{edit_btn}</Button>
           <Button color="danger" onClick={toggleDeleteConfirmation}>
-            delete
+            {delete_btn}
           </Button>
         </div>
       )}
@@ -55,7 +59,7 @@ const SlotControllers = (props) => {
           <p>Are you sure?</p>
           <Button onClick={toggleDeleteConfirmation}>cancel</Button>
           <Button color="danger" onClick={handleDelete}>
-            delete
+            {delete_btn}
           </Button>
         </div>
       )}

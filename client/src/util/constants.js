@@ -25,6 +25,8 @@ export const DESCRIPTIONS = ["DROP OFF", "PICK UP", "MISC"];
 export const prevWeek_btn = "prev";
 export const nextWeek_btn = "next";
 export const submit_btn = "submit";
+export const edit_btn = "edit";
+export const delete_btn = "delete";
 export const defaultSuggestion_btn = "Choose available timeslot";
 
 /** Error codes */
