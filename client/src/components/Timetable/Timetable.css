@@ -1,7 +1,9 @@
 .Timetable__slots-container {
   background: blue;
-  height: 100%;
+  height: max-content;
   width: 100%;
   display: grid;
   grid-auto-flow: column;
+
+  overflow: scroll;
 }

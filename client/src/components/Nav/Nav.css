@@ -27,13 +27,13 @@
 }
 
 .Nav__slide-in {
-  position: fixed;
-  top: var(--navbar-height);
-  min-width: max-content;
+  position: relative;
+  top: 0;
+  margin-top: var(--navbar-height);
+  width: min-content;
   height: 100vh;
   background: rgba(128, 128, 128, 0.804);
   text-align: left;
-  z-index: 30;
 }
 
 .Nav__slide-in-ul {
