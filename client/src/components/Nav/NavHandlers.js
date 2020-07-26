@@ -3,8 +3,10 @@ import React from "react";
 import { updateAppView } from "../../actions/appViewActions";
 import { APP_VIEWS } from "../../util/constants";
 
-const NavHandlers = (dispatch) => {
+const NavHandlers = (dispatch, store) => {
   const handleChangeView = (view) => {
+    // prevent unnecessary update
+    if (store.APP_VIEWS === view) return;
     dispatch(updateAppView(view));
   };
 
