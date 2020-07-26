@@ -1,7 +1,13 @@
 import React from "react";
+/** Redux **/
+import { useSelector } from "react-redux";
 
 const DriversView = () => {
-  return <div className="view-offset">drivers view</div>;
+  /** Redux **/
+  const store = useSelector((state) => state);
+  const navToggledStyle = store.slideInToggled && "nav-toggled";
+
+  return <div className={`view-offset ${navToggledStyle}`}>drivers view</div>;
 };
 
 export default DriversView;

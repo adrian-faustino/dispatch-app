@@ -1,7 +1,9 @@
 import React from "react";
 /** Redux **/
 import { updateAppView } from "../../actions/appViewActions";
-import { APP_VIEWS } from "../../util/constants";
+import { toggleSlideIn } from "../../actions/slideInActions";
+/** Constants **/
+import { APP_VIEWS, TOGGLE_SLIDE_IN } from "../../util/constants";
 
 const NavHandlers = (dispatch, store) => {
   const handleChangeView = (view) => {
@@ -10,15 +12,23 @@ const NavHandlers = (dispatch, store) => {
     dispatch(updateAppView(view));
   };
 
+  const handleToggleSlideIn = () => {
+    dispatch(toggleSlideIn(TOGGLE_SLIDE_IN));
+  };
+
   const renderNavItems = () => {
     return APP_VIEWS.map((view) => (
-      <li className="medium-text" onClick={() => handleChangeView(view)}>
+      <li
+        key={`${view}-nav-li`}
+        className="medium-text"
+        onClick={() => handleChangeView(view)}
+      >
         {view}
       </li>
     ));
   };
 
-  return { handleChangeView, renderNavItems };
+  return { handleChangeView, renderNavItems, handleToggleSlideIn };
 };
 
 export default NavHandlers;

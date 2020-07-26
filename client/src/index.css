@@ -12,17 +12,14 @@ code {
     monospace;
 }
 
-/* Constants */
+/** Constants **/
 :root {
-  /* Color scheme */
   --base-color: #3d8aa8;
-
-  /* Dimensions */
   --navbar-height: 8vh;
   --slide-in-width: 17vw;
 }
 
-/* offset current view with nav bar height and slide in */
+/** Offsets **/
 .view-offset {
   margin-top: var(--navbar-height);
 
@@ -31,7 +28,11 @@ code {
   width: 100vw;
   background: purple;
 }
+.nav-toggled {
+  padding-left: var(--slide-in-width);
+}
 
+/** Font **/
 .small-text {
   font-size: 18px;
 }
@@ -42,8 +43,4 @@ code {
 
 .large-text {
   font-size: 30px;
-}
-
-.slide-in-open {
-  padding-left: var(--slide-in-width);
 }

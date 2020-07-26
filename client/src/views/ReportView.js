@@ -1,7 +1,12 @@
-import React from "react";
+import React from "react"; /** Redux **/
+import { useSelector } from "react-redux";
 
 const ReportView = () => {
-  return <div className="view-offset">report view</div>;
+  /** Redux **/
+  const store = useSelector((state) => state);
+  const navToggledStyle = store.slideInToggled && "nav-toggled";
+
+  return <div className={`view-offset ${navToggledStyle}`}>report view</div>;
 };
 
 export default ReportView;
