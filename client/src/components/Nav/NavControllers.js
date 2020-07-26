@@ -3,7 +3,13 @@ import React from "react";
 import "./Nav.css";
 
 const NavControllers = () => {
-  return <div>nav controller</div>;
+  return (
+    <ul className="">
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
+    </ul>
+  );
 };
 
 export default NavControllers;

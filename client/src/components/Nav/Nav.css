@@ -1,13 +1,37 @@
 .Nav__navbar {
+  /* alter self */
+  position: fixed;
+  top: 0;
   height: var(--navbar-height);
   width: 100vw;
   background-color: var(--base-color);
+  padding: 20px;
+  z-index: 30;
+
+  /* alter children */
+  display: flex;
+  align-items: center;
 }
 .Nav__site-logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  font-style: italic;
+  text-decoration: underline;
 }
 
-.Nav__site-logo {
+.Nav__toggle-btn {
+  height: 30px;
+  width: 40px;
+  margin: 20px;
 }
 
-.Nav__li-container {
+.Nav__slide-in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--slide-in-width);
+  height: 100vh;
+  background: rgba(128, 128, 128, 0.753);
+  z-index: -2;
 }
