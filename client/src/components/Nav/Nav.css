@@ -29,14 +29,16 @@
 .Nav__slide-in {
   position: fixed;
   top: var(--navbar-height);
-  width: var(--slide-in-width);
+  min-width: max-content;
   height: 100vh;
   background: rgba(128, 128, 128, 0.804);
+  text-align: left;
 }
 
 .Nav__slide-in-ul {
-  position: absolute;
-  left: 0;
+  position: relative;
+  /* li dots offset */
+  left: -20px;
   list-style: none;
   text-align: left;
 }
