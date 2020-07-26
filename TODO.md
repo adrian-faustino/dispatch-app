@@ -82,3 +82,5 @@
 
 [] create a butotn that submits new option dropdown (Button contents changes depending on...)
 "Book 0-2-1-" "Book 0-2-1-" etc
+[] use consant for "delete btn, edit_btn" etc
+[] delete confirm view does not close when changing weeks

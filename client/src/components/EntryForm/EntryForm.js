@@ -12,6 +12,8 @@ import { dateObjToStringID } from "../../util/formatHelpers";
 import { Button } from "reactstrap";
 /** Schema **/
 import { Entry } from "../../db/schema/Entry";
+/** Constants **/
+import { submit_btn } from "../../util/constants";
 
 const EntryForm = ({
   handleEntrySuccess,
@@ -69,7 +71,7 @@ const EntryForm = ({
           </option>
           {handlers.renderDescriptionDropdown()}
         </select>
-        <button type="submit">submit</button>
+        <button type="submit">{submit_btn}</button>
       </form>
     </div>
   );

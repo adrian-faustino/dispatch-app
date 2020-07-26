@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dateObjToWords } from "../../util/formatHelpers";
+import { dateStrToWords } from "../../util/formatHelpers";
 /** Handlers **/
 import SuggestionsHandlers from "./SuggestionsHandlers";
 /** Redux **/
@@ -12,6 +12,7 @@ import {
   DropdownItem,
   Button,
 } from "reactstrap";
+import { defaultSuggestion_btn, submit_btn } from "../../util/constants";
 
 const SuggestionsControllers = ({ suggestions }) => {
   const { withinDay, withinWeek, differentWeek } = suggestions;
@@ -19,7 +20,7 @@ const SuggestionsControllers = ({ suggestions }) => {
   /** State **/
   const [state, setState] = useState({
     dropdownOpen: false,
-    selectedSuggestion: {},
+    selectedSuggestion: "",
   });
 
   /** Redux **/
@@ -36,7 +37,11 @@ const SuggestionsControllers = ({ suggestions }) => {
   return (
     <section>
       <Dropdown isOpen={state.dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret>Choose available timeslot</DropdownToggle>
+        <DropdownToggle caret>
+          {state.selectedSuggestion
+            ? dateStrToWords(state.selectedSuggestion)
+            : defaultSuggestion_btn}
+        </DropdownToggle>
         <DropdownMenu>
           <DropdownItem header>Within the same day:</DropdownItem>
           {handlers.renderSuggestions(withinDay)}
@@ -50,7 +55,7 @@ const SuggestionsControllers = ({ suggestions }) => {
           {handlers.renderSuggestions(differentWeek)}
         </DropdownMenu>
       </Dropdown>
-      <Button>{dateObjToWords(state.selectedSuggestion)}</Button>
+      <Button>{submit_btn}</Button>
     </section>
   );
 };

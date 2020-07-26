@@ -28,7 +28,6 @@ export const dateStrToWords = (dateStr) => {
 
 // convert date obj to words
 export const dateObjToWords = (dateObj) => {
-  console.log("date obj!!", dateObj);
   return dateStrToWords(dateObjToStringID(dateObj));
 };
 

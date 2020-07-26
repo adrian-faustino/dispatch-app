@@ -24,6 +24,8 @@ export const DESCRIPTIONS = ["DROP OFF", "PICK UP", "MISC"];
 /** Button inner text **/
 export const prevWeek_btn = "prev";
 export const nextWeek_btn = "next";
+export const submit_btn = "submit";
+export const defaultSuggestion_btn = "Choose available timeslot";
 
 /** Error codes */
 // => db error codes
