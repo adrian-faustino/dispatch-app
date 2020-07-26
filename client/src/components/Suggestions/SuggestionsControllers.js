@@ -28,7 +28,7 @@ const SuggestionsControllers = ({ suggestions }) => {
   const dispatch = useDispatch();
 
   /** Handlers **/
-  const handlers = SuggestionsHandlers(dispatch, store, setState);
+  const handlers = SuggestionsHandlers(dispatch, store, state, setState);
 
   const toggle = () => {
     setState((state) => ({ ...state, dropdownOpen: !state.dropdownOpen }));
@@ -55,7 +55,7 @@ const SuggestionsControllers = ({ suggestions }) => {
           {handlers.renderSuggestions(differentWeek)}
         </DropdownMenu>
       </Dropdown>
-      <Button>{submit_btn}</Button>
+      <Button onClick={handlers.handleSuggestionSubmit}>{submit_btn}</Button>
     </section>
   );
 };

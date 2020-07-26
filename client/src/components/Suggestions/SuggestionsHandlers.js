@@ -1,6 +1,6 @@
 import React from "react";
 /** Helpers **/
-import { getOccupiedSlots } from "../../util/dbHelpers";
+import { getOccupiedSlots, createEntry } from "../../util/dbHelpers";
 import { dateObjToStringID } from "../../util/formatHelpers";
 import {
   WEEK_SELECTOR,
@@ -9,6 +9,7 @@ import {
   WEEKS,
   DAYS,
   HOURS,
+  DRIVERS,
 } from "../../util/constants";
 import { dateStrToWords } from "../../util/formatHelpers";
 /** Reactstrap **/
@@ -19,9 +20,12 @@ import {
   DropdownItem,
 } from "reactstrap";
 /** Redux **/
-import { updateDate } from "../../actions/timetableNavigation";
+import { setDriver } from "../../actions/driverActions";
+import { resetError } from "../../actions/errorActions";
+/** Schema **/
+import { Entry } from "../../db/schema/Entry";
 
-const SuggestionsHandlers = (dispatch, store, setState) => {
+const SuggestionsHandlers = (dispatch, store, state, setState) => {
   const dateObj = store.date;
   const currentDate = dateObjToStringID(dateObj);
   const occupiedSlots = getOccupiedSlots();
@@ -63,7 +67,7 @@ const SuggestionsHandlers = (dispatch, store, setState) => {
     let breaker = setBreaker(selector);
     let delta = 1;
 
-    const results = ["ahead", "behind"].map((type) => {
+    const results = ["behind", "ahead"].map((type) => {
       let suggestion;
       switch (type) {
         case "ahead":
@@ -91,9 +95,27 @@ const SuggestionsHandlers = (dispatch, store, setState) => {
     return results;
   };
 
+  // updates suggestion to selected option
   const handleSelectOption = (suggestionObj) => {
-    console.log("date obj", suggestionObj);
     setState((state) => ({ ...state, selectedSuggestion: suggestionObj }));
+  };
+
+  const handleSuggestionSubmit = (e) => {
+    const date = state.selectedSuggestion;
+    e.preventDefault();
+    const description = store.error.bookingAttempt.description;
+    const driver = store.error.bookingAttempt.driver;
+
+    let entry = Entry({ date, description, driver });
+
+    createEntry(entry, (success, err) => {
+      if (err) return console.error(err.errMsg);
+      else console.log(success.msg);
+      // trigger change view
+      dispatch(setDriver(DRIVERS[0]));
+      // close error
+      dispatch(resetError());
+    });
   };
 
   const renderSuggestions = (suggestions) => {
@@ -110,7 +132,12 @@ const SuggestionsHandlers = (dispatch, store, setState) => {
     });
   };
 
-  return { calcWithinHour, generateSuggestions, renderSuggestions };
+  return {
+    calcWithinHour,
+    generateSuggestions,
+    handleSuggestionSubmit,
+    renderSuggestions,
+  };
 };
 
 export default SuggestionsHandlers;

@@ -19,11 +19,17 @@ export const dateObjToStringID = (dateObj) => {
   return `${week}-${day}-${hour}`;
 };
 
-// convert string 'w-d-y' to words
+// convert string 'w-d-y' to human words
 export const dateStrToWords = (dateStr) => {
   if (!dateStr) return;
   const [week, day, hour] = dateStr.split("-");
   return `Week ${week}: ${dayToWords(day)}, ${hour}h`;
+};
+
+// convert string 'w-d-y' to date Obj
+export const dateStrToObj = (dateStr) => {
+  const [week, day, hour] = dateStr.split("-");
+  return { week, day, hour };
 };
 
 // convert date obj to words
