@@ -41,10 +41,15 @@
   left: -20px;
   list-style: none;
   text-align: left;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .Nav__slide-in-ul > li {
   cursor: pointer;
   margin: 20px 0;
   font-weight: bold;
+}
+
+.Nav__current-view {
+  color: black;
 }

@@ -17,15 +17,18 @@ const NavHandlers = (dispatch, store) => {
   };
 
   const renderNavItems = () => {
-    return APP_VIEWS.map((view) => (
-      <li
-        key={`${view}-nav-li`}
-        className="medium-text"
-        onClick={() => handleChangeView(view)}
-      >
-        {view}
-      </li>
-    ));
+    return APP_VIEWS.map((view) => {
+      let styling = store.appView === view && "Nav__current-view";
+      return (
+        <li
+          key={`${view}-nav-li`}
+          className={`medium-text ${styling}`}
+          onClick={() => handleChangeView(view)}
+        >
+          {view}
+        </li>
+      );
+    });
   };
 
   return { handleChangeView, renderNavItems, handleToggleSlideIn };
