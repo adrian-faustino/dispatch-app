@@ -19,8 +19,20 @@ code {
 
   /* Dimensions */
   --navbar-height: 8vh;
-  --slide-in-width: 18vw;
+  --slide-in-width: 17vw;
 }
 
 .navbar-offset {
+}
+
+.small-text {
+  font-size: 18px;
+}
+
+.medium-text {
+  font-size: 24px;
+}
+
+.large-text {
+  font-size: 30px;
 }

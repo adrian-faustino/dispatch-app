@@ -6,14 +6,13 @@ import "./Nav.css";
 
 const Nav = () => {
   return (
-    <div className="Nav__navbar">
-      <button className="Nav__toggle-btn"></button>
-      {/* todo: change inner text to site name (same constant as tab title) */}
-      <div className="Nav__site-logo">Truck Dispatcher App</div>
-
-      <div className="Nav__slide-in">
-        <NavControllers />
+    <div>
+      <div className="Nav__navbar">
+        <button className="Nav__toggle-btn">wtf</button>
+        <div className="Nav__site-logo large-text">Truck Dispatcher App</div>
       </div>
+      <NavControllers />
+      {/* todo: change inner text to site name (same constant as tab title) */}
     </div>
   );
 };
