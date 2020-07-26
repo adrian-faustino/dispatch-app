@@ -57,6 +57,7 @@
 [x] filter by all
 [x] display conflicting task warning
 [x] display suggestions
+[] create navbar
 
 ## Refactor / Todo
 
