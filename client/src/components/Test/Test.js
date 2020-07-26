@@ -15,6 +15,7 @@ const Test = () => {
   const currentDriver = useSelector((state) => state.driver);
   const dispatch = useDispatch();
   const formOpen = useSelector((state) => state.entryForm);
+  const store = useSelector((state) => state);
 
   const handleIncrement = (e) => {
     e.preventDefault();
@@ -55,6 +56,7 @@ const Test = () => {
       <hr />
       <div>Current driver: {currentDriver}</div>
       <div>Week {date.week}</div>
+      <div>App view: {store.appView}</div>
     </div>
   );
 };

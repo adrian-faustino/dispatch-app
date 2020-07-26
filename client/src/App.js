@@ -3,11 +3,12 @@ import React from "react";
 import "./App.css";
 /** Subcomponents **/
 import { Test, Timetable, Controllers, AppView, Nav } from "./components";
+/** Redux **/
 
 function App() {
   return (
     <div className="App">
-      {/* <Test /> */}
+      <Test />
       <Nav />
       <AppView />
       <Controllers />
