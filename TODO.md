@@ -42,7 +42,9 @@
   [] debounce buttons
   [] unhandled task list -> allocate drivers (ability to create task)
   [] driver availability
-  [x] color code by user
+  - [] show slots that are within driver availability
+  - [] highlight ! bookings that are outside of driver availability
+    [x] color code by user
 
 ## Current task (leave todo # here before stepping away)
 
@@ -58,6 +60,7 @@
 [x] display conflicting task warning
 [x] display suggestions
 [x] create navbar
+[] driver availability (hours and days)
 
 ## Refactor / Todo
 

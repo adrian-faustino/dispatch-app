@@ -11,7 +11,6 @@ const SlotView = ({ dateObj, bookedData }) => {
   useEffect(() => {
     if (bookedData) {
       getDriverData(bookedData.driver, (data) => {
-        console.log("data!", data);
         setDriverData(data);
       });
     }

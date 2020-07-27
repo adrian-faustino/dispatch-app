@@ -21,7 +21,10 @@ const SlotHandlers = (dispatch, dateObj, store) => {
     callback(bookedData);
   };
 
-  return { handleStyling, handleSlotClick };
+  return {
+    handleStyling,
+    handleSlotClick,
+  };
 };
 
 export default SlotHandlers;

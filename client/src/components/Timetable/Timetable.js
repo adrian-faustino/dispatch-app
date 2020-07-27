@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 /** Styles **/
 import "./Timetable.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 /** Handlers **/
 import TimetableHandlers from "./TimetableHandlers";
+/** Redux **/
+import { useSelector } from "react-redux";
 
 const Timetable = () => {
+  /** Redux **/
+  const store = useSelector((state) => state);
+
   /** Handlers **/
-  const handlers = TimetableHandlers();
+  const handlers = TimetableHandlers(store);
+
+  useEffect(() => {
+    handlers.handleGetDriverAvailability();
+  }, [store.driver]);
 
   return (
     <div>
