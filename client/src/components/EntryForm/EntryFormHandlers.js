@@ -10,7 +10,7 @@ import {
 /** Redux **/
 import { setError } from "../../actions/errorActions";
 
-const EntryFormHandlers = (dispatch, values) => {
+const EntryFormHandlers = (dispatch, values, handleChange) => {
   const handleEmptyValue = (errMsg) => {
     console.error(errMsg);
     dispatch(setError({ errMsg, payload: null }));
@@ -25,25 +25,61 @@ const EntryFormHandlers = (dispatch, values) => {
 
   // spread drivers array for rendering
   const renderDriverDropdown = () => {
-    return DRIVERS.map((driver, i) => {
+    const options = DRIVERS.map((driver, i) => {
       // excluse 'All' option
       if (i === 0) return;
       else
         return (
-          <option key={`${driver}-dropdown`} value={driver}>
+          <option
+            className="EntryForm__option"
+            key={`${driver}-dropdown`}
+            value={driver}
+          >
             {driver}
           </option>
         );
     });
+
+    return (
+      <select
+        value={values.driver}
+        defaultValue={"DEFAULT"}
+        name="driver"
+        onChange={handleChange}
+      >
+        <option value="DEFAULT" disabled hidden>
+          Choose driver
+        </option>
+        {options}
+      </select>
+    );
   };
 
   // spread descriptions array for rendering
   const renderDescriptionDropdown = () => {
-    return DESCRIPTIONS.map((description) => (
-      <option key={`${description}-dropdown`} value={description}>
+    const options = DESCRIPTIONS.map((description) => (
+      <option
+        className="EntryForm__option"
+        key={`${description}-dropdown`}
+        value={description}
+      >
         {description}
       </option>
     ));
+
+    return (
+      <select
+        value={values.description}
+        defaultValue={"DEFAULT"}
+        name="description"
+        onChange={handleChange}
+      >
+        <option value="DEFAULT" disabled hidden>
+          Choose description
+        </option>
+        {options}
+      </select>
+    );
   };
 
   return {

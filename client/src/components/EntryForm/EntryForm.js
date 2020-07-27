@@ -21,12 +21,9 @@ import {
 /** Redux **/
 import { useDispatch } from "react-redux";
 
-const EntryForm = ({
-  handleEntrySuccess,
-  bookedData,
-  setFormOpen,
-  dateObj,
-}) => {
+const EntryForm = (props) => {
+  const { handleEntrySuccess, bookedData, setFormOpen, dateObj } = props;
+
   /** State **/
   const initState = bookedData && bookedData;
   const [values, handleChange, handleSubmit, handleReset] = useForm(
@@ -51,7 +48,7 @@ const EntryForm = ({
   const dispatch = useDispatch();
 
   /** Handlers **/
-  const handlers = EntryFormHandlers(dispatch, values);
+  const handlers = EntryFormHandlers(dispatch, values, handleChange);
 
   const handleCloseForm = (e) => {
     e.preventDefault();
@@ -63,29 +60,12 @@ const EntryForm = ({
       <Button close onClick={handleCloseForm} />
 
       <form className="EntryForm__form" onSubmit={handleSubmit}>
-        <select
-          value={values.driver}
-          defaultValue={"DEFAULT"}
-          name="driver"
-          onChange={handleChange}
-        >
-          <option value="DEFAULT" disabled hidden>
-            Choose driver
-          </option>
-          {handlers.renderDriverDropdown()}
-        </select>
+        {/* Driver dropdown */}
+        {handlers.renderDriverDropdown()}
 
-        <select
-          value={values.description}
-          defaultValue={"DEFAULT"}
-          name="description"
-          onChange={handleChange}
-        >
-          <option value="DEFAULT" disabled hidden>
-            Choose description
-          </option>
-          {handlers.renderDescriptionDropdown()}
-        </select>
+        {/* Description dropdown */}
+        {handlers.renderDescriptionDropdown()}
+
         <button type="submit">{submit_btn}</button>
       </form>
     </div>
