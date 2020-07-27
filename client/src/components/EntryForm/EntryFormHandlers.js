@@ -10,10 +10,17 @@ import {
 /** Redux **/
 import { setError } from "../../actions/errorActions";
 
-const EntryFormHandlers = (dispatch) => {
+const EntryFormHandlers = (dispatch, values) => {
   const handleEmptyValue = (errMsg) => {
     console.error(errMsg);
     dispatch(setError({ errMsg, payload: null }));
+  };
+
+  const handleValidation = (successCallback) => {
+    if (!values.driver) return handleEmptyValue(DRIVER_REQUIRED);
+    if (!values.description) return handleEmptyValue(DESCRIPTION_REQUIRED);
+
+    successCallback();
   };
 
   // spread drivers array for rendering
@@ -43,6 +50,7 @@ const EntryFormHandlers = (dispatch) => {
     renderDriverDropdown,
     renderDescriptionDropdown,
     handleEmptyValue,
+    handleValidation,
   };
 };
 

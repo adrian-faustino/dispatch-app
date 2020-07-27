@@ -27,27 +27,23 @@ const EntryForm = ({
   setFormOpen,
   dateObj,
 }) => {
-  let initState = bookedData && bookedData;
-
   /** State **/
+  const initState = bookedData && bookedData;
   const [values, handleChange, handleSubmit, handleReset] = useForm(
     initState,
     () => {
       // validation
-      if (!values.driver) return handlers.handleEmptyValue(DRIVER_REQUIRED);
-      if (!values.description)
-        return handlers.handleEmptyValue(DESCRIPTION_REQUIRED);
+      handlers.handleValidation(() => {
+        // new submission
+        const entryObj = Entry({
+          date: dateObjToStringID(dateObj),
+          driver: values.driver,
+          description: values.description,
+        });
 
-      const entryObj = Entry({
-        date: dateObjToStringID(dateObj),
-        driver: values.driver || bookedData.driver,
-        description: values.description || bookedData.description,
+        if (bookedData) return editEntry(entryObj, handleEntrySuccess);
+        else createEntry(entryObj, handleEntrySuccess);
       });
-
-      // if edit mode, use edit function
-      if (bookedData) return editEntry(entryObj, handleEntrySuccess);
-      // else use new entry function
-      else createEntry(entryObj, handleEntrySuccess);
     }
   );
 
@@ -55,7 +51,7 @@ const EntryForm = ({
   const dispatch = useDispatch();
 
   /** Handlers **/
-  const handlers = EntryFormHandlers(dispatch);
+  const handlers = EntryFormHandlers(dispatch, values);
 
   const handleCloseForm = (e) => {
     e.preventDefault();
@@ -68,8 +64,8 @@ const EntryForm = ({
 
       <form className="EntryForm__form" onSubmit={handleSubmit}>
         <select
-          value={values.driver || bookedData.driver}
-          defaultValue={bookedData ? bookedData.driver : "DEFAULT"}
+          value={values.driver}
+          defaultValue={"DEFAULT"}
           name="driver"
           onChange={handleChange}
         >
@@ -80,8 +76,8 @@ const EntryForm = ({
         </select>
 
         <select
-          value={values.description || bookedData.description}
-          defaultValue={bookedData ? bookedData.description : "DEFAULT"}
+          value={values.description}
+          defaultValue={"DEFAULT"}
           name="description"
           onChange={handleChange}
         >
