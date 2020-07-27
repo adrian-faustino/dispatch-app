@@ -22,21 +22,24 @@ const Controllers = () => {
   const handlers = ControllersHandlers(setState, dispatch, store);
 
   return (
-    <div>
+    <div className="Controllers__container">
       {/* week navigation */}
       <div>{handlers.renderWeekNavBtns()}</div>
 
       {/* driver selection dropdown */}
-      <ButtonDropdown
-        isOpen={state.dropdownOpen}
-        toggle={handlers.toggleDropdown}
-      >
-        <DropdownToggle caret>{store.driver}</DropdownToggle>
-        <DropdownMenu>
-          {/* driver options */}
-          {handlers.renderDropdownItems()}
-        </DropdownMenu>
-      </ButtonDropdown>
+      <div className="Controllers__button-dropdown">
+        <span className="small-text">View driver:</span>
+        <ButtonDropdown
+          isOpen={state.dropdownOpen}
+          toggle={handlers.toggleDropdown}
+        >
+          <DropdownToggle caret>{store.driver}</DropdownToggle>
+          <DropdownMenu>
+            {/* driver options */}
+            {handlers.renderDropdownItems()}
+          </DropdownMenu>
+        </ButtonDropdown>
+      </div>
     </div>
   );
 };
