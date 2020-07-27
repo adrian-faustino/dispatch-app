@@ -1,6 +1,7 @@
 import React from "react";
 /** Subcomponents **/
 import { Slot } from "../../components";
+import ColumnRow from "../../components/Slot/SlotView/ColumnRow";
 /** Constants **/
 import { DAYS, HOURS } from "../../util/constants";
 
@@ -9,9 +10,16 @@ const TimetableHandlers = (dispatch) => {
   const renderSlots = () => {
     console.log("Generating slots...");
     const slots = [];
-    for (let day = 0; day < DAYS; day++) {
-      for (let hour = 0; hour < HOURS; hour++) {
-        slots.push(<Slot key={`${day}-${hour}`} day={day} hour={hour} />);
+    for (let day = -1; day < DAYS; day++) {
+      for (let hour = -1; hour < HOURS; hour++) {
+        if (day === -1 || hour === -1)
+          slots.push(
+            <ColumnRow key={`${day}-${hour}-slots`} day={day} hour={hour} />
+          );
+        else
+          slots.push(
+            <Slot key={`${day}-${hour}-slots`} day={day} hour={hour} />
+          );
       }
     }
     return slots;
