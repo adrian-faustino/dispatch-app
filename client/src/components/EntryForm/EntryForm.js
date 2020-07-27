@@ -67,11 +67,11 @@ const EntryForm = (props) => {
       <form className="EntryForm__form" onSubmit={handleSubmit}>
         <div className="SlotView__data-container">
           {/* Driver dropdown */}
-          <span>Driver:</span>
+          <span>Driver</span>
           {handlers.renderDriverDropdown()}
 
           {/* Description dropdown */}
-          <span>Description:</span>
+          <span>Description</span>
           {handlers.renderDescriptionDropdown()}
         </div>
 

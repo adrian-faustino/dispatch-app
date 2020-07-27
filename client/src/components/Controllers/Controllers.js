@@ -28,7 +28,7 @@ const Controllers = () => {
 
       {/* driver selection dropdown */}
       <div className="Controllers__button-dropdown">
-        <span className="small-text">View driver:</span>
+        <span className="small-text">View Driver</span>
         <ButtonDropdown
           isOpen={state.dropdownOpen}
           toggle={handlers.toggleDropdown}
