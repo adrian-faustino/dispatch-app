@@ -7,14 +7,14 @@ import { dayToWords, hourTo12hFormat } from "../../../util/formatHelpers";
 const ColumnRow = ({ day, hour }) => {
   // if day -1, render hours
   const hours = day === -1 && (
-    <div className={`Slot__row-header corner${day}${hour}`}>
+    <div className={`small-text Slot__row-header corner${day}${hour}`}>
       {hourTo12hFormat(hour)}
     </div>
   );
 
   // if hours -1, render days
   const days = hour === -1 && (
-    <div className={`Slot__column-header corner${day}${hour}`}>
+    <div className={`medium-text Slot__column-header corner${day}${hour}`}>
       {dayToWords(day)}
     </div>
   );

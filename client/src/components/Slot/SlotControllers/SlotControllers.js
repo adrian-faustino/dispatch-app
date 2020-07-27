@@ -9,6 +9,8 @@ import {
   edit_btn,
   delete_btn,
 } from "../../../util/constants";
+/** Styles **/
+import "./SlotControllers.css";
 
 const SlotControllers = (props) => {
   const { setFormOpen, formOpen, bookedData, setBookedData } = props;
@@ -42,7 +44,9 @@ const SlotControllers = (props) => {
   return (
     <div>
       {!formOpen && !bookedData && (
-        <Button onClick={handleFormToggle}>+</Button>
+        <Button className="show-btn-on-hover" onClick={handleFormToggle}>
+          +
+        </Button>
       )}
 
       {bookedData && !deleteConfirm && (

@@ -40,23 +40,33 @@
   grid-column: 8;
 }
 
-/* Column and row header */
+/* BEGIN: Column and row header */
 .Slot__column-header,
 .Slot__row-header {
   height: 100%;
   width: 100%;
+
+  /* center time */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
 }
 
 .Slot__column-header {
   background: grey;
+  font-weight: bold;
 }
 
 .Slot__row-header {
   background: lightblue;
+  font-weight: 500;
 }
 
 /* when day is -1 and hour is -1 */
-.corner-1-1 {
+.Slot__row-header.corner-1-1 {
   background: grey;
   font-size: 0;
 }
+
+/* END: Column and row header */

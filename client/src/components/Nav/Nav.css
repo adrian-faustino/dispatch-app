@@ -38,7 +38,7 @@
 .Nav__slide-in-ul {
   position: relative;
   /* li dots offset */
-  left: -20px;
+  left: -10px;
   list-style: none;
   text-align: left;
   color: rgba(0, 0, 0, 0.6);
