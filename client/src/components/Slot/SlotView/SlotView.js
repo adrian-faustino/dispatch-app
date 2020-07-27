@@ -17,6 +17,7 @@ const SlotView = ({ dateObj, bookedData }) => {
     }
   }, [bookedData]);
 
+  /** Notes: logic for changing color depending on driver color and also if the booking is within their schedule or not **/
   const driverColor_css = driverData && {
     position: "absolute",
     top: 10,
@@ -45,5 +46,3 @@ const SlotView = ({ dateObj, bookedData }) => {
 };
 
 export default SlotView;
-
-/** Notes: logic for changing color depending on driver color and also if the booking is within their schedule or not **/

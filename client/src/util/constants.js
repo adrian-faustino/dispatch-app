@@ -28,6 +28,7 @@ export const HOURS = 24;
 
 /** Data required for entries */
 // => important: index 0 needs to be 'All' for ControllersHandlers.js
+// STRETCH: Using as temp data source to add/delete users
 export const DRIVERS = ["All", "Anna", "Bob", "Chris"];
 export const DESCRIPTIONS = ["DROP OFF", "PICK UP", "MISC"];
 

@@ -88,9 +88,9 @@
 ## Todo draft
 
 - create db with user availability
-  -seed
-  -display
+  - seed
+- display
   - display availability
-    -add function to add driver
-    -display, edit, delete driver
-    -clear availability db too
+    - add function to add driver
+    - display, edit, delete driver
+    - clear availability db too
