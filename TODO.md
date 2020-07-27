@@ -42,7 +42,7 @@
   [] debounce buttons
   [] unhandled task list -> allocate drivers (ability to create task)
   [] driver availability
-  - [] show slots that are within driver availability
+  - [x] show slots that are within driver availability
   - [] highlight ! bookings that are outside of driver availability
     [x] color code by user
 
@@ -81,6 +81,7 @@
 [] feedback - on success/error
 [x] change entry form to use bootstrap
 [] change vh to fixed height (CSS)
+[] add radio button to toggle highlight on user availability
 
 ## Bugs
 

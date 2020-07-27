@@ -9,7 +9,7 @@ import { getDriverData } from "../../util/driverDbHelpers";
 
 const TimetableHandlers = (store) => {
   /** State **/
-  const [driverAvailability, setDriverAvailability] = useState([]);
+  const [driverAvailability, setDriverAvailability] = useState(null);
 
   // get availability for current driver
   const handleGetDriverAvailability = () => {
@@ -20,19 +20,35 @@ const TimetableHandlers = (store) => {
     });
   };
 
+  const isWithinAvailability = (day, hour) => {
+    if (!driverAvailability) return;
+
+    const { day_availability, hour_availability } = driverAvailability;
+    if (hour_availability.includes(hour)) return true;
+    else return false;
+  };
+
   // return list of JSX Slot components
   const renderSlots = () => {
     console.log("Generating slots...");
     const slots = [];
     for (let day = -1; day < DAYS; day++) {
       for (let hour = -1; hour < HOURS; hour++) {
+        // pass bool if slot is within current driver availability
+        const bookableDay = isWithinAvailability(day, hour);
+
         if (day === -1 || hour === -1)
           slots.push(
             <ColumnRow key={`${day}-${hour}-slots`} day={day} hour={hour} />
           );
         else
           slots.push(
-            <Slot key={`${day}-${hour}-slots`} day={day} hour={hour} />
+            <Slot
+              bookableDay={bookableDay}
+              key={`${day}-${hour}-slots`}
+              day={day}
+              hour={hour}
+            />
           );
       }
     }

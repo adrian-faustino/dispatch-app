@@ -16,7 +16,7 @@ import classNames from "classnames";
 /** Constants **/
 import { ENTRY_UPDATE_200 } from "../../util/constants";
 
-const Slot = ({ day, hour }) => {
+const Slot = ({ day, hour, bookableDay }) => {
   /** State **/
   const [bookedData, setBookedData] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
@@ -44,6 +44,7 @@ const Slot = ({ day, hour }) => {
   // Set styling
   const slotStyles = classNames({
     booked: bookedData,
+    bookableDay,
   });
 
   const handleEntrySuccess = (success, err) => {

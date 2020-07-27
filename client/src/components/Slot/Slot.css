@@ -8,11 +8,6 @@
   background: white;
 }
 
-.booked {
-  border-radius: 11px;
-  background: rgb(93, 115, 227);
-}
-
 .Slot__container.wkDay-1 {
   grid-column: 1;
 }
@@ -90,3 +85,14 @@
 }
 
 /* END: Column and row header */
+
+/* Highlight slots within current driver availability */
+.bookableDay {
+  background: var(--within-availability-color);
+}
+
+.booked,
+.booked.bookableDay {
+  border-radius: 11px;
+  background: rgb(93, 115, 227);
+}
