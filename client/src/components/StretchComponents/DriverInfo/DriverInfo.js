@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 /** Helpers **/
 import { getDriverData } from "../../../util/driverDbHelpers";
+import {
+  convertAvailabilityToWords,
+  availabilityToWords,
+} from "../../../util/formatHelpers";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
 
@@ -38,6 +42,9 @@ const DriverInfo = ({ driver }) => {
           {" "}
           <span>{driverData.name}</span>
           <span>{driverData.color}</span>
+          <span>
+            {availabilityToWords(driverData.availability.hour_availability)}
+          </span>
         </>
       )}
     </div>
