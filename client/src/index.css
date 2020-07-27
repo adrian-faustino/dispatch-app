@@ -16,6 +16,7 @@ code {
 /** Constants **/
 :root {
   --base-color: #3d8aa8;
+  --secondary-color: rgb(201, 193, 193);
   --navbar-height: 8vh;
   --slide-in-width: 240px;
 }
