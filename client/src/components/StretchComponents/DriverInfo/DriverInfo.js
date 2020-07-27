@@ -6,6 +6,7 @@ import { availabilityToWords } from "../../../util/formatHelpers";
 import { useSelector, useDispatch } from "react-redux";
 /** Subcomponents **/
 import DriverInfoControllers from "./DriverInfoControllers";
+import AvailabilityTable from "./AvailabilityTable/AvailabilityTable";
 /** Styles **/
 import "./DriverInfo.css";
 /** Handlers **/
@@ -57,11 +58,14 @@ const DriverInfo = () => {
           {/* Availability table */}
           <span className="DriverInfo__label small-text">Availability</span>
           <span>
-            {availabilityToWords(
+            {/* Refactor: availability table */}
+            <AvailabilityTable parentHandlers={handlers} />
+
+            {/* {availabilityToWords(
               handlers.driverData.availability.hour_availability
             ).map((text) => (
               <div key={`${text}-${store.driver}`}>{text}</div>
-            ))}
+            ))} */}
           </span>
 
           <DriverInfoControllers handlers={handlers} />

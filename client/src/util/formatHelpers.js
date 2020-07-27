@@ -1,15 +1,8 @@
+import { DAY_WORDS } from "../util/constants";
+
 /* Input: int. Output: string */
 export const dayToWords = (index) => {
-  const DAYS = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  return DAYS[parseInt(index)];
+  return DAY_WORDS[parseInt(index)];
 };
 
 /* Input: obj. Output: string */

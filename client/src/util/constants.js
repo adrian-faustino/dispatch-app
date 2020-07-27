@@ -24,6 +24,15 @@ export const CLOSE_FORM = "CLOSE_FORM";
 /** Calendar constants **/
 export const WEEKS = 52;
 export const DAYS = 7;
+export const DAY_WORDS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 export const HOURS = 24;
 
 /** Data required for entries */
