@@ -36,6 +36,7 @@ export const nextWeek_btn = "⇨";
 export const submit_btn = "submit";
 export const edit_btn = "edit";
 export const delete_btn = "delete";
+export const cancel_btn = "cancel";
 export const defaultSuggestion_btn = "Choose available timeslot";
 
 /** Error codes */

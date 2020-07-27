@@ -8,6 +8,7 @@ import {
   ENTRY_DELETE_200,
   edit_btn,
   delete_btn,
+  cancel_btn,
 } from "../../../util/constants";
 /** Styles **/
 import "./SlotControllers.css";
@@ -45,12 +46,12 @@ const SlotControllers = (props) => {
     <div>
       {!formOpen && !bookedData && (
         <Button className="show-btn-on-hover" onClick={handleFormToggle}>
-          +
+          ➕
         </Button>
       )}
 
       {bookedData && !deleteConfirm && (
-        <div>
+        <div className="SlotControllers__btn-container">
           <Button onClick={handleFormToggle}>{edit_btn}</Button>
           <Button color="danger" onClick={toggleDeleteConfirmation}>
             {delete_btn}
@@ -59,13 +60,17 @@ const SlotControllers = (props) => {
       )}
 
       {deleteConfirm && (
-        <div>
-          <p>Are you sure?</p>
-          <Button onClick={toggleDeleteConfirmation}>cancel</Button>
-          <Button color="danger" onClick={handleDelete}>
-            {delete_btn}
-          </Button>
-        </div>
+        <>
+          <span className="SlotControllers__warning-prompt">Are you sure?</span>
+          <div className="SlotControllers__btn-container">
+            <Button color="danger" onClick={handleDelete}>
+              {delete_btn}
+            </Button>
+            <Button color="primary" onClick={toggleDeleteConfirmation}>
+              {cancel_btn}
+            </Button>
+          </div>
+        </>
       )}
     </div>
   );

@@ -1,12 +1,16 @@
 import React from "react";
+/** Styles **/
+import "./SlotView.css";
 
 const SlotView = ({ dateObj, bookedData }) => {
   return (
     <div>
       {bookedData && (
-        <div>
-          <div>Driver: {bookedData.driver}</div>
-          <div>Description: {bookedData.description}</div>
+        <div className="SlotView__data-container">
+          <span>Driver:</span>
+          <div>{bookedData.driver}</div>
+          <span>Description:</span>
+          <div>{bookedData.description}</div>
         </div>
       )}
     </div>

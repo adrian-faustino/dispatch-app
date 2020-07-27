@@ -4,6 +4,7 @@
   width: 100vw;
 
   display: flex;
+  overflow: hidden;
 }
 
 .App-header {

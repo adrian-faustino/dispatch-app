@@ -11,7 +11,7 @@ function AppView() {
   const date = useSelector((state) => state.date);
   return (
     <div className="AppView">
-      <div className="AppView__week-span medium-text">Week: {date.week}</div>
+      <div className="AppView__week-span medium-text">Week {date.week}</div>
       {error.errMsg && <ErrorPrompt />}
     </div>
   );

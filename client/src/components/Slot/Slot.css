@@ -9,6 +9,7 @@
 }
 
 .booked {
+  border-radius: 11px;
   background: rgb(93, 115, 227);
 }
 
@@ -68,5 +69,4 @@
   background: grey;
   font-size: 0;
 }
-
 /* END: Column and row header */

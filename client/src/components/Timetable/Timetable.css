@@ -1,9 +1,19 @@
+/* Control row height here */
 .Timetable__slots-container {
-  background: blue;
-  height: max-content;
+  position: relative;
+  height: 80vh;
   width: 90%;
   margin: 0 auto;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: auto repeat(7, 1fr);
+
+  box-shadow: 0 0 3px black;
+  border-radius: 20px;
+  overflow: scroll;
+}
+
+/* hide scrollbar */
+.Timetable__slots-container::-webkit-scrollbar {
+  display: none;
 }

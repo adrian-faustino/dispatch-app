@@ -5,3 +5,20 @@
 .show-btn-on-hover.btn:hover {
   background: red;
 }
+
+.SlotControllers__btn-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 10px;
+}
+
+.SlotControllers__btn-container > .btn {
+  box-shadow: 0 0 2px black;
+}
+
+.SlotControllers__warning-prompt {
+  display: block;
+  width: 100%;
+  background: rgba(220, 155, 155, 0.537);
+  font-weight: 600;
+}

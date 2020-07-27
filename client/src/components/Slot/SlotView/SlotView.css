@@ -1,0 +1,14 @@
+.SlotView__data-container {
+  text-align: left;
+  padding: 10px;
+}
+
+.SlotView__data-container > span {
+  font-weight: bold;
+}
+
+.SlotView__data-container > div {
+  font-weight: 500;
+  font-style: italic;
+  padding-left: 15px;
+}
