@@ -78,4 +78,15 @@
   top: 0;
 }
 
+.fixed-header-1::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  background: grey;
+  z-index: -1;
+}
+
 /* END: Column and row header */

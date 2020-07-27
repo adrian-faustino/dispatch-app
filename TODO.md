@@ -57,7 +57,7 @@
 [x] filter by all
 [x] display conflicting task warning
 [x] display suggestions
-[] create navbar
+[x] create navbar
 
 ## Refactor / Todo
 
@@ -76,7 +76,8 @@
 [x] replace uuidv4
 [x] use constants for basic buttons "delete, edit, submit"
 [] feedback - on success/error
-[] change entry form to use bootstrap
+[x] change entry form to use bootstrap
+[] change vh to fixed height (CSS)
 
 ## Bugs
 

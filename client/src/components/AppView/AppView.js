@@ -5,14 +5,21 @@ import ErrorPrompt from "../ErrorPrompt/ErrorPrompt";
 import { useSelector } from "react-redux";
 /** Styles **/
 import "./AppView.css";
+/** Constants **/
+import { SCHEDULE_VIEW } from "../../util/constants";
 
 function AppView() {
-  const error = useSelector((state) => state.error);
+  const store = useSelector((state) => state);
   const date = useSelector((state) => state.date);
   return (
-    <div className="AppView">
-      <div className="AppView__week-span medium-text">Week {date.week}</div>
-      {error.errMsg && <ErrorPrompt />}
+    <div>
+      {/* Span displaying week */}
+      {store.appView === SCHEDULE_VIEW && (
+        <div className="AppView__week-span medium-text">Week {date.week}</div>
+      )}
+
+      {/* Prompt displaying input errors */}
+      {store.error.errMsg && <ErrorPrompt />}
     </div>
   );
 }

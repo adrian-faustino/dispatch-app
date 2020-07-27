@@ -6,3 +6,7 @@ export { default as EntryForm } from "./EntryForm/EntryForm";
 export { default as AppView } from "./AppView/AppView";
 export { default as Suggestions } from "./Suggestions/Suggestions";
 export { default as Nav } from "./Nav/Nav";
+
+/** Stretch components */
+export { default as DriversList } from "./StretchComponents/DriversList/DriversList";
+export { default as DriverInfo } from "./StretchComponents/DriverInfo/DriverInfo";

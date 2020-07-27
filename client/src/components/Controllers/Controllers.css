@@ -22,9 +22,9 @@ button.Controllers__week-nav-btn {
 }
 
 button.Controllers__week-nav-btn:hover {
-  background: rgba(133, 133, 66, 0.557);
-  color: rgba(255, 255, 0, 0.758);
-  box-shadow: inset 0 0 5px yellow;
+  background: rgba(13, 190, 230, 0.384);
+  color: var(--base-color);
+  box-shadow: inset 0 0 5px var(--base-color);
 }
 
 button.Controllers__week-nav-btn.⇨:active {
