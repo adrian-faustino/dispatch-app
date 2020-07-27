@@ -9,5 +9,11 @@ export const getDriverData = (driver, callback) => {
 };
 
 // UPDATE
+export const updateDriverData = (driverObj, callback) => {
+  const ID = driverObj.name;
+  drivers[ID] = driverObj;
+
+  callback(drivers[ID]);
+};
 
 // DELETE

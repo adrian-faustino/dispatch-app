@@ -42,7 +42,7 @@
   [] debounce buttons
   [] unhandled task list -> allocate drivers (ability to create task)
   [] driver availability
-  [] color code by user
+  [x] color code by user
 
 ## Current task (leave todo # here before stepping away)
 

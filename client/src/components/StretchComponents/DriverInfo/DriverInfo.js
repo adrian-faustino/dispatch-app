@@ -1,32 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 /** Helpers **/
 import { getDriverData } from "../../../util/driverDbHelpers";
 import { availabilityToWords } from "../../../util/formatHelpers";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
+/** Subcomponents **/
+import DriverInfoControllers from "./DriverInfoControllers";
 /** Styles **/
 import "./DriverInfo.css";
+/** Handlers **/
+import DriverHandlers from "./DriverHandlers";
 
 const DriverInfo = () => {
   /** Redux **/
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
 
-  /** State **/
-  const [driverData, setDriverData] = useState({
-    name: "lol",
-    color: "",
-    availability: {
-      hour_availability: [],
-      day_availability: [],
-    },
-  });
+  /** Handlers **/
+  const handlers = DriverHandlers(dispatch, store);
 
   // get user availabilty?
   useEffect(() => {
     getDriverData(store.driver, (data) => {
       console.log("Driver data", data);
-      setDriverData(data);
+      handlers.setDriverData(data);
     });
   }, [store.driver]);
 
@@ -34,24 +31,40 @@ const DriverInfo = () => {
 
   return (
     <div>
-      {driverData && (
+      {handlers.driverData && (
         <div className="DriverInfo__container">
+          {/* TODO: change these spans to label */}
           <span className="DriverInfo__label small-text">Name</span>
-          <span>{driverData.name}</span>
+          <span>{handlers.driverData.name}</span>
           <span className="DriverInfo__label small-text">Color</span>
-          <div
-            className="DriverInfo__color-block"
-            style={{ background: driverData.color }}
-          ></div>
+
+          {/* Color block editor */}
+          {handlers.editMode ? (
+            <input
+              disabled={!handlers.editMode}
+              value={handlers.driverData.color}
+              type="color"
+              onChange={handlers.handleColorChange}
+              className="DriverInfo__color-block"
+            />
+          ) : (
+            <div
+              style={{ background: handlers.driverData.color }}
+              className="DriverInfo__color-block"
+            ></div>
+          )}
+
+          {/* Availability table */}
           <span className="DriverInfo__label small-text">Availability</span>
           <span>
-            {" "}
-            {availabilityToWords(driverData.availability.hour_availability).map(
-              (text) => (
-                <div key={`${text}-${store.driver}`}>{text}</div>
-              )
-            )}
+            {availabilityToWords(
+              handlers.driverData.availability.hour_availability
+            ).map((text) => (
+              <div key={`${text}-${store.driver}`}>{text}</div>
+            ))}
           </span>
+
+          <DriverInfoControllers handlers={handlers} />
         </div>
       )}
     </div>
