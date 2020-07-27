@@ -89,10 +89,12 @@
 /* Highlight slots within current driver availability */
 .bookableDay {
   background: var(--within-availability-color);
+  border: 1.5px dashed rgba(0, 0, 0, 0.701);
 }
 
 .booked,
 .booked.bookableDay {
+  border: none;
   border-radius: 11px;
   background: rgb(93, 115, 227);
 }

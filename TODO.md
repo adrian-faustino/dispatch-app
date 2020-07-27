@@ -88,6 +88,7 @@
 [x] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
 [x] when making a conflict and changing only the description and not the driver
 [x] delete confirm view does not close when changing weeks
+[] css style on bookable days does not go away when switching to "All" drivers
 
 ## Todo draft
 

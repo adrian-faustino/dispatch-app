@@ -21,7 +21,9 @@ const Timetable = () => {
   return (
     <div>
       {/* render slots */}
-      <div className="Timetable__slots-container">{handlers.renderSlots()}</div>
+      <div className="Timetable__slots-container">
+        {handlers.renderSlots(store.driver)}
+      </div>
     </div>
   );
 };
