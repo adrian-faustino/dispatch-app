@@ -63,7 +63,11 @@ const ControllersHandlers = (setState, dispatch, store) => {
   const renderWeekNavBtns = () => {
     const btns = [prevWeek_btn, nextWeek_btn];
     return btns.map((btn) => (
-      <button key={`${btn}-nav`} onClick={toggleWeek}>
+      <button
+        className={`Controllers__week-nav-btn ${btn}`}
+        key={`${btn}-nav`}
+        onClick={toggleWeek}
+      >
         {btn}
       </button>
     ));

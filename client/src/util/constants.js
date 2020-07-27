@@ -31,8 +31,8 @@ export const DRIVERS = ["All", "Anna", "Bob", "Chris"];
 export const DESCRIPTIONS = ["DROP OFF", "PICK UP", "MISC"];
 
 /** Button inner text **/
-export const prevWeek_btn = "prev";
-export const nextWeek_btn = "next";
+export const prevWeek_btn = "⇦";
+export const nextWeek_btn = "⇨";
 export const submit_btn = "submit";
 export const edit_btn = "edit";
 export const delete_btn = "delete";

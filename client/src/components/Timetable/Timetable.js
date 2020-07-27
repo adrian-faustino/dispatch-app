@@ -11,8 +11,6 @@ const Timetable = () => {
 
   return (
     <div>
-      {/* render slot frame (days x hours) */}
-
       {/* render slots */}
       <div className="Timetable__slots-container">{handlers.renderSlots()}</div>
     </div>
