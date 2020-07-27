@@ -2,7 +2,7 @@ import React from "react";
 /** Styles **/
 import "./App.css";
 /** Subcomponents **/
-import { Test, Nav } from "./components";
+import { Test, AppView, Nav } from "./components";
 /** Views **/
 import { DriversView, TasksView, ScheduleView, ReportView } from "./views";
 /** Redux **/
@@ -22,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <AppView />
 
       {store.appView === DRIVERS_VIEW && <DriversView />}
       {store.appView === TASKS_VIEW && <TasksView />}

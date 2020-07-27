@@ -6,6 +6,7 @@ export const NEXT_WEEK = "NEXT_WEEK";
 export const PREV_WEEK = "PREV_WEEK";
 export const UPDATE_DATE = "UPDATE_DATE";
 export const SET_DRIVER = "SET_DRIVER";
+export const SET_ERROR = "SET_ERROR";
 export const SET_APP_VIEW = "SET_APP_VIEW";
 export const TOGGLE_SLIDE_IN = "TOGGLE_SLIDE_IN";
 

@@ -2,7 +2,7 @@ import React from "react";
 /** Redux **/
 import { useSelector } from "react-redux";
 /** Subcomponents **/
-import { AppView, Controllers, Timetable } from "../components";
+import { Controllers, Timetable } from "../components";
 
 const ScheduleView = () => {
   /** Redux **/
@@ -11,7 +11,6 @@ const ScheduleView = () => {
 
   return (
     <div className={`view-offset ${navToggledStyle}`}>
-      <AppView />
       <Controllers />
       <Timetable />
     </div>

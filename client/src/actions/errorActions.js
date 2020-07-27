@@ -1,8 +1,8 @@
-import { TIMESLOT_CONFLICT, RESET_ERROR } from "../util/constants";
+import { SET_ERROR, RESET_ERROR } from "../util/constants";
 
 export const setError = (errObj) => {
   return {
-    type: TIMESLOT_CONFLICT,
+    type: SET_ERROR,
     payload: errObj,
   };
 };

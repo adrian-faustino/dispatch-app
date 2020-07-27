@@ -1,8 +1,21 @@
 import React from "react";
 /** Constants **/
-import { DRIVERS, DESCRIPTIONS } from "../../util/constants";
+import {
+  DRIVERS,
+  DESCRIPTIONS,
+  SET_ERROR,
+  DRIVER_REQUIRED,
+  DESCRIPTION_REQUIRED,
+} from "../../util/constants";
+/** Redux **/
+import { setError } from "../../actions/errorActions";
 
-const EntryFormHandlers = () => {
+const EntryFormHandlers = (dispatch) => {
+  const handleEmptyValue = (errMsg) => {
+    console.error(errMsg);
+    dispatch(setError({ errMsg, payload: null }));
+  };
+
   // spread drivers array for rendering
   const renderDriverDropdown = () => {
     return DRIVERS.map((driver, i) => {
@@ -29,6 +42,7 @@ const EntryFormHandlers = () => {
   return {
     renderDriverDropdown,
     renderDescriptionDropdown,
+    handleEmptyValue,
   };
 };
 

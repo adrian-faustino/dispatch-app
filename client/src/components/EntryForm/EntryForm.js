@@ -13,7 +13,13 @@ import { Button } from "reactstrap";
 /** Schema **/
 import { Entry } from "../../db/schema/Entry";
 /** Constants **/
-import { submit_btn } from "../../util/constants";
+import {
+  submit_btn,
+  DRIVER_REQUIRED,
+  DESCRIPTION_REQUIRED,
+} from "../../util/constants";
+/** Redux **/
+import { useDispatch } from "react-redux";
 
 const EntryForm = ({
   handleEntrySuccess,
@@ -23,6 +29,12 @@ const EntryForm = ({
 }) => {
   /** State **/
   const [values, handleChange, handleSubmit, handleReset] = useForm(() => {
+    // validate
+    console.log("Submitting...", values);
+    if (!values.driver) return handlers.handleEmptyValue(DRIVER_REQUIRED);
+    if (!values.description)
+      return handlers.handleEmptyValue(DESCRIPTION_REQUIRED);
+
     const entryObj = Entry({
       date: dateObjToStringID(dateObj),
       driver: values.driver || bookedData.driver,
@@ -35,8 +47,11 @@ const EntryForm = ({
     else createEntry(entryObj, handleEntrySuccess);
   });
 
+  /** Redux **/
+  const dispatch = useDispatch();
+
   /** Handlers **/
-  const handlers = EntryFormHandlers();
+  const handlers = EntryFormHandlers(dispatch);
 
   const handleCloseForm = (e) => {
     e.preventDefault();
