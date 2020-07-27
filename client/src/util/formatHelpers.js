@@ -37,4 +37,10 @@ export const dateObjToWords = (dateObj) => {
   return dateStrToWords(dateObjToStringID(dateObj));
 };
 
-// todo: have an hour formatter
+// return hh:00 AM/PM
+export const hourTo12hFormat = (hour) => {
+  if (hour === 0) return "12:00 AM";
+  if (hour === 12) return "12:00 PM";
+  if (hour < 12) return `${hour}:00 AM`;
+  else return `${hour - 12}:00 PM`;
+};

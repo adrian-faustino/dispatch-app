@@ -2,7 +2,7 @@ import React from "react";
 /** Styles **/
 import "../Slot.css";
 /** Helpers **/
-import { dayToWords } from "../../../util/formatHelpers";
+import { dayToWords, hourTo12hFormat } from "../../../util/formatHelpers";
 
 const ColumnRow = ({ day, hour }) => {
   // if day -1, render hours
@@ -13,7 +13,7 @@ const ColumnRow = ({ day, hour }) => {
 
   return (
     <div className={`Slot__container wkDay${day}`}>
-      {hours && hours}
+      {hours && hourTo12hFormat(hour)}
       {days && days}
     </div>
   );
