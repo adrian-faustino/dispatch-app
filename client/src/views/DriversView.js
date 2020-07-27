@@ -2,7 +2,7 @@ import React from "react";
 /** Redux **/
 import { useSelector } from "react-redux";
 /** Subcomponents **/
-import { DriversList } from "../components";
+import { DriversList, DriverInfo } from "../components";
 
 const DriversView = () => {
   /** Redux **/
@@ -12,6 +12,7 @@ const DriversView = () => {
   return (
     <div className={`view-offset ${navToggledStyle}`}>
       <DriversList />
+      <DriverInfo />
     </div>
   );
 };

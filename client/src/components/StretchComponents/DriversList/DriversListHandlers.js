@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 /** Constants **/
 import { DRIVERS } from "../../../util/constants";
+/** Redux **/
+import { setDriver } from "../../../actions/driverActions";
 
-const DriversListHandlers = () => {
-  /** State **/
-  const [state, setState] = useState({
-    selectedDriverInfo: "",
-  });
+const DriversListHandlers = (dispatch) => {
+  // /** State **/
+  // const [state, setState] = useState({
+  //   selectedDriverInfo: "",
+  // });
 
   const handleExpandInfo = (e) => {
     e.persist();
-    setState((state) => ({ ...state, selectedDriverInfo: e.target.innerHTML }));
+    // setState((state) => ({ ...state, selectedDriverInfo: e.target.innerHTML }));
+    dispatch(setDriver(e.target.innerHTML));
   };
 
   const renderDriversList = () => {
@@ -28,7 +31,6 @@ const DriversListHandlers = () => {
   };
 
   return {
-    state,
     handleExpandInfo,
     renderDriversList,
   };

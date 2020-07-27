@@ -1,20 +1,19 @@
 import React from "react";
 /** Handlers **/
 import DriversListHandlers from "./DriversListHandlers";
-/** Subcomponents **/
-import DriverInfo from "../DriverInfo/DriverInfo";
+/** Redux **/
+import { useDispatch } from "react-redux";
 
 const DriversList = () => {
+  /** Redux **/
+  const dispatch = useDispatch();
+
   /** Handlers **/
-  const handlers = DriversListHandlers();
+  const handlers = DriversListHandlers(dispatch);
 
   return (
     <div>
       <div>{handlers.renderDriversList()}</div>
-
-      {handlers.state.selectedDriverInfo && (
-        <DriverInfo driver={handlers.state.selectedDriverInfo} />
-      )}
     </div>
   );
 };
