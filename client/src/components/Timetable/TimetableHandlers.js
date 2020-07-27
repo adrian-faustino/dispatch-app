@@ -23,8 +23,9 @@ const TimetableHandlers = (store) => {
   const isWithinAvailability = (day, hour) => {
     if (!driverAvailability) return false;
 
-    const { day_availability, hour_availability } = driverAvailability;
-    if (hour_availability.includes(hour)) return true;
+    // if this day is a day within availability and this day accomodates that hour...
+    if (driverAvailability[day] && driverAvailability[day].includes(hour))
+      return true;
     else return false;
   };
 

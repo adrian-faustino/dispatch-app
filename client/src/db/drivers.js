@@ -3,24 +3,31 @@ export const drivers = {
     name: "Anna",
     color: "#e7087f", // css color #
     availability: {
-      hour_availability: [9, 10, 12, 13, 14, 15, 16, 17], // 9am - 5pm
-      day_availability: [1, 2, 3, 4, 5], // Monday to Friday
+      0: [9, 10, 12, 15, 16, 17],
+      2: [9, 10, 12, 15, 16, 17],
+      4: [9, 10, 12, 15, 16, 17],
+      6: [9, 10, 12, 15, 16, 17],
     },
   },
   Bob: {
     name: "Bob",
     color: "#101cc1",
     availability: {
-      hour_availability: [10, 12, 13, 14, 15],
-      day_availability: [0, 1, 3, 5],
+      // Sun, Mon, Wed, 10am-3pm
+      0: [10, 12, 13, 14, 15],
+      1: [10, 12, 13, 14, 15],
+      3: [10, 12, 13, 14, 15],
     },
   },
   Chris: {
     name: "Chris",
     color: "#0eec67",
     availability: {
-      hour_availability: [6, 7, 8, 9, 16, 17, 18, 19, 20, 21],
-      day_availability: [0, 1, 2, 5, 6],
+      1: [6, 7, 8, 9, 16, 17, 18, 19, 20, 21],
+      2: [6, 7, 8, 9, 16, 17, 18, 19, 20, 21],
+      3: [6, 7, 8, 9, 16, 17, 18, 19, 20, 21],
+      5: [6, 7, 8, 9, 16, 17, 18, 19, 20, 21],
+      6: [6, 7, 8, 9, 16, 17, 18, 19, 20, 21],
     },
   },
 };
