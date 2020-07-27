@@ -65,8 +65,17 @@
 }
 
 /* when day is -1 and hour is -1 */
-.Slot__row-header.corner-1-1 {
+.Slot__row-header.corner-1-1,
+.Slot__column-header.corner-1-1 {
+  position: absolute;
+  top: 0;
   background: grey;
   font-size: 0;
 }
+
+.fixed-header-1 {
+  position: sticky;
+  top: 0;
+}
+
 /* END: Column and row header */

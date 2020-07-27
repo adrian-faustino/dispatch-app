@@ -20,7 +20,9 @@ const ColumnRow = ({ day, hour }) => {
   );
 
   return (
-    <div className={`Slot__container wkDay${day} corner${day}${hour}`}>
+    <div
+      className={`fixed-header${hour} Slot__container wkDay${day} corner${day}${hour}`}
+    >
       {hours && hours}
       {days && days}
     </div>
