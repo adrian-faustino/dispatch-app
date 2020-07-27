@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const useForm = (submitCallback) => {
-  const [state, setState] = useState({});
+const useForm = (initState = {}, submitCallback) => {
+  const [state, setState] = useState(initState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
