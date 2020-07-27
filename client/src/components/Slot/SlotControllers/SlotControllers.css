@@ -1,9 +1,11 @@
 .show-btn-on-hover.btn {
+  font-size: 28px;
   margin: 55px 0;
+  transition: 0.4s;
 }
 
 .show-btn-on-hover.btn:hover {
-  background: red;
+  background: rgba(0, 0, 255, 0.619);
 }
 
 .SlotControllers__btn-container {

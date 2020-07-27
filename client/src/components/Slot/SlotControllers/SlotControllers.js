@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 /** Reactstrap */
 import { Button } from "reactstrap";
 /** Helpers **/
@@ -9,15 +9,24 @@ import {
   edit_btn,
   delete_btn,
   cancel_btn,
+  add_btn,
 } from "../../../util/constants";
 /** Styles **/
 import "./SlotControllers.css";
+/** Redux **/
+import { useSelector } from "react-redux";
 
 const SlotControllers = (props) => {
   const { setFormOpen, formOpen, bookedData, setBookedData } = props;
 
   /** State **/
   const [deleteConfirm, setDeleteConfirm] = useState(false);
+
+  /** Redux **/
+  const store = useSelector((state) => state);
+
+  // When week changes, reset delete confirm
+  useEffect(() => setDeleteConfirm(false), [store.date.week]);
 
   const handleFormToggle = (e) => {
     e && e.preventDefault();
@@ -46,7 +55,7 @@ const SlotControllers = (props) => {
     <div>
       {!formOpen && !bookedData && (
         <Button className="show-btn-on-hover" onClick={handleFormToggle}>
-          ➕
+          {add_btn}
         </Button>
       )}
 

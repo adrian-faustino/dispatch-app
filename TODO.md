@@ -82,4 +82,4 @@
 
 [x] entry validation - when editing an entry from same user, it gives an TIMESLOT_TAKEN error
 [] when making a conflict and changing only the description and not the driver
-[] delete confirm view does not close when changing weeks
+[x] delete confirm view does not close when changing weeks
