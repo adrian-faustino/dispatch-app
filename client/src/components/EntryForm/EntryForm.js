@@ -17,6 +17,7 @@ import {
   submit_btn,
   DRIVER_REQUIRED,
   DESCRIPTION_REQUIRED,
+  cancel_btn,
 } from "../../util/constants";
 /** Redux **/
 import { useDispatch } from "react-redux";
@@ -57,16 +58,26 @@ const EntryForm = (props) => {
 
   return (
     <div className="EntryForm__container">
-      <Button close onClick={handleCloseForm} />
+      <Button
+        className="EntryForm__close-btn"
+        onClick={handleCloseForm}
+        close
+      />
 
       <form className="EntryForm__form" onSubmit={handleSubmit}>
-        {/* Driver dropdown */}
-        {handlers.renderDriverDropdown()}
+        <div className="SlotView__data-container">
+          {/* Driver dropdown */}
+          <span>Driver:</span>
+          {handlers.renderDriverDropdown()}
 
-        {/* Description dropdown */}
-        {handlers.renderDescriptionDropdown()}
+          {/* Description dropdown */}
+          <span>Description:</span>
+          {handlers.renderDescriptionDropdown()}
+        </div>
 
-        <button type="submit">{submit_btn}</button>
+        <Button color="success" type="submit">
+          {submit_btn}
+        </Button>
       </form>
     </div>
   );

@@ -1,8 +1,18 @@
 .EntryForm__container {
   height: 100%;
   width: 100%;
-  background: rgba(128, 128, 128, 0.582);
 }
 
 .EntryForm__option {
+}
+
+.EntryForm__select {
+  width: 100%;
+}
+
+.EntryForm__close-btn {
+  margin-right: 8px;
+  transform: scale(1.2);
+  /* override reactstrap */
+  outline: none !important;
 }

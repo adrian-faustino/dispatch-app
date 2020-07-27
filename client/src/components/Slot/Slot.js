@@ -68,7 +68,7 @@ const Slot = ({ day, hour }) => {
       onClick={handlers.handleSlotClick}
       className={`Slot__container wkDay${day} ${slotStyles}`}
     >
-      <SlotView dateObj={dateObj} bookedData={bookedData} />
+      {!formOpen && <SlotView dateObj={dateObj} bookedData={bookedData} />}
 
       {!formOpen && (
         <SlotControllers
