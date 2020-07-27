@@ -2,6 +2,7 @@
   background: blue;
   height: max-content;
   width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-auto-flow: column;
 
