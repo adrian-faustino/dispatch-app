@@ -1,14 +1,22 @@
 import React from "react";
 /** Styles **/
 import "../Slot.css";
+/** Helpers **/
+import { dayToWords } from "../../../util/formatHelpers";
 
 const ColumnRow = ({ day, hour }) => {
-  if (day === -1 && hour === -1) {
-    console.log("same bro");
-    return <div>lol!</div>;
-  }
+  // if day -1, render hours
+  const hours = day === -1 && <div>{hour + "h"}</div>;
 
-  return <div className={`Slot__container wkDay${day}`}>column row!!!</div>;
+  // if hours -1, render days
+  const days = hour === -1 && <div>{dayToWords(day)}</div>;
+
+  return (
+    <div className={`Slot__container wkDay${day}`}>
+      {hours && hours}
+      {days && days}
+    </div>
+  );
 };
 
 export default ColumnRow;
