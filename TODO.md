@@ -96,7 +96,11 @@
 - create db with user availability
   - seed
 - display
+
   - display availability
+
     - add function to add driver
     - display, edit, delete driver
     - clear availability db too
+
+    [] edit each table

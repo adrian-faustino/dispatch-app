@@ -43,7 +43,7 @@ const EntryFormHandlers = (dispatch, values, handleChange) => {
     return (
       <select
         className="EntryForm__select"
-        value={values.driver}
+        value={"" || values.driver}
         defaultValue={"DEFAULT"}
         name="driver"
         onChange={handleChange}
