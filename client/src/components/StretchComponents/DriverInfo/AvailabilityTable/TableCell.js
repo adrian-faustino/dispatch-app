@@ -35,8 +35,12 @@ const TableCell = (props) => {
   return (
     <th className="pointer_mouse" onClick={handlers.handleEditMode}>
       {hourTo12hFormat(currentHour)}
-      {store.editMode && (
-        <Input type="select" multiple>
+      {thisEditMode && store.editMode && (
+        <Input
+          className="AvailabilityTable__options-container"
+          type="select"
+          multiple
+        >
           {handlers.renderOptions(dayIndex)}
         </Input>
       )}

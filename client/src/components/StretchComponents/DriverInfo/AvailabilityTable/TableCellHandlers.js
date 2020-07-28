@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { setEditMode } from "../../../../actions/editModeActions";
 /** Constants **/
 import { HOURS } from "../../../../util/constants";
-/** Helpers **/
-import { hourTo12hFormat } from "../../../../util/formatHelpers";
+
+/** Subcomponents **/
+import Option from "./Option";
 
 const TableCellHandlers = (store, dispatch, driverHandlers) => {
   /** State **/
@@ -24,7 +25,7 @@ const TableCellHandlers = (store, dispatch, driverHandlers) => {
 
     const optionsJSX = [];
     for (let hour = 0; hour < HOURS; hour++) {
-      optionsJSX.push(<option>{hourTo12hFormat(hour)}</option>);
+      optionsJSX.push(<Option>{hour}</Option>);
     }
 
     return optionsJSX;

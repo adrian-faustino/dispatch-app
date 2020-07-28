@@ -19,3 +19,25 @@
 .negative_tr {
   background: rgb(150, 150, 160);
 }
+
+.AvailabilityTable__options-container {
+  /* override reactstrap */
+  width: 130px !important;
+}
+
+.AvailabilityTable__option {
+  margin-left: var(--option-offset);
+}
+
+.AvailabilityTable__selected {
+  position: relative;
+}
+
+.AvailabilityTable__selected::after {
+  content: "☑️";
+  position: absolute;
+  top: 0;
+  left: calc(var(--option-offset) * -1);
+  height: 100%;
+  width: calc(100% + var(--option-offset));
+}
