@@ -14,7 +14,14 @@ const AvailabilityTableHandlers = (parentHandlers) => {
   const renderStartEnd = (arr) => {
     const start = arr[0];
     const end = arr[arr.length - 1];
-    return [<TableCell>{start}</TableCell>, <TableCell>{end}</TableCell>];
+    return [
+      <TableCell start={start} end={end}>
+        {start}
+      </TableCell>,
+      <TableCell start={start} end={end}>
+        {end}
+      </TableCell>,
+    ];
   };
 
   const renderRows = () => {
