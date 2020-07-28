@@ -10,11 +10,14 @@ import { hourAMorPM } from "../../../../util/formatHelpers";
 
 // handlers passed down from DriverHandlers.js
 const EditAvailability = ({ handlers }) => {
-  const renderHoursJSX = () => {
+  const renderHoursJSX = (day) => {
     const resultJSX = [];
     for (let hour = 0; hour < HOURS; hour++) {
       resultJSX.push(
-        <FormGroup className="EditAvailability__form-group">
+        <FormGroup
+          key={`${day}-${hour}-option-checkbox`}
+          className="EditAvailability__form-group"
+        >
           <Input type="checkbox" />
           <Label>{`${hour}${hourAMorPM(hour)}`}</Label>
         </FormGroup>
@@ -26,12 +29,12 @@ const EditAvailability = ({ handlers }) => {
   // spread for rendering
   const formJSX = DAY_WORDS.map((day, i) => {
     return (
-      <>
+      <div key={`${day}-options-container`}>
         <h3>{day}</h3>
         <div className="EditAvailability__select-grid-container">
-          {renderHoursJSX()}
+          {renderHoursJSX(day)}
         </div>
-      </>
+      </div>
     );
   });
 
