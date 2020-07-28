@@ -41,7 +41,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           if (i === 0) {
             // set up first row
             return (
-              <tr className={css_class}>
+              <tr key={`${day}day-${i}grouping`} className={css_class}>
                 <th>{day}</th>
                 {renderStartEnd(grouping, day_i)}
               </tr>
@@ -49,7 +49,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           }
           // set up consecutive rows with no title
           return (
-            <tr className={css_class}>
+            <tr key={`${day}day-${i}grouping`} className={css_class}>
               <th></th>
               {renderStartEnd(grouping)}
             </tr>

@@ -25,9 +25,9 @@ const TableCellHandlers = (store, dispatch, driverHandlers) => {
 
     const optionsJSX = [];
     for (let hour = 0; hour < HOURS; hour++) {
-      const isSelected = availability.includes(hour);
+      const isSelected = availability && availability.includes(hour);
       optionsJSX.push(
-        <Option availability={availability} isSelected={isSelected}>
+        <Option key={`${hour}-availability-options`} availability={availability} isSelected={isSelected}>
           {hour}
         </Option>
       );
