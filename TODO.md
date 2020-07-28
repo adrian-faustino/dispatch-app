@@ -82,6 +82,7 @@
 [x] change entry form to use bootstrap
 [] change vh to fixed height (CSS)
 [] add radio button to toggle highlight on user availability
+[] edit availability
 
 ## Bugs
 

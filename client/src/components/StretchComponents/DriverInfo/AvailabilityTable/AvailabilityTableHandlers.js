@@ -16,7 +16,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
   };
 
   const renderRows = () => {
-    const rows = DAY_WORDS.map((day, i) => {
+    return DAY_WORDS.map((day, i) => {
       // if current day has preferences
       const preferences = availability[i];
       if (preferences) {
@@ -47,13 +47,11 @@ const AvailabilityTableHandlers = (parentHandlers) => {
       return (
         <tr>
           <th scope="row">{day}</th>
-          <th></th>
-          <th></th>
+          <th>-</th>
+          <th>-</th>
         </tr>
       );
     });
-
-    return rows;
   };
 
   return {
