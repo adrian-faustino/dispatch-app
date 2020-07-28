@@ -26,7 +26,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
   const renderRows = () => {
     return DAY_WORDS.map((day, i) => {
-      const css_class = i % 2 === 1 && "highlight_tr";
+      const css_class = i % 2 === 1 ? "positive_tr" : "negative_tr";
 
       // if current day has preferences
       const preferences = availability[i];

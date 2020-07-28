@@ -43,12 +43,12 @@ const DriverInfo = () => {
               value={handlers.driverData.color}
               type="color"
               onChange={handlers.handleColorChange}
-              className="DriverInfo__color-block"
+              className="DriverInfo__color-block pointer_mouse"
             />
           ) : (
             <div
               style={{ background: handlers.driverData.color }}
-              className="DriverInfo__color-block"
+              className="DriverInfo__color-block pointer_mouse"
             ></div>
           )}
 

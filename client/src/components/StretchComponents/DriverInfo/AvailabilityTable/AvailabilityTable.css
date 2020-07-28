@@ -3,10 +3,19 @@
   justify-self: center;
 }
 
+/* I need sleep */
+.AvailabilityTable__table > * > * > * {
+  padding: 10px 20px;
+}
+
 .AvailabilityTable__column-headers {
   background: var(--base-color);
 }
 
-.highlight_tr {
+.positive_tr {
   background: white;
+}
+
+.negative_tr {
+  background: rgb(150, 150, 160);
 }

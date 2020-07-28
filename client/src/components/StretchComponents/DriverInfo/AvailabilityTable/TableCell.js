@@ -53,10 +53,11 @@ const TableCell = (props) => {
   }, [store.editMode]);
 
   return (
-    <th onClick={handleEditMode}>
+    <th className="pointer_mouse" onClick={handleEditMode}>
       {hourTo12hFormat(currentHour)}
       {thisEditMode && store.editMode && (
         <input
+          className="pointer_mouse"
           value={currentHour}
           onChange={handleSliderChange}
           type="range"

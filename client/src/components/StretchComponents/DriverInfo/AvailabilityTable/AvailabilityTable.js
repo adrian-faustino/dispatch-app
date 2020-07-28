@@ -1,6 +1,4 @@
 import React from "react";
-/** Reactstrap **/
-import { Table } from "reactstrap";
 /** Handlers **/
 import AvailabilityTableHandlers from "./AvailabilityTableHandlers";
 /** Styles **/
@@ -12,7 +10,7 @@ const AvailabilityTable = ({ parentHandlers }) => {
 
   return (
     <div className="AvailabilityTable__container">
-      <Table>
+      <table className="AvailabilityTable__table">
         <thead>
           <tr className="AvailabilityTable__column-headers">
             <th></th>
@@ -21,7 +19,7 @@ const AvailabilityTable = ({ parentHandlers }) => {
           </tr>
         </thead>
         <tbody>{handlers.renderRows()}</tbody>
-      </Table>
+      </table>
     </div>
   );
 };

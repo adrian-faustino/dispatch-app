@@ -46,3 +46,8 @@ code {
 .large-text {
   font-size: 30px;
 }
+
+/** Misc **/
+.pointer_mouse {
+  cursor: pointer;
+}
