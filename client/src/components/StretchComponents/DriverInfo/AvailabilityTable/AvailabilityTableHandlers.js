@@ -77,14 +77,13 @@ export default AvailabilityTableHandlers;
 
 // return an array of arrays
 function groupConsecutiveHours(arr) {
-  // sort
-  console.log("my arr", arr);
+  const sortedArr = arr.sort((a, b) => a - b);
 
   const consecutiveSets = [];
-  let currentSet = [arr[0]];
-  let prevNum = arr[0];
+  let currentSet = [sortedArr[0]];
+  let prevNum = sortedArr[0];
 
-  arr.forEach((num, i) => {
+  sortedArr.forEach((num, i) => {
     if (i === 0) return;
 
     // if consecutive, add to current set

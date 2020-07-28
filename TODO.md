@@ -41,7 +41,7 @@
   [] on hover, display edit/delete buttons
   [] debounce buttons
   [] unhandled task list -> allocate drivers (ability to create task)
-  [] driver availability
+  [x] driver availability
   - [x] show slots that are within driver availability
   - [] highlight ! bookings that are outside of driver availability
     [x] color code by user
@@ -60,7 +60,7 @@
 [x] display conflicting task warning
 [x] display suggestions
 [x] create navbar
-[] driver availability (hours and days)
+[x] driver availability (hours and days)
 
 ## Refactor / Todo
 
@@ -81,8 +81,8 @@
 [] feedback - on success/error
 [x] change entry form to use bootstrap
 [] change vh to fixed height (CSS)
-[] add radio button to toggle highlight on user availability
-[] edit availability
+[x] edit availability
+[] allow edit availability on days not having time (i.e. Sunday for Chris)
 
 ## Bugs
 
@@ -90,6 +90,7 @@
 [x] when making a conflict and changing only the description and not the driver
 [x] delete confirm view does not close when changing weeks
 [] css style on bookable days does not go away when switching to "All" drivers
+[] time table does not submit refresh time after submission
 
 ## Todo draft
 
