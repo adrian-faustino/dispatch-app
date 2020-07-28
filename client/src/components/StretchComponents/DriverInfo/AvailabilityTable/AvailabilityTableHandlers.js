@@ -3,6 +3,8 @@ import React from "react";
 import { DAY_WORDS } from "../../../../util/constants";
 /** Helpers **/
 import { hourTo12hFormat } from "../../../../util/formatHelpers";
+/** Subcomponents **/
+import TableCell from "./TableCell";
 
 const AvailabilityTableHandlers = (parentHandlers) => {
   const { driverData } = parentHandlers;
@@ -10,9 +12,9 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
   // takes [1,2,3,4] and converts to 1am 4am (start time - end time)
   const renderStartEnd = (arr) => {
-    const start = hourTo12hFormat(arr[0]);
-    const end = hourTo12hFormat(arr[arr.length - 1]);
-    return [<th>{start}</th>, <th>{end}</th>];
+    const start = arr[0];
+    const end = arr[arr.length - 1];
+    return [<TableCell>{start}</TableCell>, <TableCell>{end}</TableCell>];
   };
 
   const renderRows = () => {
@@ -28,7 +30,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
             // set up first row
             return (
               <tr>
-                <th scope="row">{day}</th>
+                <th>{day}</th>
                 {renderStartEnd(grouping)}
               </tr>
             );
@@ -46,7 +48,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
       // if no preferences, return a row with a heeder and placeholders
       return (
         <tr>
-          <th scope="row">{day}</th>
+          <th>{day}</th>
           <th>-</th>
           <th>-</th>
         </tr>
