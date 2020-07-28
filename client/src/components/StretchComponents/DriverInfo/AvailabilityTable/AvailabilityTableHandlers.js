@@ -7,6 +7,7 @@ import { hourTo12hFormat } from "../../../../util/formatHelpers";
 import TableCell from "./TableCell";
 
 // These props are passed down from DriverInfo.js
+// parentHandlers from DriverHandlers.js
 const AvailabilityTableHandlers = (parentHandlers) => {
   const { driverData, setDriverData } = parentHandlers;
   const { availability } = driverData;
@@ -21,9 +22,11 @@ const AvailabilityTableHandlers = (parentHandlers) => {
     };
 
     return [start, end].map((hour) => (
-      <TableCell dayIndex={day_i} driverHandlers={driverHandlers}>
-        {hour}
-      </TableCell>
+      <th 
+      // dayIndex={day_i} driverHandlers={driverHandlers}
+      >
+        {hourTo12hFormat(hour)}
+      </th>
     ));
   };
 
@@ -41,7 +44,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           if (i === 0) {
             // set up first row
             return (
-              <tr key={`${day}day-${i}grouping`} className={css_class}>
+              <tr onClick={parentHandlers.handleToggleEditMode} key={`${day}day-${i}grouping`} className={css_class}>
                 <th>{day}</th>
                 {renderStartEnd(grouping, day_i)}
               </tr>
@@ -59,7 +62,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
       // if no preferences, return a row with a heeder and placeholders
       return (
-        <tr className={css_class}>
+        <tr onClick={parentHandlers.handleToggleEditMode} className={css_class}>
           <th>{day}</th>
           <th>-</th>
           <th>-</th>

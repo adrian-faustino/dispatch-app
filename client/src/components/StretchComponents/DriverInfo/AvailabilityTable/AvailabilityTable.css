@@ -1,6 +1,8 @@
 .AvailabilityTable__container {
+  position: relative;
   grid-column: 1 / span 2;
   justify-self: center;
+  width: 100%;
 }
 
 /* I need sleep */

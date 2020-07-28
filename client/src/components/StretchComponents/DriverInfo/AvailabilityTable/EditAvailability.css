@@ -1,0 +1,22 @@
+.EditAvailability__container {
+}
+
+.EditAvailability__form-group {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.EditAvailability__form-group > Input {
+  /* center checkboxes */
+  position: relative;
+  left: 100%;
+  transform: translateX(-50%);
+}
+
+.EditAvailability__select-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  box-shadow: 0 0 2px 0.5px black;
+  padding-top: 20px;
+}

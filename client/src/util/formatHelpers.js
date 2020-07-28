@@ -38,6 +38,13 @@ export const hourTo12hFormat = (hour) => {
   else return `${hour - 12}:00 PM`;
 };
 
+export const hourAMorPM = (hour) => {
+  if (hour === 0) return "am";
+  if (hour === 12) return "pm";
+  if (hour < 12) return `am`;
+  else return `pm`;
+};
+
 // take availability arr and convert to human text
 // [9, 10, 11] => 9AM - 11AM
 // Numbers need to be consecutive
