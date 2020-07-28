@@ -4,6 +4,7 @@ import { Button } from "reactstrap";
 /** Constants **/
 import { edit_btn, cancel_btn, submit_btn } from "../../../util/constants";
 
+// This handler is passed down from DriverInfo.js
 const DriverInfoControllers = ({ handlers }) => {
   return (
     <div className="DriverInfo__btns-container">

@@ -10,8 +10,7 @@ const DriverHandlers = (dispatch, store) => {
     name: "",
     color: "",
     availability: {
-      hour_availability: [],
-      day_availability: [],
+      0: [],
     },
   });
   const { editMode } = store;

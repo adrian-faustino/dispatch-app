@@ -104,3 +104,4 @@
     - clear availability db too
 
     [] edit each table
+    [] change from slider to selectable dropdown for when updating date.

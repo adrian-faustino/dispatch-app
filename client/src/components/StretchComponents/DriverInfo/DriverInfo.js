@@ -22,7 +22,6 @@ const DriverInfo = () => {
   // get user availabilty
   useEffect(() => {
     getDriverData(store.driver, (data) => {
-      console.log("Driver data", data);
       handlers.setDriverData(data);
     });
   }, [store.driver]);

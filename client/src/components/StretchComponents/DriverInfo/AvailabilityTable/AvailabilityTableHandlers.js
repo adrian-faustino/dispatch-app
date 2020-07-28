@@ -11,11 +11,16 @@ const AvailabilityTableHandlers = (parentHandlers) => {
   const { availability } = driverData;
 
   // takes [1,2,3,4] and converts to 1am 4am (start time - end time)
-  const renderStartEnd = (arr) => {
+  const renderStartEnd = (arr, day_i) => {
     const start = arr[0];
     const end = arr[arr.length - 1];
     return [
-      <TableCell start={start} end={end}>
+      <TableCell
+        dayIndex={day_i}
+        setDriverData={parentHandlers.setDriverData}
+        start={start}
+        end={end}
+      >
         {start}
       </TableCell>,
       <TableCell start={start} end={end}>
@@ -25,11 +30,11 @@ const AvailabilityTableHandlers = (parentHandlers) => {
   };
 
   const renderRows = () => {
-    return DAY_WORDS.map((day, i) => {
-      const css_class = i % 2 === 1 ? "positive_tr" : "negative_tr";
+    return DAY_WORDS.map((day, day_i) => {
+      const css_class = day_i % 2 === 1 ? "positive_tr" : "negative_tr";
 
       // if current day has preferences
-      const preferences = availability[i];
+      const preferences = availability[day_i];
       if (preferences) {
         // group into consecutive days
         const grouped = groupConsecutiveHours(preferences);
@@ -40,7 +45,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
             return (
               <tr className={css_class}>
                 <th>{day}</th>
-                {renderStartEnd(grouping)}
+                {renderStartEnd(grouping, day_i)}
               </tr>
             );
           }
@@ -75,6 +80,7 @@ export default AvailabilityTableHandlers;
 // return an array of arrays
 function groupConsecutiveHours(arr) {
   // sort
+  console.log("my arr", arr);
 
   const consecutiveSets = [];
   let currentSet = [arr[0]];
