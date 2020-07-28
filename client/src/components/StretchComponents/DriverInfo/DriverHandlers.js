@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 /** Helpers **/
 import { updateDriverData } from "../../../util/driverDbHelpers";
+/** Redux **/
+import { setEditMode } from "../../../actions/editModeActions";
 
 const DriverHandlers = (dispatch, store) => {
   /** State **/
@@ -12,7 +14,7 @@ const DriverHandlers = (dispatch, store) => {
       day_availability: [],
     },
   });
-  const [editMode, setEditMode] = useState(false);
+  const { editMode } = store;
 
   const handleColorChange = (e) => {
     e.persist();
@@ -21,13 +23,13 @@ const DriverHandlers = (dispatch, store) => {
 
   const handleToggleEditMode = (e) => {
     e && e.preventDefault();
-    setEditMode(!editMode);
+    dispatch(setEditMode(!editMode));
   };
 
   const handleUpdateDB = (e) => {
     e.preventDefault();
     updateDriverData(driverData, () => {
-      handleToggleEditMode();
+      dispatch(setEditMode(false));
     });
   };
 

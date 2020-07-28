@@ -9,6 +9,7 @@ export const SET_DRIVER = "SET_DRIVER";
 export const SET_ERROR = "SET_ERROR";
 export const SET_APP_VIEW = "SET_APP_VIEW";
 export const TOGGLE_SLIDE_IN = "TOGGLE_SLIDE_IN";
+export const SET_EDIT_MODE = "SET_EDIT_MODE";
 
 /** App Views **/
 export const DRIVERS_VIEW = "DRIVERS_VIEW";

@@ -3,14 +3,20 @@ import React, { useState } from "react";
 import { HOURS } from "../../../../util/constants";
 /** Helpers **/
 import { hourTo12hFormat } from "../../../../util/formatHelpers";
+/** Redux **/
+import { useDispatch, useSelector } from "react-redux";
+import { setEditMode } from "../../../../actions/editModeActions";
 
 const TableCell = (props) => {
   /** State **/
   const [currentHour, setCurrentHour] = useState(props.children);
-  const [editMode, setEditMode] = useState(false);
+
+  /** Redux **/
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state);
 
   const handleEditMode = () => {
-    setEditMode(!editMode);
+    dispatch(setEditMode(true));
   };
 
   const handleSliderChange = (e) => {
@@ -20,7 +26,7 @@ const TableCell = (props) => {
   return (
     <th onClick={handleEditMode}>
       {hourTo12hFormat(currentHour)}
-      {editMode && (
+      {store.editMode && (
         <input
           value={currentHour}
           onChange={handleSliderChange}

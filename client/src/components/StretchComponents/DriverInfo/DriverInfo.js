@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 /** Helpers **/
 import { getDriverData } from "../../../util/driverDbHelpers";
-import { availabilityToWords } from "../../../util/formatHelpers";
 /** Redux **/
 import { useSelector, useDispatch } from "react-redux";
 /** Subcomponents **/
@@ -20,15 +19,13 @@ const DriverInfo = () => {
   /** Handlers **/
   const handlers = DriverHandlers(dispatch, store);
 
-  // get user availabilty?
+  // get user availabilty
   useEffect(() => {
     getDriverData(store.driver, (data) => {
       console.log("Driver data", data);
       handlers.setDriverData(data);
     });
   }, [store.driver]);
-
-  // allow availabilty info
 
   return (
     <div>
@@ -58,16 +55,10 @@ const DriverInfo = () => {
           {/* Availability table */}
           <span className="DriverInfo__label small-text">Availability</span>
           <span>
-            {/* Refactor: availability table */}
             <AvailabilityTable parentHandlers={handlers} />
-
-            {/* {availabilityToWords(
-              handlers.driverData.availability.hour_availability
-            ).map((text) => (
-              <div key={`${text}-${store.driver}`}>{text}</div>
-            ))} */}
           </span>
 
+          {/* Driver card buttons */}
           <DriverInfoControllers handlers={handlers} />
         </div>
       )}

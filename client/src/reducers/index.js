@@ -5,6 +5,7 @@ import entryFormReducer from "./entryFormReducer";
 import errorReducer from "./errorReducer";
 import appViewReducer from "./appViewReducer";
 import slideInReducer from "./slideInReducer";
+import editModeReducer from "./editModeReducer";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -15,6 +16,7 @@ const allReducers = combineReducers({
   error: errorReducer,
   appView: appViewReducer,
   slideInToggled: slideInReducer,
+  editMode: editModeReducer,
 });
 
 export default allReducers;

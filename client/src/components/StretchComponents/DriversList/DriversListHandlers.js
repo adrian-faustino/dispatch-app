@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 /** Constants **/
 import { DRIVERS } from "../../../util/constants";
 /** Redux **/
 import { setDriver } from "../../../actions/driverActions";
 
 const DriversListHandlers = (dispatch) => {
-  // /** State **/
-  // const [state, setState] = useState({
-  //   selectedDriverInfo: "",
-  // });
-
   const handleExpandInfo = (e) => {
     e.persist();
-    // setState((state) => ({ ...state, selectedDriverInfo: e.target.innerHTML }));
     dispatch(setDriver(e.target.innerHTML));
   };
 
