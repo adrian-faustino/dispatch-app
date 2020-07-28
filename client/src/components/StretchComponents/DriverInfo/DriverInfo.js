@@ -54,9 +54,8 @@ const DriverInfo = () => {
 
           {/* Availability table */}
           <span className="DriverInfo__label small-text">Availability</span>
-          <span>
-            <AvailabilityTable parentHandlers={handlers} />
-          </span>
+          <span></span>
+          <AvailabilityTable parentHandlers={handlers} />
 
           {/* Driver card buttons */}
           <DriverInfoControllers handlers={handlers} />

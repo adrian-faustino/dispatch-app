@@ -3,16 +3,18 @@ import React from "react";
 import { Table } from "reactstrap";
 /** Handlers **/
 import AvailabilityTableHandlers from "./AvailabilityTableHandlers";
+/** Styles **/
+import "./AvailabilityTable.css";
 
 const AvailabilityTable = ({ parentHandlers }) => {
   /** Handlers **/
   const handlers = AvailabilityTableHandlers(parentHandlers);
 
   return (
-    <div>
+    <div className="AvailabilityTable__container">
       <Table>
         <thead>
-          <tr>
+          <tr className="AvailabilityTable__column-headers">
             <th></th>
             <th>Start Time</th>
             <th>End Time</th>

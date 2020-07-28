@@ -19,6 +19,8 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
   const renderRows = () => {
     return DAY_WORDS.map((day, i) => {
+      const css_class = i % 2 === 1 && "highlight_tr";
+
       // if current day has preferences
       const preferences = availability[i];
       if (preferences) {
@@ -29,7 +31,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           if (i === 0) {
             // set up first row
             return (
-              <tr>
+              <tr className={css_class}>
                 <th>{day}</th>
                 {renderStartEnd(grouping)}
               </tr>
@@ -37,7 +39,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           }
           // set up consecutive rows with no title
           return (
-            <tr>
+            <tr className={css_class}>
               <th></th>
               {renderStartEnd(grouping)}
             </tr>
@@ -47,7 +49,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
       // if no preferences, return a row with a heeder and placeholders
       return (
-        <tr>
+        <tr className={css_class}>
           <th>{day}</th>
           <th>-</th>
           <th>-</th>

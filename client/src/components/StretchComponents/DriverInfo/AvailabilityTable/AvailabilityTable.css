@@ -1,0 +1,12 @@
+.AvailabilityTable__container {
+  grid-column: 1 / span 2;
+  justify-self: center;
+}
+
+.AvailabilityTable__column-headers {
+  background: var(--base-color);
+}
+
+.highlight_tr {
+  background: white;
+}
