@@ -6,27 +6,25 @@ import { hourTo12hFormat } from "../../../../util/formatHelpers";
 /** Subcomponents **/
 import TableCell from "./TableCell";
 
+// These props are passed down from DriverInfo.js
 const AvailabilityTableHandlers = (parentHandlers) => {
-  const { driverData } = parentHandlers;
+  const { driverData, setDriverData } = parentHandlers;
   const { availability } = driverData;
 
   // takes [1,2,3,4] and converts to 1am 4am (start time - end time)
   const renderStartEnd = (arr, day_i) => {
     const start = arr[0];
     const end = arr[arr.length - 1];
-    return [
-      <TableCell
-        dayIndex={day_i}
-        setDriverData={parentHandlers.setDriverData}
-        start={start}
-        end={end}
-      >
-        {start}
-      </TableCell>,
-      <TableCell start={start} end={end}>
-        {end}
-      </TableCell>,
-    ];
+    const driverHandlers = {
+      driverData,
+      setDriverData,
+    };
+
+    return [start, end].map((hour) => (
+      <TableCell dayIndex={day_i} driverHandlers={driverHandlers}>
+        {hour}
+      </TableCell>
+    ));
   };
 
   const renderRows = () => {

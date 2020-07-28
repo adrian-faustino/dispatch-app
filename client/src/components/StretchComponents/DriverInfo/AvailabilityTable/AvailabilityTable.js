@@ -4,6 +4,7 @@ import AvailabilityTableHandlers from "./AvailabilityTableHandlers";
 /** Styles **/
 import "./AvailabilityTable.css";
 
+// These props are passed down from DriverInfo.js
 const AvailabilityTable = ({ parentHandlers }) => {
   /** Handlers **/
   const handlers = AvailabilityTableHandlers(parentHandlers);
