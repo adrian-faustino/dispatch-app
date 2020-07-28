@@ -13,7 +13,7 @@ const AvailabilityTable = ({ parentHandlers }) => {
       <Table>
         <thead>
           <tr>
-            <th>Day</th>
+            <th></th>
             <th>Start Time</th>
             <th>End Time</th>
           </tr>

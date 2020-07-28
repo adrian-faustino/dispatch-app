@@ -14,7 +14,6 @@ const TableCell = (props) => {
   };
 
   const handleSliderChange = (e) => {
-    console.log(e.target.value);
     setCurrentHour(e.target.value);
   };
 
