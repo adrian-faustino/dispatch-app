@@ -27,6 +27,15 @@
   width: 30px;
 }
 
+/* color block when in edit mode */
+input.DriverInfo__color-block {
+  height: 40px;
+  width: 40px;
+  animation: borderWave 0.5s ease-in;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
 .DriverInfo__label {
   margin-right: 10px;
   font-weight: 600;

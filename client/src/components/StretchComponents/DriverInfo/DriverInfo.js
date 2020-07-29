@@ -47,7 +47,7 @@ const DriverInfo = () => {
           ) : (
             <div
               style={{ background: handlers.driverData.color }}
-              className="DriverInfo__color-block pointer_mouse"
+              className="DriverInfo__color-block"
             ></div>
           )}
 

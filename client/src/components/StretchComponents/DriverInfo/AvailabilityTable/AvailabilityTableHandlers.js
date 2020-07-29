@@ -58,11 +58,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           if (i === 0) {
             // set up first row
             return (
-              <tr
-                onClick={parentHandlers.handleToggleEditMode}
-                key={`${day}day-${i}grouping`}
-                className={css_class}
-              >
+              <tr key={`${day}day-${i}grouping`} className={css_class}>
                 <th>{day}</th>
                 {renderStartEnd(grouping, day_i)}
               </tr>
@@ -80,7 +76,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
       // if no preferences, return a row with a heeder and placeholders
       return (
-        <tr onClick={parentHandlers.handleToggleEditMode} className={css_class}>
+        <tr className={css_class}>
           <th>{day}</th>
           <th>-</th>
           <th>-</th>
