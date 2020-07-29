@@ -82,7 +82,8 @@
 [x] change entry form to use bootstrap
 [] change vh to fixed height (CSS)
 [x] edit availability
-[] allow edit availability on days not having time (i.e. Sunday for Chris)
+[x] allow edit availability on days not having time (i.e. Sunday for Chris)
+[] edit mode cancel button
 
 ## Bugs
 

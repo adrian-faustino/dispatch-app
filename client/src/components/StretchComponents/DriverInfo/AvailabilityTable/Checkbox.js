@@ -51,7 +51,7 @@ const Checkbox = ({ handlers, hour, dayIndex }) => {
   };
 
   return (
-    <FormGroup>
+    <FormGroup className="EditAvailability__form-group">
       <Input
         onChange={handleChange}
         value={hour}

@@ -62,3 +62,19 @@ code {
 .pointer_mouse {
   cursor: pointer;
 }
+
+/** Animations **/
+.opacity-wave {
+  animation: opacityWave 0.7s ease-in;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes opacityWave {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
