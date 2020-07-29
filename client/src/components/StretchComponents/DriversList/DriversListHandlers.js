@@ -11,14 +11,16 @@ import {
 } from "reactstrap";
 
 const DriversListHandlers = (dispatch, store) => {
+  /** State **/
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  // dropdown toggle
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+
   const handleExpandInfo = (e) => {
     e.persist();
     dispatch(setDriver(e.target.innerHTML));
   };
-
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   const renderDriversList = () => {
     const drivers_li = DRIVERS.map((driver, i) => {

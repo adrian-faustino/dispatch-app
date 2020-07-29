@@ -12,11 +12,11 @@ function AppView() {
   const store = useSelector((state) => state);
   const date = useSelector((state) => state.date);
   return (
-    <div>
+    <div className="AppView__container">
       {/* Span displaying week */}
-      {store.appView === SCHEDULE_VIEW && (
+      {/* {store.appView === SCHEDULE_VIEW && (
         <div className="AppView__week-span medium-text">Week {date.week}</div>
-      )}
+      )} */}
 
       {/* Prompt displaying input errors */}
       {store.error.errMsg && <ErrorPrompt />}

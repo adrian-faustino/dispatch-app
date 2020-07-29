@@ -1,13 +1,13 @@
 .ErrorPrompt__container {
   position: absolute;
-  top: 25vh;
+  top: 40vh;
   left: 50vw;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   height: max-content;
   width: 300px;
   background: lightblue;
   border-radius: 5px;
   box-shadow: 0 0 3px black;
 
-  z-index: 30;
+  z-index: 40;
 }

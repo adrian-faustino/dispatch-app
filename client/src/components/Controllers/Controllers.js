@@ -24,7 +24,12 @@ const Controllers = () => {
   return (
     <div className="Controllers__container">
       {/* week navigation */}
-      <div>{handlers.renderWeekNavBtns()}</div>
+      <div className="Controllers__week-nav-container">
+        {handlers.renderWeekNavBtns()}
+        <span className="Controllers__week-span medium-text">
+          Week {store.date.week}
+        </span>
+      </div>
 
       {/* driver selection dropdown */}
       <div className="Controllers__button-dropdown">

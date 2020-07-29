@@ -1,9 +1,14 @@
+.AppView__container {
+  position: relative;
+}
+
 .AppView__week-span {
   position: absolute;
-  left: 50vw;
-  transform: translate(-50%, 35%);
   top: var(--navbar-height);
+  left: 50%;
+  transform: translateX(50%);
   width: max-content;
   font-weight: bold;
   text-decoration: underline;
+  background: blue;
 }

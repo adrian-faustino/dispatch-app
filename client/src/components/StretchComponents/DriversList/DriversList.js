@@ -3,6 +3,8 @@ import React from "react";
 import DriversListHandlers from "./DriversListHandlers";
 /** Redux **/
 import { useDispatch, useSelector } from "react-redux";
+/** Styles **/
+import "./DriversList.css";
 
 const DriversList = () => {
   /** Redux **/
@@ -14,7 +16,10 @@ const DriversList = () => {
 
   return (
     <div>
-      <div>{handlers.renderDriversList()}</div>
+      <div className="DriversList__dropdown-container">
+        <span>Driver:</span>
+        {handlers.renderDriversList()}
+      </div>
     </div>
   );
 };

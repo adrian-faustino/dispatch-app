@@ -1,0 +1,15 @@
+.DriversList__dropdown-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin: 20px auto;
+  width: max-content;
+}
+
+.DriversList__dropdown-container > * {
+  margin: 0 5px;
+}
+
+.DriversList__dropdown-container > span {
+  font-weight: bold;
+}
