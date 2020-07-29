@@ -1,8 +1,8 @@
 .ErrorPrompt__container {
-  position: absolute;
+  position: fixed;
   top: 40vh;
   left: 50vw;
-  /* transform: translateX(-50%); */
+  transform: translateX(-50%);
   height: max-content;
   width: 300px;
   background: lightblue;

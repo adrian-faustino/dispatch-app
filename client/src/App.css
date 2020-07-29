@@ -1,4 +1,5 @@
 .App {
+  position: relative;
   text-align: center;
   height: 100vh;
   width: 100vw;
@@ -22,8 +23,11 @@
   color: #61dafb;
 }
 
-.test {
-  position: fixed;
-  top: 0;
-  left: 0;
+.App__error-dismiss-area {
+  position: absolute;
+  top: var(--navbar-height);
+  height: 100vh;
+  width: 100vw;
+  background: rgba(60, 58, 58, 0.468);
+  z-index: 39;
 }
