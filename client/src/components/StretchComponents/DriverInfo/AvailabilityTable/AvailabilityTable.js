@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 /** Handlers **/
 import AvailabilityTableHandlers from "./AvailabilityTableHandlers";
 /** Styles **/
@@ -9,6 +9,7 @@ import EditAvailability from "./EditAvailability";
 import { useSelector } from "react-redux";
 
 // These props are passed down from DriverInfo.js
+/// parentHandlers in DriverHandlers.js
 const AvailabilityTable = ({ parentHandlers }) => {
   /** Redux **/
   const store = useSelector((state) => state);

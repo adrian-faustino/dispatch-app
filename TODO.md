@@ -91,7 +91,7 @@
 [x] when making a conflict and changing only the description and not the driver
 [x] delete confirm view does not close when changing weeks
 [] css style on bookable days does not go away when switching to "All" drivers
-[] time table does not submit refresh time after submission
+[x] time table does not submit refresh time after submission
 
 ## Todo draft
 

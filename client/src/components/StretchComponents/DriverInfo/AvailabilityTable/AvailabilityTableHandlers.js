@@ -22,7 +22,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
     };
 
     return [start, end].map((hour) => (
-      <th 
+      <th
       // dayIndex={day_i} driverHandlers={driverHandlers}
       >
         {hourTo12hFormat(hour)}
@@ -32,11 +32,25 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
   const renderRows = () => {
     return DAY_WORDS.map((day, day_i) => {
+      // apply bg color every 2nd row
       const css_class = day_i % 2 === 1 ? "positive_tr" : "negative_tr";
 
       // if current day has preferences
       const preferences = availability[day_i];
       if (preferences) {
+        // if there are no hours, return row placeholder
+        if (preferences.length === 0)
+          return (
+            <tr
+              onClick={parentHandlers.handleToggleEditMode}
+              className={css_class}
+            >
+              <th>{day}</th>
+              <th>-</th>
+              <th>-</th>
+            </tr>
+          );
+
         // group into consecutive days
         const grouped = groupConsecutiveHours(preferences);
 
@@ -44,7 +58,11 @@ const AvailabilityTableHandlers = (parentHandlers) => {
           if (i === 0) {
             // set up first row
             return (
-              <tr onClick={parentHandlers.handleToggleEditMode} key={`${day}day-${i}grouping`} className={css_class}>
+              <tr
+                onClick={parentHandlers.handleToggleEditMode}
+                key={`${day}day-${i}grouping`}
+                className={css_class}
+              >
                 <th>{day}</th>
                 {renderStartEnd(grouping, day_i)}
               </tr>
