@@ -83,7 +83,7 @@
 [] change vh to fixed height (CSS)
 [x] edit availability
 [x] allow edit availability on days not having time (i.e. Sunday for Chris)
-[] edit mode cancel button
+[x] edit mode cancel button
 
 ## Bugs
 

@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 /** Constants **/
 import { DRIVERS } from "../../../util/constants";
 /** Redux **/
 import { setDriver } from "../../../actions/driverActions";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
-const DriversListHandlers = (dispatch) => {
+const DriversListHandlers = (dispatch, store) => {
   const handleExpandInfo = (e) => {
     e.persist();
     dispatch(setDriver(e.target.innerHTML));
   };
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+
   const renderDriversList = () => {
     const drivers_li = DRIVERS.map((driver, i) => {
-      if (i === 0) return <div key={`driverList-${driver}`}>Drivers</div>;
+      if (i === 0) return;
       else
-        return (
-          <li key={`driverList-${driver}`} onClick={handleExpandInfo}>
-            {driver}
-          </li>
-        );
+        return <DropdownItem onClick={handleExpandInfo}>{driver}</DropdownItem>;
     });
 
-    return <ul>{drivers_li}</ul>;
+    // dropdown toggle inner text
+    // display name of  onlydriver, do not display "ALL"
+    const btn_txt = store.driver === DRIVERS[0] ? "Drivers" : store.driver;
+
+    return (
+      <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle caret>{btn_txt}</DropdownToggle>
+        <DropdownMenu>{drivers_li}</DropdownMenu>
+      </Dropdown>
+    );
   };
 
   return {
