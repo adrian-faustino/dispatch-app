@@ -13,6 +13,7 @@ const DriverHandlers = (dispatch, store) => {
       0: [],
     },
   });
+  const [cancelCache, setCancelCache] = useState(null);
   const { editMode } = store;
 
   const handleColorChange = (e) => {
@@ -22,6 +23,16 @@ const DriverHandlers = (dispatch, store) => {
 
   const handleToggleEditMode = (e) => {
     e && e.preventDefault();
+    // set cache in the case of cancel
+    if (!cancelCache) {
+      // when user clicks edit for the first time
+      setCancelCache(driverData);
+    } else {
+      // on user cancel...
+      setDriverData(cancelCache);
+      // clear cache
+      setCancelCache(null);
+    }
     dispatch(setEditMode(!editMode));
   };
 

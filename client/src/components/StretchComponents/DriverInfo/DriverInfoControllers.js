@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 /** Constants **/
 import { edit_btn, cancel_btn, submit_btn } from "../../../util/constants";
 
-// This handler is passed down from DriverInfo.js
+// This handler is passed down from DriverHandlers.js
 const DriverInfoControllers = ({ handlers }) => {
   return (
     <div className="DriverInfo__btns-container">
@@ -25,14 +25,14 @@ const DriverInfoControllers = ({ handlers }) => {
             onClick={handlers.handleUpdateDB}
             className="DriverInfo__edit-btn"
           >
-            {submit_btn}
+            done
           </Button>
-          <Button
-            onClick={handlers.handleToggleEditMode}
+          {/* <Button
+            onClick={handlers.handleCancel}
             className="DriverInfo__edit-btn"
           >
             {cancel_btn}
-          </Button>
+          </Button> */}
         </>
       )}
     </div>
