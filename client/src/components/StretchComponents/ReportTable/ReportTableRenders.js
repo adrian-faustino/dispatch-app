@@ -49,11 +49,18 @@ const extractTableDataFromObj = (dataObj) => {
 
 // Data arr will be an array of arrays with one obj containing counters for each task {PICK-UP: 5, DROP-OFF: 10, MISC: 2}
 const tableRows = (dataArr, rowTitles) => {
-  console.log(rowTitles);
-  console.log(dataArr);
-  return dataArr.map((dataObj) => {
-    return <tr>{extractTableDataFromObj(dataObj)}</tr>;
-  });
+  const jsx = [];
+  let currentTr = [];
+  let index = 0;
+  for (let dataObj of dataArr) {
+    const currentTitle = rowTitles[index];
+    currentTr.push(<th scope="row">{currentTitle}</th>);
+    currentTr.push(extractTableDataFromObj(dataObj));
+    jsx.push(<tr>{currentTr}</tr>);
+    index++;
+    currentTr = [];
+  }
+  return jsx;
 };
 /** END: Render table **/
 
