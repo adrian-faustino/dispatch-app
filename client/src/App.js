@@ -29,7 +29,7 @@ function App() {
       {store.appView === SCHEDULE_VIEW && <ScheduleView />}
       {store.appView === REPORT_VIEW && <ReportView />}
 
-      {/* <Test /> */}
+      <Test />
     </div>
   );
 }

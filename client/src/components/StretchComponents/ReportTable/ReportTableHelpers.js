@@ -7,8 +7,8 @@ const TOTAL_DAYS = WEEKS * DAYS; // 52 * 7
 // returns array with w-d keys [0-1, 0-2, ..., 52-7]
 const weekAndDayMap = () => {
   const result = [];
-  for (let week = 0; week <= WEEKS; week++) {
-    for (let day = 0; day <= DAYS; day++) {
+  for (let week = 0; week < WEEKS; week++) {
+    for (let day = 0; day < DAYS; day++) {
       result.push(`${week}-${day}`);
     }
   }
@@ -42,16 +42,12 @@ const generateReportForPeriod = (period, driver) => {
 // Input: timeframe int. Return array of array groupings. Timeframe of 2 days => [['w-d1','w-d2], ['w-d3', w-d4'], ... ]
 const groupByTimeframe = (period, timeframe) => {
   const result = [];
-  let counter = timeframe;
   let currentGrouping = [];
   period.forEach((date, i) => {
-    if (counter > 0) {
-      currentGrouping.push(date);
-      counter--;
-    } else {
+    currentGrouping.push(date);
+    if (currentGrouping.length === timeframe) {
       result.push(currentGrouping);
       currentGrouping = [];
-      counter = timeframe;
     }
   });
   return result;

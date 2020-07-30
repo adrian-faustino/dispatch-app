@@ -7,7 +7,11 @@ const ReportTable = () => {
   /** Handlers **/
   const handlers = ReportTableHandlers();
 
-  console.log("My mapping", util.groupByTimeframe(util.weekAndDayMap(), 2));
+  const mapping = util.weekAndDayMap();
+  const grouping = util.groupByTimeframe(mapping, 2);
+
+  console.log("Mapping", mapping);
+  console.log("Grouping", grouping);
 
   return <section>{handlers.handleRenderDropdown()}</section>;
 };
