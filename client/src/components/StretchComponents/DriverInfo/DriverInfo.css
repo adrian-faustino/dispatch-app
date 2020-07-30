@@ -46,9 +46,9 @@ input.DriverInfo__color-block {
   position: absolute;
   top: 5px;
   right: 5px;
-  width: min-content;
 }
 
 .DriverInfo__edit-btn.btn {
   box-shadow: 0 0 3px black;
+  margin: 5px;
 }
