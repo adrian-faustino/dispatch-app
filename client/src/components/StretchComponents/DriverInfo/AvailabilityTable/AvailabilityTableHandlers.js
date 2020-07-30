@@ -21,12 +21,8 @@ const AvailabilityTableHandlers = (parentHandlers) => {
       setDriverData,
     };
 
-    return [start, end].map((hour) => (
-      <th
-      // dayIndex={day_i} driverHandlers={driverHandlers}
-      >
-        {hourTo12hFormat(hour)}
-      </th>
+    return [start, end].map((hour, i) => (
+      <th key={`${hour + i}-start-end`}>{hourTo12hFormat(hour)}</th>
     ));
   };
 
@@ -42,6 +38,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
         if (preferences.length === 0)
           return (
             <tr
+              key={`${day}-${day_i}-tr`}
               onClick={parentHandlers.handleToggleEditMode}
               className={css_class}
             >
@@ -76,7 +73,7 @@ const AvailabilityTableHandlers = (parentHandlers) => {
 
       // if no preferences, return a row with a heeder and placeholders
       return (
-        <tr className={css_class}>
+        <tr key={`${day}-${day_i}-tr`} className={css_class}>
           <th>{day}</th>
           <th>-</th>
           <th>-</th>

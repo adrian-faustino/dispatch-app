@@ -26,7 +26,14 @@ const DriversListHandlers = (dispatch, store) => {
     const drivers_li = DRIVERS.map((driver, i) => {
       if (i === 0) return;
       else
-        return <DropdownItem onClick={handleExpandInfo}>{driver}</DropdownItem>;
+        return (
+          <DropdownItem
+            key={`${driver}-${i}-driverList`}
+            onClick={handleExpandInfo}
+          >
+            {driver}
+          </DropdownItem>
+        );
     });
 
     // dropdown toggle inner text
