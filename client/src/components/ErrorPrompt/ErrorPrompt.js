@@ -31,6 +31,9 @@ const ErrorPrompt = () => {
       {/* display error on timesplot conflict */}
       {error.errMsg === TIMESLOT_CONFLICT &&
         handlers.renderConflictingBooking()}
+      <Button color="danger" onClick={handlers.handleOverwrite}>
+        overwrite
+      </Button>
 
       {/* display other time slots suggestions */}
       {error.errMsg === TIMESLOT_CONFLICT && <Suggestions />}

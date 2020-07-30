@@ -12,11 +12,20 @@ export const dateObjToStringID = (dateObj) => {
   return `${week}-${day}-${hour}`;
 };
 
+// return hh:00 AM/PM
+export const hourTo12hFormat = (hour) => {
+  const _hour = parseInt(hour);
+  if (_hour === 0) return "12:00 AM";
+  if (_hour === 12) return "12:00 PM";
+  if (_hour < 12) return `${_hour}:00 AM`;
+  else return `${_hour - 12}:00 PM`;
+};
+
 // convert string 'w-d-y' to human words
 export const dateStrToWords = (dateStr) => {
   if (!dateStr) return;
   const [week, day, hour] = dateStr.split("-");
-  return `Week ${week}: ${dayToWords(day)}, ${hour}h`;
+  return `Week ${week}: ${dayToWords(day)}, ${hourTo12hFormat(hour)}`;
 };
 
 // convert string 'w-d-y' to date Obj
@@ -28,14 +37,6 @@ export const dateStrToObj = (dateStr) => {
 // convert date obj to words
 export const dateObjToWords = (dateObj) => {
   return dateStrToWords(dateObjToStringID(dateObj));
-};
-
-// return hh:00 AM/PM
-export const hourTo12hFormat = (hour) => {
-  if (hour === 0) return "12:00 AM";
-  if (hour === 12) return "12:00 PM";
-  if (hour < 12) return `${hour}:00 AM`;
-  else return `${hour - 12}:00 PM`;
 };
 
 export const hourAMorPM = (hour) => {

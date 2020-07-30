@@ -10,7 +10,6 @@
   box-shadow: 0 0 3px black;
 
   z-index: 40;
-
   display: grid;
 }
 
@@ -23,4 +22,8 @@
   position: absolute;
   right: 18px;
   top: 13px;
+}
+
+.ErrorPrompt__conflict-msg-container {
+  margin: 5px 0;
 }

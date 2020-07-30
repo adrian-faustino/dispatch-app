@@ -64,6 +64,11 @@ code {
   cursor: pointer;
 }
 
+.span-emphasis {
+  font-weight: 700;
+  font-style: italic;
+}
+
 /** Animations **/
 .opacity-wave {
   animation: opacityWave 0.7s ease-in;

@@ -1,6 +1,6 @@
 import React from "react";
 /** Helpers **/
-import { dayToWords } from "../../util/formatHelpers";
+import { dayToWords, dateObjToWords } from "../../util/formatHelpers";
 import { editEntry } from "../../util/dbHelpers";
 /** Redux **/
 import { resetError } from "../../actions/errorActions";
@@ -38,14 +38,14 @@ const ErrorPromptHandlers = (dispatch, error) => {
     const booking = error.payload;
     const { date, description, driver } = booking;
     const [week, day, hour] = date.split("-");
+    const dateObj = { week, day, hour };
     return (
-      <div>
-        <div>
-          {`Week ${week} ${dayToWords(
-            day
-          )} ${hour}h timeslot is booked by ${driver} for ${description}`}
-        </div>
-        <Button onClick={handleOverwrite}>overwrite</Button>
+      <div className="ErrorPrompt__conflict-msg-container">
+        <span className="span-emphasis">{dateObjToWords(dateObj)}</span>
+        <span>{` timeslot is booked by `}</span>
+        <span className="span-emphasis">{driver.toUpperCase()}</span>
+        <span>{` for `}</span>
+        <span className="span-emphasis">{description}</span>
       </div>
     );
   };
