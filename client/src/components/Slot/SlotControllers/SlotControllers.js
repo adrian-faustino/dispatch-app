@@ -15,12 +15,15 @@ import {
 import "./SlotControllers.css";
 /** Redux **/
 import { useSelector } from "react-redux";
+/** npm **/
+import classNames from "classnames";
 
 const SlotControllers = (props) => {
   const { setFormOpen, formOpen, bookedData, setBookedData } = props;
 
   /** State **/
   const [deleteConfirm, setDeleteConfirm] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   /** Redux **/
   const store = useSelector((state) => state);
@@ -51,16 +54,25 @@ const SlotControllers = (props) => {
     setDeleteConfirm(!deleteConfirm);
   };
 
+  const controlsVisibility = classNames("SlotControllers__btn-container", {
+    isVisible,
+  });
+
   return (
-    <div>
+    <div
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      {/* add new booking btn */}
       {!formOpen && !bookedData && (
         <Button className="show-btn-on-hover" onClick={handleFormToggle}>
           {add_btn}
         </Button>
       )}
 
+      {/* edit / delete btns */}
       {bookedData && !deleteConfirm && (
-        <div className="SlotControllers__btn-container">
+        <div className={controlsVisibility}>
           <Button onClick={handleFormToggle}>{edit_btn}</Button>
           <Button color="danger" onClick={toggleDeleteConfirmation}>
             {delete_btn}
@@ -68,10 +80,11 @@ const SlotControllers = (props) => {
         </div>
       )}
 
+      {/* delete confirmation */}
       {deleteConfirm && (
         <>
           <span className="SlotControllers__warning-prompt">Are you sure?</span>
-          <div className="SlotControllers__btn-container">
+          <div className="SlotControllers__btn-container isVisible">
             <Button color="danger" onClick={handleDelete}>
               {delete_btn}
             </Button>

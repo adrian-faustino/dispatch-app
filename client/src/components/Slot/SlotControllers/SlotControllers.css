@@ -12,6 +12,14 @@
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s ease-out;
+}
+
+.SlotControllers__btn-container.isVisible {
+  pointer-events: all;
+  opacity: 1;
 }
 
 .SlotControllers__btn-container > .btn {
