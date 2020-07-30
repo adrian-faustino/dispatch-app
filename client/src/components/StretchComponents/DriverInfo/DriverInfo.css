@@ -29,8 +29,9 @@
 
 /* color block when in edit mode */
 input.DriverInfo__color-block {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  transform: scale(1.3);
   animation: borderWave 0.5s ease-in;
   animation-direction: alternate-reverse;
   animation-iteration-count: infinite;

@@ -3,6 +3,13 @@
   grid-column: 1 / span 2;
   justify-self: center;
   width: 100%;
+
+  display: grid;
+  justify-content: center;
+  background: red;
+  margin-top: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 /* I need sleep */
