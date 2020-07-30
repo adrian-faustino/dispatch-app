@@ -8,11 +8,14 @@
   display: grid;
   justify-content: center;
   margin-top: 10px;
-  box-shadow: inset 0 0 5px black;
   border-radius: 5px;
 
   overflow: hidden;
   overflow-y: scroll;
+}
+
+.AvailabilityTable__container.inset {
+  box-shadow: inset 0 0 5px black;
 }
 
 /* remove scrollbar */
@@ -20,7 +23,12 @@
   display: none;
 }
 
+.AvailabilityTable__table {
+  box-shadow: 0 0 5px black;
+}
+
 /* I need sleep */
+/* Spaces elements within table */
 .AvailabilityTable__table > * > * > * {
   padding: 10px 20px;
 }

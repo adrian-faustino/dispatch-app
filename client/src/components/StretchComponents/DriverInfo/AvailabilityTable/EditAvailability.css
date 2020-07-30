@@ -1,7 +1,3 @@
-.EditAvailability__container {
-  position: relative;
-}
-
 .EditAvailability__container > h1 {
   position: sticky;
   top: -0.5px;

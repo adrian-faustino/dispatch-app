@@ -17,8 +17,10 @@ const AvailabilityTable = ({ parentHandlers }) => {
   /** Handlers **/
   const handlers = AvailabilityTableHandlers(parentHandlers);
 
+  const inset_class = store.editMode && "inset";
+
   return (
-    <div className="AvailabilityTable__container">
+    <div className={`AvailabilityTable__container ${inset_class}`}>
       {store.editMode && <EditAvailability handlers={parentHandlers} />}
 
       {!store.editMode && (
