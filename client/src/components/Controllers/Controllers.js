@@ -25,32 +25,36 @@ const Controllers = () => {
 
   return (
     <div className="Controllers__container">
+      {/* driver selection dropdown */}
+      <div>
+        <div className="Controllers__button-dropdown">
+          <span className="small-text">View Driver</span>
+          <ButtonDropdown
+            isOpen={state.dropdownOpen}
+            toggle={handlers.toggleDropdown}
+          >
+            <DropdownToggle caret>{store.driver}</DropdownToggle>
+            <DropdownMenu>
+              {/* driver options */}
+              {handlers.renderDropdownItems()}
+            </DropdownMenu>
+          </ButtonDropdown>
+        </div>
+      </div>
+
       {/* week navigation */}
-      <div className="Controllers__week-nav-container">
-        {handlers.renderWeekNavBtns()}
-        <span className="Controllers__week-span medium-text">
-          Week {store.date.week}
-        </span>
+      <div>
+        <div className="Controllers__week-nav-container">
+          {handlers.renderWeekNavBtns()}
+          <span className="Controllers__week-span medium-text">
+            Week {store.date.week}
+          </span>
+        </div>
       </div>
 
       {/* driver filter controls */}
       {/* only show outside of "All" view */}
-      {handlers.renderFilterCheckboxes(store.driver)}
-
-      {/* driver selection dropdown */}
-      <div className="Controllers__button-dropdown">
-        <span className="small-text">View Driver</span>
-        <ButtonDropdown
-          isOpen={state.dropdownOpen}
-          toggle={handlers.toggleDropdown}
-        >
-          <DropdownToggle caret>{store.driver}</DropdownToggle>
-          <DropdownMenu>
-            {/* driver options */}
-            {handlers.renderDropdownItems()}
-          </DropdownMenu>
-        </ButtonDropdown>
-      </div>
+      <div>{handlers.renderFilterCheckboxes(store.driver)}</div>
     </div>
   );
 };
