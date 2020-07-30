@@ -9,8 +9,12 @@ import {
 
 // [constructor] returns JSX and any assigned onClick functions
 const dropdownItems = (items, onClick) => {
-  return items.map((item) => {
-    return <DropdownItem onClick={onClick && onClick}>{item}</DropdownItem>;
+  return items.map((item, i) => {
+    return (
+      <DropdownItem key={`${item}-${i}-dayRange`} onClick={onClick && onClick}>
+        {item}
+      </DropdownItem>
+    );
   });
 };
 
