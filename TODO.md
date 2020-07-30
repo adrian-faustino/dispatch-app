@@ -29,7 +29,6 @@
   [x] update existing tasks time/description/location
 - DELETE
   [x] delete existing task
-  [] option to delete conflicting tasks? (on update?)
 
 ## Stretch
 
@@ -38,13 +37,13 @@
   [] deployment
   [] suggestion - suggest days for within that user's availability AND is free time slot
   [] resource tab (hours worked - pie chart/line graph)
-  [] on hover, display edit/delete buttons
+  [x] on hover, display edit/delete buttons
   [] debounce buttons
   [] unhandled task list -> allocate drivers (ability to create task)
   [x] driver availability
-  - [x] show slots that are within driver availability
-  - [] highlight ! bookings that are outside of driver availability
-    [x] color code by user
+  [x] show slots that are within driver availability
+  [x] highlight bookings that are outside of driver availability
+  [x] color code by user
 
 ## Current task (leave todo # here before stepping away)
 
@@ -80,6 +79,7 @@
 [x] replace uuidv4
 [x] use constants for basic buttons "delete, edit, submit"
 [] feedback - on success/error
+[] navbar toggle button
 [x] change entry form to use bootstrap
 [] change vh to fixed height (CSS)
 [x] edit availability
