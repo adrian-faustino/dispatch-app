@@ -21,7 +21,9 @@ const Nav = () => {
         <button
           onClick={handlers.handleToggleSlideIn}
           className="Nav__toggle-btn"
-        ></button>
+        >
+          <div className="Nav__toggle-btn-bar"></div>
+        </button>
         <div className="Nav__site-logo large-text">Truck Dispatcher App</div>
       </div>
 

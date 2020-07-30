@@ -79,7 +79,7 @@
 [x] replace uuidv4
 [x] use constants for basic buttons "delete, edit, submit"
 [] feedback - on success/error
-[] navbar toggle button
+[x] navbar toggle button
 [x] change entry form to use bootstrap
 [] change vh to fixed height (CSS)
 [x] edit availability
@@ -94,3 +94,4 @@
 [x] delete confirm view does not close when changing weeks
 [x] css style on bookable days does not go away when switching to "All" drivers
 [x] time table does not submit refresh time after submission
+[] editing color block
