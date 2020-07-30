@@ -35,7 +35,7 @@ const SuggestionsControllers = ({ suggestions }) => {
   };
 
   return (
-    <section>
+    <section className="Suggestions__container">
       <Dropdown isOpen={state.dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>
           {state.selectedSuggestion
@@ -55,7 +55,10 @@ const SuggestionsControllers = ({ suggestions }) => {
           {handlers.renderSuggestions(differentWeek)}
         </DropdownMenu>
       </Dropdown>
-      <Button onClick={handlers.handleSuggestionSubmit}>{submit_btn}</Button>
+
+      <Button color="primary" onClick={handlers.handleSuggestionSubmit}>
+        {submit_btn}
+      </Button>
     </section>
   );
 };

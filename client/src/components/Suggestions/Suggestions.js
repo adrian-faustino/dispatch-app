@@ -34,10 +34,6 @@ const Suggestions = () => {
     setDifferentWeek(handlers.generateSuggestions(WEEK_SELECTOR));
   }, []);
 
-  console.log("Within same day", handlers.generateSuggestions(HOUR_SELECTOR));
-  console.log("Within same week", handlers.generateSuggestions(DAY_SELECTOR));
-  console.log("Different week", handlers.generateSuggestions(WEEK_SELECTOR));
-
   return (
     <div>
       <p>How about these nearby timeslots?</p>
