@@ -49,12 +49,3 @@ const TableCell = (props) => {
 };
 
 export default TableCell;
-
-// function switchItemsInArr(arr, item_in, item_out) {
-//   const newArr = arr;
-//   const index = arr.indexOf(item_out);
-//   if (index !== -1) {
-//     newArr[index] = item_in;
-//   }
-//   return newArr;
-// }

@@ -61,6 +61,7 @@
 [x] display suggestions
 [x] create navbar
 [x] driver availability (hours and days)
+[] edit error prompt
 
 ## Refactor / Todo
 
@@ -92,18 +93,3 @@
 [x] delete confirm view does not close when changing weeks
 [] css style on bookable days does not go away when switching to "All" drivers
 [x] time table does not submit refresh time after submission
-
-## Todo draft
-
-- create db with user availability
-  - seed
-- display
-
-  - display availability
-
-    - add function to add driver
-    - display, edit, delete driver
-    - clear availability db too
-
-    [] edit each table
-    [] change from slider to selectable dropdown for when updating date.
