@@ -46,8 +46,14 @@
 
 .Nav__slide-in-ul > li {
   cursor: pointer;
-  margin: 20px 0;
+  margin-top: 20px;
   font-weight: bold;
+  width: max-content;
+}
+
+.Nav__slide-in-ul > li:hover {
+  background: rgba(53, 52, 52, 0.24);
+  color: rgba(255, 255, 255, 0.678);
 }
 
 .Nav__current-view {
