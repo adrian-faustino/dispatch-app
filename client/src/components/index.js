@@ -10,3 +10,5 @@ export { default as Nav } from "./Nav/Nav";
 /** Stretch components */
 export { default as DriversList } from "./StretchComponents/DriversList/DriversList";
 export { default as DriverInfo } from "./StretchComponents/DriverInfo/DriverInfo";
+export { default as CsvExporter } from "./StretchComponents/CsvExporter/CsvExporter";
+export { default as ReportTable } from "./StretchComponents/ReportTable/ReportTable";

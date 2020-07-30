@@ -76,3 +76,7 @@ export const ENTRY_OVERWRITE_200 = "ENTRY_OVERWRITE_200";
 export const WEEK_SELECTOR = "WEEK_SELECTOR";
 export const DAY_SELECTOR = "DAY_SELECTOR";
 export const HOUR_SELECTOR = "HOUR_SELECTOR";
+
+/** ReportTable.js **/
+// how days are divided for report (col 1)
+export const DAY_RANGES = [2, 4, 7, 14, 28];

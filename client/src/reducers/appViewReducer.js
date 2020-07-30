@@ -1,6 +1,11 @@
-import { SCHEDULE_VIEW, DRIVERS_VIEW, SET_APP_VIEW } from "../util/constants";
+import {
+  SCHEDULE_VIEW,
+  DRIVERS_VIEW,
+  REPORT_VIEW,
+  SET_APP_VIEW,
+} from "../util/constants";
 
-const initialState = SCHEDULE_VIEW;
+const initialState = REPORT_VIEW;
 
 const appViewReducer = (state = initialState, action) => {
   switch (action.type) {
