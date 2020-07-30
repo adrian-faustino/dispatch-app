@@ -35,7 +35,7 @@ const Controllers = () => {
 
       {/* driver filter controls */}
       {/* only show outside of "All" view */}
-      {store.driver !== DRIVERS[0] && handlers.renderFilterCheckboxes()}
+      {handlers.renderFilterCheckboxes(store.driver)}
 
       {/* driver selection dropdown */}
       <div className="Controllers__button-dropdown">

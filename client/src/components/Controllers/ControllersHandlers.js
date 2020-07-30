@@ -87,16 +87,22 @@ const ControllersHandlers = (setState, dispatch, store) => {
   };
 
   // driver filter controls
-  const renderFilterCheckboxes = () => {
+  const renderFilterCheckboxes = (driver) => {
     return (
       <div className="Controllers__filter-checkboxes-container">
-        <input
-          type="checkbox"
-          checked={showBookableSlots}
-          onChange={handleCheckbox}
-          name="showBookableSlots"
-        />
-        <label htmlFor="showBookableSlots">Show bookable timeslots</label>
+        {driver !== DRIVERS[0] && (
+          <>
+            <input
+              type="checkbox"
+              checked={showBookableSlots}
+              onChange={handleCheckbox}
+              name="showBookableSlots"
+            />
+            <label htmlFor="showBookableSlots">
+              Show timeslots within driver availability
+            </label>
+          </>
+        )}
 
         <input
           type="checkbox"
@@ -105,7 +111,7 @@ const ControllersHandlers = (setState, dispatch, store) => {
           name="showOutsideAvailability"
         />
         <label htmlFor="showOutsideAvailability">
-          Show bookings outside availability
+          Show bookings outside driver availability
         </label>
       </div>
     );
