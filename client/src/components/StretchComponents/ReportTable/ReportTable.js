@@ -9,9 +9,13 @@ const ReportTable = () => {
 
   const mapping = util.weekAndDayMap();
   const grouping = util.groupByTimeframe(mapping, 2);
+  const report = grouping.map((group) => {
+    return util.generateReportForPeriod(group, "Chris");
+  });
 
-  console.log("Mapping", mapping);
-  console.log("Grouping", grouping);
+  // console.log("Mapping", mapping);
+  // console.log("Grouping", grouping);
+  console.log("Report", report[0]);
 
   return <section>{handlers.handleRenderDropdown()}</section>;
 };

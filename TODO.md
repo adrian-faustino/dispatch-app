@@ -96,5 +96,6 @@
 [x] css style on bookable days does not go away when switching to "All" drivers
 [x] time table does not submit refresh time after submission
 [] editing color block
+[] bug after deleting a user (cannot read driver of null)
 
 -display table data on console
