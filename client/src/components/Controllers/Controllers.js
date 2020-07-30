@@ -31,6 +31,9 @@ const Controllers = () => {
         </span>
       </div>
 
+      {/* driver filter controls */}
+      {handlers.renderFilterCheckboxes()}
+
       {/* driver selection dropdown */}
       <div className="Controllers__button-dropdown">
         <span className="small-text">View Driver</span>
@@ -45,8 +48,6 @@ const Controllers = () => {
           </DropdownMenu>
         </ButtonDropdown>
       </div>
-
-      {/* driver filter controls */}
     </div>
   );
 };

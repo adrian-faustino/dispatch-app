@@ -74,7 +74,17 @@ const ControllersHandlers = (setState, dispatch, store) => {
   };
 
   // driver filter controls
-  const renderFilterCheckboxes = () => {};
+  const renderFilterCheckboxes = () => {
+    return (
+      <div className="Controllers__filter-checkboxes-container">
+        <input name="isBookable" type="checkbox" />
+        <label htmlFor="isBookable">Show bookable timeslots</label>
+
+        <input name="isOutside" type="checkbox" />
+        <label htmlFor="isOutside">Show bookings outside availability</label>
+      </div>
+    );
+  };
 
   return {
     toggleDropdown,

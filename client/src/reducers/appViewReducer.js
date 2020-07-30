@@ -1,6 +1,6 @@
 import { SCHEDULE_VIEW, DRIVERS_VIEW, SET_APP_VIEW } from "../util/constants";
 
-const initialState = DRIVERS_VIEW;
+const initialState = SCHEDULE_VIEW;
 
 const appViewReducer = (state = initialState, action) => {
   switch (action.type) {
