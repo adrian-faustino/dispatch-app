@@ -31,8 +31,8 @@ const ControllersHandlers = (setState, dispatch, store) => {
         if (store.date.week <= 0) return;
         return dispatch(prevWeek());
       case nextWeek_btn:
-        // validate - now above week 52
-        if (store.date.week >= WEEKS) return;
+        // validate - now above week 51
+        if (store.date.week >= WEEKS - 1) return;
         return dispatch(nextWeek());
     }
   };
