@@ -24,6 +24,7 @@ const Slot = ({ day, hour, bookableDay }) => {
   /** Redux **/
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
+  const { showBookableSlots, showOutsideAvailability } = store.viewFilters;
 
   /** Variables **/
   const dateObj = { week: store.date.week, day, hour };
@@ -41,12 +42,11 @@ const Slot = ({ day, hour, bookableDay }) => {
     };
   }, [store.date.week, store.driver]);
 
-  // Set styling
+  // Set styling based on view filters
   const slotStyles = classNames({
     booked: bookedData,
-    bookableDay,
-    outsideAvailability:
-      store.viewFilters.showOutsideAvailability && bookedData && !bookableDay,
+    bookableDay: showBookableSlots && bookableDay,
+    outsideAvailability: showOutsideAvailability && bookedData && !bookableDay,
   });
 
   const handleEntrySuccess = (success, err) => {
