@@ -32,7 +32,8 @@ const generateReportForPeriod = (period, driver) => {
       const id = `${date}-${hour}`;
       const currentEntry = entries[id];
       if (currentEntry && currentEntry.driver === driver) {
-        counters[currentEntry.description] = +1;
+        counters[currentEntry.description] =
+          counters[currentEntry.description] + 1;
       }
     }
   });
