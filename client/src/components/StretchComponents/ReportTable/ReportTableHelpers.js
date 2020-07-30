@@ -1,5 +1,7 @@
 /** DB **/
 import { entries } from "../../../db/entries";
+/** Helpers **/
+import { week_day_str_to_day_x } from "../../../util/formatHelpers";
 /** Constants **/
 import { DAYS, WEEKS, HOURS, DESCRIPTIONS } from "../../../util/constants";
 const TOTAL_DAYS = WEEKS * DAYS; // 52 * 7
@@ -53,8 +55,22 @@ const groupByTimeframe = (period, timeframe) => {
   });
   return result;
 };
-// ** CURRENT TASK
 
-const util = { weekAndDayMap, generateReportForPeriod, groupByTimeframe };
+// depending on range, return 'Day A - Day B'
+// return array of strings
+const generateTimeframeString = (grouping) => {
+  const start = grouping[0];
+  const end = grouping[grouping.length - 1];
+  const _start = week_day_str_to_day_x(start);
+  const _end = week_day_str_to_day_x(end);
+  return `${_start} - ${_end}`;
+};
+
+const util = {
+  weekAndDayMap,
+  generateReportForPeriod,
+  groupByTimeframe,
+  generateTimeframeString,
+};
 
 export default util;

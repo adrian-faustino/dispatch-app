@@ -5,6 +5,7 @@ import drivers from "../../../db/drivers";
 /** Helpers **/
 import util from "./ReportTableHelpers";
 import render from "./ReportTableRenders";
+
 /** Constants **/
 import { DAY_RANGES } from "../../../util/constants";
 /** Reacstrap **/
@@ -22,7 +23,9 @@ const ReportTableHandlers = () => {
   const report = grouping.map((group) =>
     util.generateReportForPeriod(group, "Chris")
   );
-  console.log("Our report!", report);
+  const timeframeRowStringMap = grouping.map((group) =>
+    util.generateTimeframeString(group)
+  );
 
   /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
@@ -44,12 +47,13 @@ const ReportTableHandlers = () => {
   /** END: Render timeframe dropdown **/
 
   /** BEGIN: Render table **/
+
   const handleRenderTable = () => {
     return (
       <>
         <Table>
           <thead>{render.tableHeaders()}</thead>
-          <tbody>{render.tableRows(report)}</tbody>
+          <tbody>{render.tableRows(report, timeframeRowStringMap)}</tbody>
         </Table>
       </>
     );
