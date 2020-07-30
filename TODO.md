@@ -99,3 +99,6 @@
 [] bug after deleting a user (cannot read driver of null)
 
 -display table data on console
+
+drop down for driver and divison (make sure u update state.)
+-move every table column over 1, and add timeframe title

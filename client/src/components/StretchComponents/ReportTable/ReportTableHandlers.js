@@ -8,14 +8,21 @@ import render from "./ReportTableRenders";
 /** Constants **/
 import { DAY_RANGES } from "../../../util/constants";
 /** Reacstrap **/
-import { Dropdown, DropdownToggle } from "reactstrap";
+import { Dropdown, DropdownToggle, Table } from "reactstrap";
 
 const ReportTableHandlers = () => {
   /** State **/
   // how days are divided for report (col 1)
-  const [timeFrame, setTimeFrame] = useState();
+  const [timeFrame, setTimeFrame] = useState(2);
   // dropdown state handlers
   const [isOpen, setDropdownOpen] = useState(false);
+
+  const mapping = util.weekAndDayMap();
+  const grouping = util.groupByTimeframe(mapping, timeFrame);
+  const report = grouping.map((group) =>
+    util.generateReportForPeriod(group, "Chris")
+  );
+  console.log("Our report!", report);
 
   /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
@@ -37,10 +44,21 @@ const ReportTableHandlers = () => {
   /** END: Render timeframe dropdown **/
 
   /** BEGIN: Render table **/
+  const handleRenderTable = () => {
+    return (
+      <>
+        <Table>
+          <thead>{render.tableHeaders()}</thead>
+          <tbody>{render.tableRows(report)}</tbody>
+        </Table>
+      </>
+    );
+  };
   /** END: Render table **/
 
   return {
     handleRenderDropdown,
+    handleRenderTable,
   };
 };
 

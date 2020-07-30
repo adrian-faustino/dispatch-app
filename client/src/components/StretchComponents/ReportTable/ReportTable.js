@@ -15,9 +15,14 @@ const ReportTable = () => {
 
   // console.log("Mapping", mapping);
   // console.log("Grouping", grouping);
-  console.log("Report", report[0]);
+  // console.log("Report", report[0]);
 
-  return <section>{handlers.handleRenderDropdown()}</section>;
+  return (
+    <section>
+      <div>{handlers.handleRenderDropdown()}</div>
+      <div>{handlers.handleRenderTable()}</div>
+    </section>
+  );
 };
 
 export default ReportTable;

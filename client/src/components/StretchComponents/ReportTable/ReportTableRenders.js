@@ -30,19 +30,32 @@ const dropdownMenu = (dropdownItems) => {
 
 /** BEGIN: Render table **/
 const tableHeaders = () => {
-  const withColumn1 = DESCRIPTIONS.unshift("Time-Frame");
+  const withColumn1 = ["Time-Frame", ...DESCRIPTIONS];
+
   const headers = withColumn1.map((description, i) => (
     <th key={`${description}-${i}-report`}>{description}</th>
   ));
   return <tr>{headers}</tr>;
 };
 
-// Data arr will be an array of arrays of objs
+const extractTableDataFromObj = (dataObj) => {
+  const td_JSX = [];
+  for (let description of DESCRIPTIONS) {
+    td_JSX.push(<td>{dataObj[description]}</td>);
+  }
+  return td_JSX;
+};
+
+// Data arr will be an array of arrays with one obj containing counters for each task {PICK-UP: 5, DROP-OFF: 10, MISC: 2}
 const tableRows = (dataArr) => {
-  return dataArr.map((dataObj) => {});
+  console.log("My Data arr:", dataArr);
+  return dataArr.map((dataObj) => {
+    console.log("My data Obj", dataObj);
+    return <tr>{extractTableDataFromObj(dataObj)}</tr>;
+  });
 };
 /** END: Render table **/
 
-const render = { dropdownItems, dropdownMenu };
+const render = { dropdownItems, dropdownMenu, tableHeaders, tableRows };
 
 export default render;
