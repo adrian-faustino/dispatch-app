@@ -12,12 +12,8 @@
   grid-template-columns: 1fr 2fr;
   justify-items: left;
 
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.DriverInfo__container::-webkit-scrollbar {
-  display: none;
+  /* overflow: hidden;
+  overflow-y: scroll; */
 }
 
 .DriverInfo__color-block {
