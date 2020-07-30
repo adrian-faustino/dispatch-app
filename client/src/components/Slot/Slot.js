@@ -20,6 +20,7 @@ const Slot = ({ day, hour, bookableDay }) => {
   /** State **/
   const [bookedData, setBookedData] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   /** Redux **/
   const dispatch = useDispatch();
@@ -69,6 +70,8 @@ const Slot = ({ day, hour, bookableDay }) => {
 
   return (
     <div
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
       onClick={handlers.handleSlotClick}
       className={`Slot__container wkDay${day} ${slotStyles}`}
     >
@@ -76,6 +79,7 @@ const Slot = ({ day, hour, bookableDay }) => {
 
       {!formOpen && (
         <SlotControllers
+          isVisible={isVisible}
           setFormOpen={setFormOpen}
           formOpen={formOpen}
           bookedData={bookedData}

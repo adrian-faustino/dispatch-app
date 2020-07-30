@@ -70,6 +70,11 @@ code {
   font-style: italic;
 }
 
+.isVisible {
+  pointer-events: all;
+  opacity: 1;
+}
+
 /** Animations **/
 .opacity-wave {
   animation: opacityWave 0.7s ease-in;
