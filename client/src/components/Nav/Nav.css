@@ -10,6 +10,7 @@
   /* alter children */
   display: flex;
   align-items: center;
+  box-shadow: 0 0 5px black;
 }
 .Nav__site-logo {
   font-weight: bold;
@@ -58,6 +59,7 @@
   height: 100vh;
   background: rgba(128, 128, 128, 0.804);
   text-align: left;
+  box-shadow: 0 0 5px black;
 }
 
 .Nav__slide-in-ul {
