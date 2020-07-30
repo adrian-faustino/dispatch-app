@@ -12,6 +12,7 @@
   background: var(--secondary-color);
   z-index: 32;
   box-shadow: 0 0 5px black;
+  border-radius: 0 0 5px 5px;
 }
 
 .EditAvailability__form-group {

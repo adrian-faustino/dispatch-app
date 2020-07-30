@@ -40,10 +40,11 @@ export const dateObjToWords = (dateObj) => {
 };
 
 export const hourAMorPM = (hour) => {
-  if (hour === 0) return "am";
-  if (hour === 12) return "pm";
-  if (hour < 12) return `am`;
-  else return `pm`;
+  const _hour = parseInt(hour);
+  if (_hour === 0) return "12am";
+  if (_hour === 12) return "12pm";
+  if (_hour < 12) return `${_hour}am`;
+  else return `${_hour - 12}pm`;
 };
 
 // take availability arr and convert to human text

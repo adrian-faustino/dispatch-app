@@ -58,7 +58,7 @@ const Checkbox = ({ handlers, hour, dayIndex }) => {
         type="checkbox"
         checked={checked}
       />
-      <Label>{`${hour}${hourAMorPM(hour)}`}</Label>
+      <Label>{`${hourAMorPM(hour)}`}</Label>
     </FormGroup>
   );
 };
