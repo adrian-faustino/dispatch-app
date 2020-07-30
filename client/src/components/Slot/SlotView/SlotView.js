@@ -3,10 +3,16 @@ import React, { useEffect, useState } from "react";
 import "./SlotView.css";
 /** Helpers **/
 import { getDriverData } from "../../../util/driverDbHelpers";
+/** Redux **/
+import { useSelector } from "react-redux";
 
 const SlotView = ({ dateObj, bookedData }) => {
   /** State **/
   const [driverData, setDriverData] = useState(null);
+
+  /** Redux **/
+  const store = useSelector((state) => state);
+  const { showBookableSlots, showOutsideAvailability } = store.viewFilters;
 
   useEffect(() => {
     if (bookedData) {
@@ -17,6 +23,8 @@ const SlotView = ({ dateObj, bookedData }) => {
   }, [bookedData]);
 
   /** Notes: logic for changing color depending on driver color and also if the booking is within their schedule or not **/
+  console.log("Bookable!?");
+  // show bookable slots (within availability)
   const driverColor_css = driverData && {
     position: "absolute",
     top: 10,

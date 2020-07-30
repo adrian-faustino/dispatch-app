@@ -36,7 +36,9 @@ const TimetableHandlers = (store) => {
     for (let day = -1; day < DAYS; day++) {
       for (let hour = -1; hour < HOURS; hour++) {
         // pass bool if slot is within current driver availability
-        const bookableDay = isWithinAvailability(day, hour);
+        const bookableDay =
+          store.viewFilters.showBookableSlots &&
+          isWithinAvailability(day, hour);
 
         if (day === -1 || hour === -1)
           slots.push(
