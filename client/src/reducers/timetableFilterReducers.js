@@ -3,6 +3,7 @@ import {
   SET_SHOW_OUTSIDE_AVAILABILITY,
   SET_SHOW_CONTROLS,
   RESET_FILTERS,
+  TOGGLE_FILTER_ELEMENT,
 } from "../util/constants";
 
 const initState = {
@@ -21,6 +22,8 @@ const timetableFilterReducers = (state = initState, action) => {
       return { ...state, showControls: action.payload };
     case RESET_FILTERS:
       return initState;
+    case TOGGLE_FILTER_ELEMENT:
+      return { ...state, [action.element]: !state[action.element] };
     default:
       return state;
   }

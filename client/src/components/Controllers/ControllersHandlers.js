@@ -2,6 +2,7 @@ import React from "react";
 /** Redux **/
 import { nextWeek, prevWeek } from "../../actions/timetableNavigation";
 import { setDriver } from "../../actions/driverActions";
+import { toggleFilter } from "../../actions/timetableFilterActions";
 /** Constants **/
 import {
   DRIVERS,
@@ -11,8 +12,15 @@ import {
 } from "../../util/constants";
 /** Reacstrap **/
 import { DropdownItem } from "reactstrap";
+/** Constants **/
+import {
+  SET_SHOW_BOOKABLE_SLOTS,
+  SET_SHOW_OUTSIDE_AVAILABILITY,
+} from "../../util/constants";
 
 const ControllersHandlers = (setState, dispatch, store) => {
+  const { showBookableSlots, showOutsideAvailability } = store.viewFilters;
+
   // update redux - decrease/increase week num
   const toggleWeek = (e) => {
     e.preventDefault();
@@ -32,6 +40,10 @@ const ControllersHandlers = (setState, dispatch, store) => {
   // update state - open/close dropdown
   const toggleDropdown = () => {
     setState((state) => ({ ...state, dropdownOpen: !state.dropdownOpen }));
+  };
+
+  const handleCheckbox = (e) => {
+    dispatch(toggleFilter(e.target.name));
   };
 
   // update redux - current driver
@@ -77,11 +89,23 @@ const ControllersHandlers = (setState, dispatch, store) => {
   const renderFilterCheckboxes = () => {
     return (
       <div className="Controllers__filter-checkboxes-container">
-        <input name="isBookable" type="checkbox" />
-        <label htmlFor="isBookable">Show bookable timeslots</label>
+        <input
+          type="checkbox"
+          checked={showBookableSlots}
+          onChange={handleCheckbox}
+          name="showBookableSlots"
+        />
+        <label htmlFor="showBookableSlots">Show bookable timeslots</label>
 
-        <input name="isOutside" type="checkbox" />
-        <label htmlFor="isOutside">Show bookings outside availability</label>
+        <input
+          type="checkbox"
+          checked={showOutsideAvailability}
+          onChange={handleCheckbox}
+          name="showOutsideAvailability"
+        />
+        <label htmlFor="showOutsideAvailability">
+          Show bookings outside availability
+        </label>
       </div>
     );
   };

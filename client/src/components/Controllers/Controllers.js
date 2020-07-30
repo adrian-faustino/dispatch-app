@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ButtonDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 /** Handlers **/
 import ControllersHandlers from "./ControllersHandlers";
+/** Constants **/
+import { DRIVERS } from "../../util/constants";
 
 const Controllers = () => {
   /** State **/
@@ -32,7 +34,8 @@ const Controllers = () => {
       </div>
 
       {/* driver filter controls */}
-      {handlers.renderFilterCheckboxes()}
+      {/* only show outside of "All" view */}
+      {store.driver !== DRIVERS[0] && handlers.renderFilterCheckboxes()}
 
       {/* driver selection dropdown */}
       <div className="Controllers__button-dropdown">
