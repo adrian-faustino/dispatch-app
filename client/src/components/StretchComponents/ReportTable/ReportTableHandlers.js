@@ -17,6 +17,7 @@ const ReportTableHandlers = () => {
   // dropdown state handlers
   const [isOpen, setDropdownOpen] = useState(false);
 
+  /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
     const innerText = DAY_RANGES.map((day) => `${day} days`);
     return render.dropdownItems(innerText, (e) =>
@@ -33,6 +34,10 @@ const ReportTableHandlers = () => {
       </Dropdown>
     );
   };
+  /** END: Render timeframe dropdown **/
+
+  /** BEGIN: Render table **/
+  /** END: Render table **/
 
   return {
     handleRenderDropdown,
