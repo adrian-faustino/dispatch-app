@@ -61,7 +61,7 @@
 [x] display suggestions
 [x] create navbar
 [x] driver availability (hours and days)
-[] edit error prompt
+[x] edit error prompt
 
 ## Refactor / Todo
 
@@ -85,6 +85,7 @@
 [x] edit availability
 [x] allow edit availability on days not having time (i.e. Sunday for Chris)
 [x] edit mode cancel button
+[] driver view filters (highlight days outside availability, highlight bookable slots)
 
 ## Bugs
 

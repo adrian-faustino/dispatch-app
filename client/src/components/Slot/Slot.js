@@ -14,7 +14,7 @@ import SlotHandlers from "./SlotHandlers";
 /** npm **/
 import classNames from "classnames";
 /** Constants **/
-import { ENTRY_UPDATE_200 } from "../../util/constants";
+import { DRIVERS } from "../../util/constants";
 
 const Slot = ({ day, hour, bookableDay }) => {
   /** State **/
@@ -55,8 +55,9 @@ const Slot = ({ day, hour, bookableDay }) => {
     setBookedData(success.data);
     // close form
     setFormOpen(false);
-    // switch current driver to created driver
-    dispatch(setDriver(success.data.driver));
+    // switch current driver to created driver, unless in "All" view
+    if (store.driver === DRIVERS[0]) return;
+    else dispatch(setDriver(success.data.driver));
   };
 
   const handleEntryErr = (errObj) => {

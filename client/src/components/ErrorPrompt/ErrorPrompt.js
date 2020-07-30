@@ -13,7 +13,6 @@ import { Suggestions } from "../";
 const ErrorPrompt = () => {
   /** Redux **/
   const dispatch = useDispatch();
-  const store = useSelector((state) => state);
   const error = useSelector((state) => state.error);
 
   /** Handlers */
