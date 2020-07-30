@@ -1,21 +1,10 @@
 import React from "react";
 /** Handlers **/
 import ReportTableHandlers from "./ReportTableHandlers";
-import util from "./ReportTableHelpers";
 
 const ReportTable = () => {
   /** Handlers **/
   const handlers = ReportTableHandlers();
-
-  const mapping = util.weekAndDayMap();
-  const grouping = util.groupByTimeframe(mapping, 2);
-  const report = grouping.map((group) => {
-    return util.generateReportForPeriod(group, "Chris");
-  });
-
-  // console.log("Mapping", mapping);
-  console.log("Grouping", grouping[0]);
-  // console.log("Report", report[0]);
 
   return (
     <section>

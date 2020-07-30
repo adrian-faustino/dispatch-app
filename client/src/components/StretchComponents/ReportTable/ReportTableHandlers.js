@@ -17,7 +17,7 @@ const ReportTableHandlers = () => {
   const [timeFrame, setTimeFrame] = useState(2);
   // dropdown state handlers
   const [isOpen, setDropdownOpen] = useState(false);
-
+  console.log("CURRENT TIMEFRAME", timeFrame);
   const mapping = util.weekAndDayMap();
   const grouping = util.groupByTimeframe(mapping, timeFrame);
   const report = grouping.map((group) =>
@@ -29,9 +29,8 @@ const ReportTableHandlers = () => {
 
   /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
-    const innerText = DAY_RANGES.map((day) => `${day} days`);
-    return render.dropdownItems(innerText, (e) =>
-      setTimeFrame(e.target.innerText)
+    return render.dropdownItems(DAY_RANGES, (e) =>
+      setTimeFrame(parseInt(e.target.innerText))
     );
   };
 

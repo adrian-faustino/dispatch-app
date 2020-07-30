@@ -29,7 +29,6 @@ const dropdownMenu = (dropdownItems) => {
 /** END: Render timeframe dropdown **/
 
 /** BEGIN: Render table **/
-
 const tableHeaders = () => {
   const withColumn1 = ["Time-Frame", ...DESCRIPTIONS];
 
