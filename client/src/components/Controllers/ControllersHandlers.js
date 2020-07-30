@@ -49,6 +49,7 @@ const ControllersHandlers = (setState, dispatch, store) => {
   // update redux - current driver
   const toggleDriver = (e) => {
     const driver = e.target.innerHTML;
+
     dispatch(setDriver(driver));
   };
 

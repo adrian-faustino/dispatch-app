@@ -14,7 +14,7 @@ const TimetableHandlers = (store) => {
   // get availability for current driver
   const handleGetDriverAvailability = () => {
     getDriverData(store.driver, (data) => {
-      if (!data) return;
+      if (!data) return setDriverAvailability(null);
       console.log("Driver availability", data.availability);
       setDriverAvailability(data.availability);
     });

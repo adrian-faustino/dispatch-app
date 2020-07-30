@@ -5,6 +5,8 @@ import "./SlotView.css";
 import { getDriverData } from "../../../util/driverDbHelpers";
 /** Redux **/
 import { useSelector } from "react-redux";
+/** npm **/
+import classNames from "classnames";
 
 const SlotView = ({ dateObj, bookedData }) => {
   /** State **/
@@ -23,8 +25,8 @@ const SlotView = ({ dateObj, bookedData }) => {
   }, [bookedData]);
 
   /** Notes: logic for changing color depending on driver color and also if the booking is within their schedule or not **/
-  console.log("Bookable!?");
-  // show bookable slots (within availability)
+
+  // style card based on driver settings (color)
   const driverColor_css = driverData && {
     position: "absolute",
     top: 10,
@@ -34,6 +36,10 @@ const SlotView = ({ dateObj, bookedData }) => {
     height: 30,
     width: 30,
   };
+
+  const viewFilterClassnames = classNames({
+    "bookable-slot": showBookableSlots,
+  });
 
   return (
     <div>
