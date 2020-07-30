@@ -29,6 +29,7 @@ code {
   --within-availability-color: rgb(162, 242, 135);
   --navbar-height: 8vh;
   --slide-in-width: 240px;
+  --warning-bg: rgba(245, 119, 119, 0.824);
   /* AvailabilityTable.css */
   --option-offset: 18px;
 }

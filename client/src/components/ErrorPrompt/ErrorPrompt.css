@@ -1,13 +1,26 @@
 .ErrorPrompt__container {
-  position: fixed;
+  position: absolute;
   top: 40vh;
   left: 50vw;
   transform: translateX(-50%);
-  height: max-content;
   width: 300px;
+  padding: 10px;
   background: lightblue;
   border-radius: 5px;
   box-shadow: 0 0 3px black;
 
   z-index: 40;
+
+  display: grid;
+}
+
+.ErrorPrompt__header {
+  padding: 5px;
+  background: var(--warning-bg);
+}
+
+.ErrorPrompt__dismiss-btn {
+  position: absolute;
+  right: 18px;
+  top: 13px;
 }

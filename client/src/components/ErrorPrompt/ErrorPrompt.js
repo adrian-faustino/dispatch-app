@@ -13,6 +13,7 @@ import { Suggestions } from "../";
 const ErrorPrompt = () => {
   /** Redux **/
   const dispatch = useDispatch();
+  const store = useSelector((state) => state);
   const error = useSelector((state) => state.error);
 
   /** Handlers */
@@ -20,8 +21,12 @@ const ErrorPrompt = () => {
 
   return (
     <div className="ErrorPrompt__container">
-      <Button close onClick={handlers.handleDismiss} />
-      <span>{error.errMsg}</span>
+      <Button
+        className="ErrorPrompt__dismiss-btn"
+        close
+        onClick={handlers.handleDismiss}
+      />
+      <span className="ErrorPrompt__header">{error.errMsg}</span>
 
       {/* display error on timesplot conflict */}
       {error.errMsg === TIMESLOT_CONFLICT &&
