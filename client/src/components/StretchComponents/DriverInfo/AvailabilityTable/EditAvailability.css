@@ -1,4 +1,17 @@
 .EditAvailability__container {
+  position: relative;
+}
+
+.EditAvailability__container > h1 {
+  position: sticky;
+  top: -0.5px;
+  display: grid;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0 5px 5px 5px;
+  background: var(--secondary-color);
+  z-index: 32;
+  box-shadow: 0 0 5px black;
 }
 
 .EditAvailability__form-group {

@@ -40,7 +40,11 @@ const EditAvailability = ({ handlers }) => {
 
   return (
     <div className="EditAvailability__container">
-      <h1 className="opacity-wave medium-text">Editing availability...</h1>
+      <h1 className="medium-text">
+        <span className="EditAvailability__span opacity-wave">
+          Editing availability...
+        </span>
+      </h1>
       <Form>{formJSX}</Form>
     </div>
   );

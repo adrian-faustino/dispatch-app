@@ -7,8 +7,8 @@
 
   display: grid;
   justify-content: center;
-  background: red;
   margin-top: 10px;
+  box-shadow: inset 0 0 5px black;
 
   overflow: hidden;
   overflow-y: scroll;
