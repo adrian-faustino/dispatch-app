@@ -45,6 +45,8 @@ const Slot = ({ day, hour, bookableDay }) => {
   const slotStyles = classNames({
     booked: bookedData,
     bookableDay,
+    outsideAvailability:
+      store.viewFilters.showOutsideAvailability && bookedData && !bookableDay,
   });
 
   const handleEntrySuccess = (success, err) => {

@@ -37,10 +37,6 @@ const SlotView = ({ dateObj, bookedData }) => {
     width: 30,
   };
 
-  const viewFilterClassnames = classNames({
-    "bookable-slot": showBookableSlots,
-  });
-
   return (
     <div>
       {bookedData && driverData && (
