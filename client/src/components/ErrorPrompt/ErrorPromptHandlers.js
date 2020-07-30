@@ -53,6 +53,7 @@ const ErrorPromptHandlers = (dispatch, error) => {
   return {
     renderConflictingBooking,
     handleDismiss,
+    handleOverwrite,
   };
 };
 

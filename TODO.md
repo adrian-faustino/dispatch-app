@@ -85,7 +85,7 @@
 [x] edit availability
 [x] allow edit availability on days not having time (i.e. Sunday for Chris)
 [x] edit mode cancel button
-[] driver view filters (highlight days outside availability, highlight bookable slots)
+[x] driver view filters (highlight days outside availability, highlight bookable slots)
 
 ## Bugs
 
