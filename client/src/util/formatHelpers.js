@@ -39,6 +39,13 @@ export const dateObjToWords = (dateObj) => {
   return dateStrToWords(dateObjToStringID(dateObj));
 };
 
+// Inpput 'w-d' return Day x str. 4-5 => "Day 28"
+export const week_day_str_to_day_x = (wwdd) => {
+  const [week, day] = wwdd.split("-");
+  const dayCount = parseInt(week) * 7 + parseInt(day);
+  return `Day ${dayCount}`;
+};
+
 export const hourAMorPM = (hour) => {
   const _hour = parseInt(hour);
   if (_hour === 0) return "12am";

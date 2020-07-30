@@ -14,7 +14,7 @@ const ReportTable = () => {
   });
 
   // console.log("Mapping", mapping);
-  // console.log("Grouping", grouping);
+  console.log("Grouping", grouping[0]);
   // console.log("Report", report[0]);
 
   return (

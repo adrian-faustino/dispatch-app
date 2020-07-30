@@ -9,6 +9,8 @@ import {
 } from "reactstrap";
 /** Constants **/
 import { DESCRIPTIONS } from "../../../util/constants";
+/** Helpers **/
+import { week_day_str_to_day_x } from "../../../util/formatHelpers";
 
 /** BEGIN: Render timeframe dropdown **/
 // [constructor] returns JSX and any assigned onClick functions
@@ -29,6 +31,16 @@ const dropdownMenu = (dropdownItems) => {
 /** END: Render timeframe dropdown **/
 
 /** BEGIN: Render table **/
+// depending on range, return 'Day A - Day B'
+// return array of strings
+const generateTimeframeString = (grouping) => {
+  const start = grouping[0];
+  const end = grouping[grouping.length - 1];
+  const _start = week_day_str_to_day_x(start);
+  const _end = week_day_str_to_day_x(end);
+  return `${_start} - ${_end}`;
+};
+
 const tableHeaders = () => {
   const withColumn1 = ["Time-Frame", ...DESCRIPTIONS];
 
@@ -48,9 +60,7 @@ const extractTableDataFromObj = (dataObj) => {
 
 // Data arr will be an array of arrays with one obj containing counters for each task {PICK-UP: 5, DROP-OFF: 10, MISC: 2}
 const tableRows = (dataArr) => {
-  console.log("My Data arr:", dataArr);
   return dataArr.map((dataObj) => {
-    console.log("My data Obj", dataObj);
     return <tr>{extractTableDataFromObj(dataObj)}</tr>;
   });
 };
