@@ -73,10 +73,14 @@ const ControllersHandlers = (setState, dispatch, store) => {
     ));
   };
 
+  // driver filter controls
+  const renderFilterCheckboxes = () => {};
+
   return {
     toggleDropdown,
     renderDropdownItems,
     renderWeekNavBtns,
+    renderFilterCheckboxes,
   };
 };
 

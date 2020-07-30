@@ -6,6 +6,7 @@ import errorReducer from "./errorReducer";
 import appViewReducer from "./appViewReducer";
 import slideInReducer from "./slideInReducer";
 import editModeReducer from "./editModeReducer";
+import timetableFilterReducers from "./timetableFilterReducers";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -17,6 +18,7 @@ const allReducers = combineReducers({
   appView: appViewReducer,
   slideInToggled: slideInReducer,
   editMode: editModeReducer,
+  viewFilters: timetableFilterReducers,
 });
 
 export default allReducers;

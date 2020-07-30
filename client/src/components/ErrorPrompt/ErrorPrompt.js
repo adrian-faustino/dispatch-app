@@ -28,11 +28,14 @@ const ErrorPrompt = () => {
       <span className="ErrorPrompt__header">{error.errMsg}</span>
 
       {/* display error on timesplot conflict */}
-      {error.errMsg === TIMESLOT_CONFLICT &&
-        handlers.renderConflictingBooking()}
-      <Button color="danger" onClick={handlers.handleOverwrite}>
-        overwrite
-      </Button>
+      {error.errMsg === TIMESLOT_CONFLICT && (
+        <>
+          {handlers.renderConflictingBooking()}
+          <Button color="danger" onClick={handlers.handleOverwrite}>
+            overwrite
+          </Button>
+        </>
+      )}
 
       {/* display other time slots suggestions */}
       {error.errMsg === TIMESLOT_CONFLICT && <Suggestions />}

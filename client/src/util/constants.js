@@ -1,5 +1,4 @@
 /** Redux actions **/
-// => calendar navigation
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const NEXT_WEEK = "NEXT_WEEK";
@@ -10,6 +9,10 @@ export const SET_ERROR = "SET_ERROR";
 export const SET_APP_VIEW = "SET_APP_VIEW";
 export const TOGGLE_SLIDE_IN = "TOGGLE_SLIDE_IN";
 export const SET_EDIT_MODE = "SET_EDIT_MODE";
+export const SET_SHOW_BOOKABLE_SLOTS = "SET_SHOW_BOOKABLE_SLOTS";
+export const SET_SHOW_OUTSIDE_AVAILABILITY = "SET_SHOW_OUTSIDE_AVAILABILITY";
+export const SET_SHOW_CONTROLS = "SET_SHOW_CONTROLS";
+export const RESET_FILTERS = "RESET_FILTERS";
 
 /** App Views **/
 export const DRIVERS_VIEW = "DRIVERS_VIEW";
