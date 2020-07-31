@@ -25,10 +25,10 @@ function App() {
       <AppView />
 
       {store.appView === DRIVERS_VIEW && <DriversView />}
-      {store.appView === TASKS_VIEW && <TasksView />}
       {store.appView === SCHEDULE_VIEW && <ScheduleView />}
       {store.appView === REPORT_VIEW && <ReportView />}
 
+      {/* For dev purposes - show db, state, store, counters, etc */}
       {/* <Test /> */}
     </div>
   );

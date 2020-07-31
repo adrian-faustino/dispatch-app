@@ -78,6 +78,7 @@
 [x] replace uuidv4
 [x] use constants for basic buttons "delete, edit, submit"
 [] feedback - on success/error
+[] dots to show where edit/delete btns are on slot
 [x] navbar toggle button
 [x] change entry form to use bootstrap
 [x] edit availability

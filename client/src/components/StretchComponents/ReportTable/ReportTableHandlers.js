@@ -33,7 +33,6 @@ const ReportTableHandlers = (store) => {
 
   // cache for DL
   const mergedRows = util.mergeRows(timeframeRowStringMap, report);
-  console.log("WORKED!?", mergedRows[0]);
 
   /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
@@ -57,14 +56,13 @@ const ReportTableHandlers = (store) => {
   const cachedCSVdata = () => {
     const headers = ["Time-Frame", ...DESCRIPTIONS];
     const data = mergedRows;
-    console.log("YOUR DADA", data[0]);
+
     return { headers, data };
   };
   /** END: CSV handlers **/
 
   /** BEGIN: Render table **/
   const handleRenderTable = () => {
-    console.log(cachedCSVdata());
     return (
       <Table className="ReportTable__table-container">
         <thead className="ReportTable__table-headers">

@@ -20,7 +20,7 @@ export const DRIVERS_VIEW = "DRIVERS_VIEW";
 export const TASKS_VIEW = "TASKS_VIEW";
 export const SCHEDULE_VIEW = "SCHEDULE_VIEW";
 export const REPORT_VIEW = "REPORT_VIEW";
-export const APP_VIEWS = [DRIVERS_VIEW, TASKS_VIEW, SCHEDULE_VIEW, REPORT_VIEW];
+export const APP_VIEWS = [DRIVERS_VIEW, SCHEDULE_VIEW, REPORT_VIEW];
 
 // => entry form modal toggle
 export const OPEN_FORM = "OPEN_FORM";

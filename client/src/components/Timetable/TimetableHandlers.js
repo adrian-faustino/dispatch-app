@@ -31,7 +31,7 @@ const TimetableHandlers = (store) => {
 
   // return list of JSX Slot components
   const renderSlots = () => {
-    console.log("Generating slots...");
+    // console.log("Generating slots...");
     const slots = [];
     for (let day = -1; day < DAYS; day++) {
       for (let hour = -1; hour < HOURS; hour++) {
