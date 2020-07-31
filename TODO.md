@@ -2,7 +2,7 @@
 
 [x] Show where, when, what driver is doing
 [x] Show weekly, Sun-Sat
-[] create downloadable .csv file with information regarding:
+[x] create downloadable .csv file with information regarding:
 
 - driver report within 2, 4, 7, 14, 28 day range
 - divisions are over a 52 week period

@@ -25,5 +25,16 @@
   top: -1px;
   border-top: 2px solid var(--base-color);
   background: var(--base-color);
-  z-index: 99;
+  z-index: 35;
+}
+
+.ReportTable__csv-dl-btn {
+  position: relative;
+  right: -50px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.ReportTable__empty-span {
+  font-weight: 600;
 }

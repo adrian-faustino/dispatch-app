@@ -14,7 +14,7 @@ import { Dropdown, DropdownToggle, Table } from "reactstrap";
 const ReportTableHandlers = (store) => {
   /** State **/
   // how days are divided for report (col 1)
-  const [timeFrame, setTimeFrame] = useState(2);
+  const [timeFrame, setTimeFrame] = useState("Select");
   // dropdown state handlers
   const [isOpen, setDropdownOpen] = useState(false);
 
@@ -77,6 +77,7 @@ const ReportTableHandlers = (store) => {
   /** END: Render table **/
 
   return {
+    timeFrame,
     cachedCSVdata,
     handleRenderDropdown,
     handleRenderTable,

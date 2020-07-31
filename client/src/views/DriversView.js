@@ -3,6 +3,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 /** Subcomponents **/
 import { DriversList, DriverInfo } from "../components";
+/** Constants **/
+import { DRIVERS } from "../util/constants";
 
 const DriversView = () => {
   /** Redux **/
@@ -12,7 +14,13 @@ const DriversView = () => {
   return (
     <div className={`view-offset ${navToggledStyle}`}>
       <DriversList />
-      <DriverInfo />
+      {store.driver !== DRIVERS[0] ? (
+        <DriverInfo />
+      ) : (
+        <span className="DriversList__empty-span medium-text">
+          Make a selection to view driver info.
+        </span>
+      )}
     </div>
   );
 };

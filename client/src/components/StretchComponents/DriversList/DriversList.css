@@ -13,3 +13,7 @@
 .DriversList__dropdown-container > span {
   font-weight: bold;
 }
+
+.DriversList__empty-span {
+  font-weight: 600;
+}

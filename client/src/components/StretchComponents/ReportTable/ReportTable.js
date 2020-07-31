@@ -7,6 +7,8 @@ import { DriverDropdown } from "../../";
 import { useSelector } from "react-redux";
 /** Styles **/
 import "./ReportTable.css";
+/** Constants **/
+import { DRIVERS } from "../../../util/constants";
 /** npm **/
 import { CSVLink } from "react-csv";
 
@@ -28,20 +30,29 @@ const ReportTable = () => {
         <DriverDropdown />
         <label>Day Range</label>
         <div>{handlers.handleRenderDropdown()}</div>
+
+        {store.driver !== DRIVERS[0] && handlers.timeFrame !== "Select" && (
+          <CSVLink
+            className="ReportTable__csv-dl-btn"
+            target="_blank"
+            filename={fileName}
+            data={data}
+            headers={headers}
+          >
+            Download Report
+          </CSVLink>
+        )}
       </div>
 
       <div className="ReportTable__table-wrapper">
-        {handlers.handleRenderTable()}
+        {store.driver !== DRIVERS[0] && handlers.timeFrame !== "Select" ? (
+          handlers.handleRenderTable()
+        ) : (
+          <span className="ReportTable__empty-span medium-text">
+            Make a selection to view driver reports.
+          </span>
+        )}
       </div>
-
-      <CSVLink
-        target="_blank"
-        filename={fileName}
-        data={data}
-        headers={headers}
-      >
-        Download Report
-      </CSVLink>
     </section>
   );
 };
