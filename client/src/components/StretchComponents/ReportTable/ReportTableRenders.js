@@ -41,7 +41,7 @@ const tableHeaders = () => {
 const extractTableDataFromObj = (dataObj) => {
   const td_JSX = [];
   for (let description of DESCRIPTIONS) {
-    td_JSX.push(<td>{dataObj[description]}</td>);
+    td_JSX.push(<td key={description}>{dataObj[description]}</td>);
   }
   return td_JSX;
 };
@@ -56,9 +56,17 @@ const tableRows = (dataArr, rowTitles) => {
     const css_class = index % 2 === 0 ? "positive_tr" : "negative_tr";
 
     const currentTitle = rowTitles[index];
-    currentTr.push(<th scope="row">{currentTitle}</th>);
+    currentTr.push(
+      <th key={`${currentTitle}-${index}-th`} scope="row">
+        {currentTitle}
+      </th>
+    );
     currentTr.push(extractTableDataFromObj(dataObj));
-    jsx.push(<tr className={css_class}>{currentTr}</tr>);
+    jsx.push(
+      <tr key={`${index}-${currentTitle}-tr-rows`} className={css_class}>
+        {currentTr}
+      </tr>
+    );
     index++;
     currentTr = [];
   }

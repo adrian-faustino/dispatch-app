@@ -31,7 +31,14 @@ const DriverDropdown = () => {
   const renderItems = DRIVERS.map((driver, i) => {
     if (i === 0) return;
     else
-      return <DropdownItem onClick={handleUpdateDriver}>{driver}</DropdownItem>;
+      return (
+        <DropdownItem
+          key={`${driver}-${i}-ddDropdown`}
+          onClick={handleUpdateDriver}
+        >
+          {driver}
+        </DropdownItem>
+      );
   });
 
   // dropdown inner txt
