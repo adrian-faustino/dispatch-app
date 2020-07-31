@@ -8,6 +8,10 @@
   background: white;
 }
 
+.Slot__container > * {
+  margin: 0 auto;
+}
+
 .Slot__container.wkDay-1 {
   grid-column: 1;
 }

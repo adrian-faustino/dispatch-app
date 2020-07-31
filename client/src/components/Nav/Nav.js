@@ -24,7 +24,7 @@ const Nav = () => {
         >
           <div className="Nav__toggle-btn-bar"></div>
         </button>
-        <div className="Nav__site-logo large-text">Truck Dispatcher App</div>
+        <div className="Nav__site-logo large-text">Dispatch Scheduler</div>
       </div>
 
       {store.slideInToggled && <NavControllers />}

@@ -5,7 +5,7 @@ import {
   SET_APP_VIEW,
 } from "../util/constants";
 
-const initialState = REPORT_VIEW;
+const initialState = SCHEDULE_VIEW;
 
 const appViewReducer = (state = initialState, action) => {
   switch (action.type) {
