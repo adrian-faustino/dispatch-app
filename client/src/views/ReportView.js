@@ -11,8 +11,7 @@ const ReportView = () => {
 
   return (
     <div className={`view-offset ${navToggledStyle}`}>
-      report view
-      <CsvExporter />
+      {/* <CsvExporter /> */}
       <ReportTable />
     </div>
   );

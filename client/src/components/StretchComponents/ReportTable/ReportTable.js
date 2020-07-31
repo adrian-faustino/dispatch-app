@@ -5,6 +5,8 @@ import ReportTableHandlers from "./ReportTableHandlers";
 import { DriverDropdown } from "../../";
 /** Redux **/
 import { useSelector } from "react-redux";
+/** Styles **/
+import "./ReportTable.css";
 
 const ReportTable = () => {
   /** Redux **/
@@ -15,8 +17,13 @@ const ReportTable = () => {
 
   return (
     <section>
-      <DriverDropdown />
-      <div>{handlers.handleRenderDropdown()}</div>
+      <div className="ReportTable__btns-container">
+        <label>Drivers</label>
+        <DriverDropdown />
+        <label>Day Range</label>
+        <div>{handlers.handleRenderDropdown()}</div>
+      </div>
+
       <div>{handlers.handleRenderTable()}</div>
     </section>
   );
