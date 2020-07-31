@@ -39,7 +39,6 @@
   [] resource tab (hours worked - pie chart/line graph)
   [x] on hover, display edit/delete buttons
   [] debounce buttons
-  [] unhandled task list -> allocate drivers (ability to create task)
   [x] driver availability
   [x] show slots that are within driver availability
   [x] highlight bookings that are outside of driver availability
@@ -81,12 +80,10 @@
 [] feedback - on success/error
 [x] navbar toggle button
 [x] change entry form to use bootstrap
-[] change vh to fixed height (CSS)
 [x] edit availability
 [x] allow edit availability on days not having time (i.e. Sunday for Chris)
 [x] edit mode cancel button
 [x] driver view filters (highlight days outside availability, highlight bookable slots)
-[] add box shadow class
 
 ## Bugs
 
@@ -97,8 +94,3 @@
 [x] time table does not submit refresh time after submission
 [] editing color block
 [] bug after deleting a user (cannot read driver of null)
-
--display table data on console
-
-drop down for driver and divison (make sure u update state.)
--move every table column over 1, and add timeframe title

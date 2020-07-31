@@ -66,6 +66,9 @@ const generateTimeframeString = (grouping) => {
   return `${_start} - ${_end}`;
 };
 
+// merge rows (time frame + data)
+const mergeRows = (arr1, arr2) => {};
+
 const util = {
   weekAndDayMap,
   generateReportForPeriod,
