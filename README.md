@@ -12,4 +12,4 @@ Inside the client folder run npm start which should start the development server
 ## Known bugs
 
 - Add new booking button is not centered properly on the deployed version but centered in local.
-- Changing color and availability sometimes
+- Changing color and availability at the same time sometimes causes non responsiveness.
