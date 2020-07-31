@@ -3,10 +3,15 @@ import React from "react";
 import ReportTableHandlers from "./ReportTableHandlers";
 /** Subcomponents **/
 import { DriverDropdown } from "../../";
+/** Redux **/
+import { useSelector } from "react-redux";
 
 const ReportTable = () => {
+  /** Redux **/
+  const store = useSelector((state) => state);
+
   /** Handlers **/
-  const handlers = ReportTableHandlers();
+  const handlers = ReportTableHandlers(store);
 
   return (
     <section>

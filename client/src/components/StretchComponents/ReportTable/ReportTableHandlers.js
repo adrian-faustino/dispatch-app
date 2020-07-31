@@ -7,25 +7,16 @@ import util from "./ReportTableHelpers";
 import render from "./ReportTableRenders";
 
 /** Constants **/
-import { DAY_RANGES } from "../../../util/constants";
+import { DAY_RANGES, DRIVERS } from "../../../util/constants";
 /** Reacstrap **/
 import { Dropdown, DropdownToggle, Table } from "reactstrap";
 
-const ReportTableHandlers = () => {
+const ReportTableHandlers = (store) => {
   /** State **/
   // how days are divided for report (col 1)
   const [timeFrame, setTimeFrame] = useState(2);
   // dropdown state handlers
   const [isOpen, setDropdownOpen] = useState(false);
-  console.log("CURRENT TIMEFRAME", timeFrame);
-  const mapping = util.weekAndDayMap();
-  const grouping = util.groupByTimeframe(mapping, timeFrame);
-  const report = grouping.map((group) =>
-    util.generateReportForPeriod(group, "Chris")
-  );
-  const timeframeRowStringMap = grouping.map((group) =>
-    util.generateTimeframeString(group)
-  );
 
   /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
@@ -46,8 +37,16 @@ const ReportTableHandlers = () => {
   /** END: Render timeframe dropdown **/
 
   /** BEGIN: Render table **/
-
   const handleRenderTable = () => {
+    const mapping = util.weekAndDayMap();
+    const grouping = util.groupByTimeframe(mapping, timeFrame);
+    const report = grouping.map((group) =>
+      util.generateReportForPeriod(group, store.driver)
+    );
+    const timeframeRowStringMap = grouping.map((group) =>
+      util.generateTimeframeString(group)
+    );
+
     return (
       <>
         <Table>
