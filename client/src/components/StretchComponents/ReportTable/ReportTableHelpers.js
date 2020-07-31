@@ -67,9 +67,15 @@ const generateTimeframeString = (grouping) => {
 };
 
 // merge rows (time frame + data)
-const mergeRows = (arr1, arr2) => {};
+const mergeRows = (arr1, arr2) => {
+  return arr1.map((e, i) => {
+    const flattened = Object.values(arr2[i]);
+    return [e, ...flattened];
+  });
+};
 
 const util = {
+  mergeRows,
   weekAndDayMap,
   generateReportForPeriod,
   groupByTimeframe,

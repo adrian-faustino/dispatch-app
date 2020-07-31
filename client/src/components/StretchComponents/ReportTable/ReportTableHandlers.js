@@ -7,7 +7,7 @@ import util from "./ReportTableHelpers";
 import render from "./ReportTableRenders";
 
 /** Constants **/
-import { DAY_RANGES, DRIVERS } from "../../../util/constants";
+import { DAY_RANGES, DRIVERS, DESCRIPTIONS } from "../../../util/constants";
 /** Reacstrap **/
 import { Dropdown, DropdownToggle, Table } from "reactstrap";
 
@@ -17,9 +17,23 @@ const ReportTableHandlers = (store) => {
   const [timeFrame, setTimeFrame] = useState(2);
   // dropdown state handlers
   const [isOpen, setDropdownOpen] = useState(false);
-  // CSV data
-  const [CSVheaders, setCSVHeaders] = useState([]);
-  const [CSVdata, setCSVData] = useState([]);
+
+  // every single "week-day" combination in order
+  const mapping = util.weekAndDayMap();
+  // range 2 => [[d1, d2], [d3, d4], [d5, d6]]
+  const grouping = util.groupByTimeframe(mapping, timeFrame);
+  // data
+  const report = grouping.map((group) =>
+    util.generateReportForPeriod(group, store.driver)
+  );
+  // header
+  const timeframeRowStringMap = grouping.map((group) =>
+    util.generateTimeframeString(group)
+  );
+
+  // cache for DL
+  const mergedRows = util.mergeRows(timeframeRowStringMap, report);
+  console.log("WORKED!?", mergedRows[0]);
 
   /** BEGIN: Render timeframe dropdown **/
   const handleRenderTimeframeSelection = () => {
@@ -40,34 +54,17 @@ const ReportTableHandlers = (store) => {
   /** END: Render timeframe dropdown **/
 
   /** BEGIN: CSV handlers **/
-  const cacheCSVdata = (csvData) => {
-    const { CSVheaders, CSVData } = csvData;
-    console.log("Data!", csvData);
+  const cachedCSVdata = () => {
+    const headers = ["Time-Frame", ...DESCRIPTIONS];
+    const data = mergedRows;
+    console.log("YOUR DADA", data[0]);
+    return { headers, data };
   };
   /** END: CSV handlers **/
 
   /** BEGIN: Render table **/
   const handleRenderTable = () => {
-    // every single "week-day" combination in order
-    const mapping = util.weekAndDayMap();
-    // range 2 => [[d1, d2], [d3, d4], [d5, d6]]
-    const grouping = util.groupByTimeframe(mapping, timeFrame);
-    // data
-    const report = grouping.map((group) =>
-      util.generateReportForPeriod(group, store.driver)
-    );
-    // header
-    const timeframeRowStringMap = grouping.map((group) =>
-      util.generateTimeframeString(group)
-    );
-
-    // cache for DL
-    const csvData = {
-      CSVHeaders: timeframeRowStringMap,
-      CSVData: grouping,
-    };
-    cacheCSVdata(csvData);
-
+    console.log(cachedCSVdata());
     return (
       <Table className="ReportTable__table-container">
         <thead className="ReportTable__table-headers">
@@ -80,6 +77,7 @@ const ReportTableHandlers = (store) => {
   /** END: Render table **/
 
   return {
+    cachedCSVdata,
     handleRenderDropdown,
     handleRenderTable,
   };

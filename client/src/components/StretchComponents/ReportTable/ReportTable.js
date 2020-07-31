@@ -7,6 +7,8 @@ import { DriverDropdown } from "../../";
 import { useSelector } from "react-redux";
 /** Styles **/
 import "./ReportTable.css";
+/** npm **/
+import { CSVLink } from "react-csv";
 
 const ReportTable = () => {
   /** Redux **/
@@ -14,6 +16,8 @@ const ReportTable = () => {
 
   /** Handlers **/
   const handlers = ReportTableHandlers(store);
+
+  const { data, headers } = handlers.cachedCSVdata();
 
   return (
     <section>
@@ -27,6 +31,10 @@ const ReportTable = () => {
       <div className="ReportTable__table-wrapper">
         {handlers.handleRenderTable()}
       </div>
+
+      <CSVLink data={data} headers={headers}>
+        Download me
+      </CSVLink>
     </section>
   );
 };
