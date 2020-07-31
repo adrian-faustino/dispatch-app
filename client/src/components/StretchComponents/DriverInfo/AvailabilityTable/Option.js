@@ -10,7 +10,6 @@ const Option = (props) => {
 
   const handleSelected = (e) => {
     // update cache
-    // I have no idea why but this updates the driver availability even without submitting carcheForSubmit...
     if (isSelected) {
       setCacheForSubmit((state) => {
         const newArr = state;

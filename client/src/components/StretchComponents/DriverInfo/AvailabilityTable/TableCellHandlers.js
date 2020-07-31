@@ -17,6 +17,7 @@ const TableCellHandlers = (store, dispatch, driverHandlers) => {
     // only allow editing when in edit mode
     if (!store.editMode) return;
 
+    if (thisEditMode) return;
     setThisEditMode(true);
   };
 
@@ -27,7 +28,11 @@ const TableCellHandlers = (store, dispatch, driverHandlers) => {
     for (let hour = 0; hour < HOURS; hour++) {
       const isSelected = availability && availability.includes(hour);
       optionsJSX.push(
-        <Option key={`${hour}-availability-options`} availability={availability} isSelected={isSelected}>
+        <Option
+          key={`${hour}-availability-options`}
+          availability={availability}
+          isSelected={isSelected}
+        >
           {hour}
         </Option>
       );
