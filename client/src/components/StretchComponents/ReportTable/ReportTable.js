@@ -24,7 +24,9 @@ const ReportTable = () => {
         <div>{handlers.handleRenderDropdown()}</div>
       </div>
 
-      <div>{handlers.handleRenderTable()}</div>
+      <div className="ReportTable__table-wrapper">
+        {handlers.handleRenderTable()}
+      </div>
     </section>
   );
 };
