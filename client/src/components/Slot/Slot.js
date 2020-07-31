@@ -95,6 +95,11 @@ const Slot = ({ day, hour, bookableDay }) => {
           handleEntrySuccess={handleEntrySuccess}
         />
       )}
+
+      {/* control btn location indicator */}
+      {!isVisible && bookedData && (
+        <span className="Slot__empty-placeholder">●●●</span>
+      )}
     </div>
   );
 };

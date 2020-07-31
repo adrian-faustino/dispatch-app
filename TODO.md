@@ -34,7 +34,7 @@
 
 - Conflict handling
   [x] recommend free time slots in the event of conflict
-  [] deployment
+  [x] deployment
   [] suggestion - suggest days for within that user's availability AND is free time slot
   [] resource tab (hours worked - pie chart/line graph)
   [x] on hover, display edit/delete buttons
@@ -78,7 +78,7 @@
 [x] replace uuidv4
 [x] use constants for basic buttons "delete, edit, submit"
 [] feedback - on success/error
-[] dots to show where edit/delete btns are on slot
+[x] dots to show where edit/delete btns are on slot
 [x] navbar toggle button
 [x] change entry form to use bootstrap
 [x] edit availability
@@ -94,4 +94,4 @@
 [x] css style on bookable days does not go away when switching to "All" drivers
 [x] time table does not submit refresh time after submission
 [] editing color block
-[] bug after deleting a user (cannot read driver of null)
+[x] bug after deleting a user (cannot read driver of null)

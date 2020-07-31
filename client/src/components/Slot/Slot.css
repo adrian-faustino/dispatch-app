@@ -5,6 +5,7 @@
 }
 
 .Slot__container {
+  position: relative;
   background: white;
 }
 
@@ -109,4 +110,12 @@
   animation-direction: alternate-reverse;
   animation-iteration-count: infinite;
   z-index: 3;
+}
+
+.Slot__empty-placeholder {
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 10px;
+  opacity: 0.8;
+  z-index: 30;
 }
