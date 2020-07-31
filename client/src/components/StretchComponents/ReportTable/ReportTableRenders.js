@@ -52,10 +52,13 @@ const tableRows = (dataArr, rowTitles) => {
   let currentTr = [];
   let index = 0;
   for (let dataObj of dataArr) {
+    // style every 2nd row
+    const css_class = index % 2 === 0 ? "positive_tr" : "negative_tr";
+
     const currentTitle = rowTitles[index];
     currentTr.push(<th scope="row">{currentTitle}</th>);
     currentTr.push(extractTableDataFromObj(dataObj));
-    jsx.push(<tr>{currentTr}</tr>);
+    jsx.push(<tr className={css_class}>{currentTr}</tr>);
     index++;
     currentTr = [];
   }

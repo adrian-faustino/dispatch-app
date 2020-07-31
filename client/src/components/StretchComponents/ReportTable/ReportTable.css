@@ -19,3 +19,11 @@
   overflow: hidden;
   overflow-y: scroll;
 }
+
+.ReportTable__table-headers > * > * {
+  position: sticky;
+  top: -1px;
+  border-top: 2px solid var(--base-color);
+  background: var(--base-color);
+  z-index: 99;
+}

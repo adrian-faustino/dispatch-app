@@ -48,12 +48,12 @@ const ReportTableHandlers = (store) => {
     );
 
     return (
-      <>
-        <Table>
-          <thead>{render.tableHeaders()}</thead>
-          <tbody>{render.tableRows(report, timeframeRowStringMap)}</tbody>
-        </Table>
-      </>
+      <Table className="ReportTable__table-container">
+        <thead className="ReportTable__table-headers">
+          {render.tableHeaders()}
+        </thead>
+        <tbody>{render.tableRows(report, timeframeRowStringMap)}</tbody>
+      </Table>
     );
   };
   /** END: Render table **/
