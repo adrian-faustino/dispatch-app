@@ -17,7 +17,9 @@ const ReportTable = () => {
   /** Handlers **/
   const handlers = ReportTableHandlers(store);
 
+  // CSV variables
   const { data, headers } = handlers.cachedCSVdata();
+  const fileName = `${store.driver}_dispatch_report.csv`;
 
   return (
     <section>
@@ -32,8 +34,13 @@ const ReportTable = () => {
         {handlers.handleRenderTable()}
       </div>
 
-      <CSVLink data={data} headers={headers}>
-        Download me
+      <CSVLink
+        target="_blank"
+        filename={fileName}
+        data={data}
+        headers={headers}
+      >
+        Download Report
       </CSVLink>
     </section>
   );
