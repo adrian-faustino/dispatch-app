@@ -1,5 +1,8 @@
 View the deployed app here: https://dispatch-scheduler.herokuapp.com/
 
+## Video Demo
+Link: https://youtu.be/thNQ45Q_w0g
+
 ## Available Scripts
 
 In the project directory, you can run:
